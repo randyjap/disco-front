@@ -1,34 +1,37 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import Input from "../../components/uielements/input";
-import Button from "../../components/uielements/button";
-import authAction from "../../redux/auth/actions";
-import appActions from "../../redux/app/actions";
-import IntlMessages from "../../components/utility/intlMessages";
-import SignUpStyleWrapper from "./signup.style";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Input from '../../components/uielements/input';
+import Button from '../../components/uielements/button';
+import authAction from '../../redux/auth/actions';
+import appActions from '../../redux/app/actions';
+import IntlMessages from '../../components/utility/intlMessages';
+import SignUpStyleWrapper from './signup.style';
 
 const { login } = authAction;
 const { clearMenu } = appActions;
 
 class SignUp extends Component {
   state = {
-    redirectToReferrer: false
+    redirectToReferrer: false,
   };
+
   componentWillReceiveProps(nextProps) {
     if (
-      this.props.isLoggedIn !== nextProps.isLoggedIn &&
-      nextProps.isLoggedIn === true
+      this.props.isLoggedIn !== nextProps.isLoggedIn
+      && nextProps.isLoggedIn === true
     ) {
       this.setState({ redirectToReferrer: true });
     }
   }
+
   handleLogin = () => {
     const { login, clearMenu } = this.props;
     login();
     clearMenu();
-    this.props.history.push("/dashboard");
+    this.props.history.push('/dashboard');
   };
+
   render() {
     return (
       <SignUpStyleWrapper className="isoSignUpPage">
@@ -77,7 +80,7 @@ class SignUp extends Component {
 
 export default connect(
   state => ({
-    isLoggedIn: state.Auth.idToken !== null ? true : false
+    isLoggedIn: state.Auth.idToken !== null,
   }),
-  { login, clearMenu }
+  { login, clearMenu },
 )(SignUp);

@@ -26,7 +26,7 @@ function bumps(samplesPerLayer, bumpsPerLayer) {
   const dataOutline = new Array(samplesPerLayer).fill(0);
   return range(bumpsPerLayer).reduce(
     res => bump(res, samplesPerLayer),
-    dataOutline
+    dataOutline,
   );
 }
 
@@ -35,17 +35,15 @@ function generateData() {
     .keys(range(NUMBER_OF_LAYERS))
     .offset(stackOffsetWiggle);
   const transposed = transpose(
-    range(NUMBER_OF_LAYERS).map(() => bumps(SAMPLES_PER_LAYER, BUMPS_PER_LAYER))
+    range(NUMBER_OF_LAYERS).map(() => bumps(SAMPLES_PER_LAYER, BUMPS_PER_LAYER)),
   );
-  return stack(transposed).map(series =>
-    series.map((row, x) => ({ x, y0: row[0], y: row[1] }))
-  );
+  return stack(transposed).map(series => series.map((row, x) => ({ x, y0: row[0], y: row[1] })));
 }
 
 export default class extends Component {
   state = {
     data: generateData(),
-    hoveredIndex: false
+    hoveredIndex: false,
   };
 
   render() {

@@ -13,7 +13,7 @@ function generateTreeNodes(treeNode) {
 function setLeaf(treeData, curKey, level) {
   const loopLeaf = (data, lev) => {
     const l = lev - 1;
-    data.forEach(item => {
+    data.forEach((item) => {
       if (
         item.key.length > curKey.length
           ? item.key.indexOf(curKey) !== 0
@@ -32,9 +32,9 @@ function setLeaf(treeData, curKey, level) {
 }
 
 function getNewTreeData(treeData, curKey, child, level) {
-  const loop = data => {
+  const loop = (data) => {
     if (level < 1 || curKey.length - 3 > level * 2) return;
-    data.forEach(item => {
+    data.forEach((item) => {
       if (curKey.indexOf(item.key) === 0) {
         if (item.children) {
           loop(item.children);
@@ -50,54 +50,55 @@ function getNewTreeData(treeData, curKey, child, level) {
 
 export default class extends Component {
   state = {
-    treeData: []
+    treeData: [],
   };
+
   componentDidMount() {
     setTimeout(() => {
       this.setState({
         treeData: [
           { name: 'pNode 01', key: '0-0' },
           { name: 'pNode 02', key: '0-1' },
-          { name: 'pNode 03', key: '0-2', isLeaf: true }
-        ]
+          { name: 'pNode 03', key: '0-2', isLeaf: true },
+        ],
       });
     }, 100);
   }
-  onSelect = info => {};
-  onLoadData = treeNode => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        const treeData = [...this.state.treeData];
-        getNewTreeData(
-          treeData,
-          treeNode.props.eventKey,
-          generateTreeNodes(treeNode),
-          2
-        );
-        this.setState({ treeData });
-        resolve();
-      }, 1000);
-    });
-  };
+
+  onSelect = (info) => {};
+
+  onLoadData = treeNode => new Promise((resolve) => {
+    setTimeout(() => {
+      const treeData = [...this.state.treeData];
+      getNewTreeData(
+        treeData,
+        treeNode.props.eventKey,
+        generateTreeNodes(treeNode),
+        2,
+      );
+      this.setState({ treeData });
+      resolve();
+    }, 1000);
+  });
+
   render() {
-    const loop = data =>
-      data.map(item => {
-        if (item.children) {
-          return (
-            <TreeNode title={item.name} key={item.key}>
-              {loop(item.children)}
-            </TreeNode>
-          );
-        }
+    const loop = data => data.map((item) => {
+      if (item.children) {
         return (
-          <TreeNode
-            title={item.name}
-            key={item.key}
-            isLeaf={item.isLeaf}
-            disabled={item.key === '0-0-0'}
-          />
+          <TreeNode title={item.name} key={item.key}>
+            {loop(item.children)}
+          </TreeNode>
         );
-      });
+      }
+      return (
+        <TreeNode
+          title={item.name}
+          key={item.key}
+          isLeaf={item.isLeaf}
+          disabled={item.key === '0-0-0'}
+        />
+      );
+    });
     const treeNodes = loop(this.state.treeData);
     return (
       <Tree onSelect={this.onSelect} loadData={this.onLoadData}>

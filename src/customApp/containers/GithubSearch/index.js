@@ -14,16 +14,18 @@ import actions from '../../redux/githubSearch/actions';
 const { gitSearch, onPageChange } = actions;
 
 class GitSearch extends Component {
-  onSearch = value => {
+  onSearch = (value) => {
     if (value && value.length > 0) {
       this.props.gitSearch(value);
     } else {
       notification('error', 'Please type something');
     }
   };
+
   componentDidMount() {
     this.onSearch(this.props.GitSearch.searcText);
   }
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     const { onPageChange, GitSearch } = this.props;
@@ -57,5 +59,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { gitSearch, onPageChange }
+  { gitSearch, onPageChange },
 )(GitSearch);

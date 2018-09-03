@@ -10,18 +10,21 @@ export default class extends Component {
     visible: false,
     email: 'demo@gmail.com',
     password: 'demodemo',
-    confirmLoading: false
+    confirmLoading: false,
   };
+
   showModal = () => {
     this.setState({
-      visible: true
+      visible: true,
     });
   };
-  handleCancel = e => {
+
+  handleCancel = (e) => {
     this.setState({
-      visible: false
+      visible: false,
     });
   };
+
   handleLogin = () => {
     const { email, password } = this.state;
     if (!(email && password)) {
@@ -29,54 +32,52 @@ export default class extends Component {
       return;
     }
     this.setState({
-      confirmLoading: true
+      confirmLoading: true,
     });
     const self = this;
     let isError = false;
     Firebase.login(Firebase.EMAIL, { email, password })
-      .catch(result => {
-        const message =
-          result && result.message ? result.message : 'Sorry Some error occurs';
+      .catch((result) => {
+        const message = result && result.message ? result.message : 'Sorry Some error occurs';
         notification('error', message);
         self.setState({
-          confirmLoading: false
+          confirmLoading: false,
         });
         isError = true;
       })
-      .then(result => {
+      .then((result) => {
         if (isError) {
           return;
         }
         if (!result || result.message) {
-          const message =
-            result && result.message
-              ? result.message
-              : 'Sorry Some error occurs';
+          const message = result && result.message
+            ? result.message
+            : 'Sorry Some error occurs';
           notification('error', message);
           self.setState({
-            confirmLoading: false
+            confirmLoading: false,
           });
         } else {
           self.setState({
             visible: false,
-            confirmLoading: false
+            confirmLoading: false,
           });
           this.props.login();
         }
       });
   };
+
   resetPassword = () => {
     const { email } = this.state;
     if (!email) {
-      notification('error', `Please fill in email.`);
+      notification('error', 'Please fill in email.');
       return;
     }
     Firebase.resetPassword(email)
-      .then(() =>
-        notification('success', `Password reset email sent to ${email}.`)
-      )
+      .then(() => notification('success', `Password reset email sent to ${email}.`))
       .catch(error => notification('error', 'Email address not found.'));
   };
+
   render() {
     return (
       <div>
@@ -103,7 +104,7 @@ export default class extends Component {
                 size="large"
                 placeholder="Email"
                 value={this.state.email}
-                onChange={event => {
+                onChange={(event) => {
                   this.setState({ email: event.target.value });
                 }}
               />
@@ -115,7 +116,7 @@ export default class extends Component {
                 size="large"
                 placeholder="Password"
                 value={this.state.password}
-                onChange={event => {
+                onChange={(event) => {
                   this.setState({ password: event.target.value });
                 }}
               />

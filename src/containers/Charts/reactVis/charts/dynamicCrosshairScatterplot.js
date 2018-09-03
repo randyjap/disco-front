@@ -9,7 +9,7 @@ import {
   XAxis,
   XYPlot,
   YAxis,
-  Voronoi
+  Voronoi,
 } from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
@@ -23,7 +23,7 @@ export default class extends Component {
       .range(this.props.xRange),
     y: scaleLinear()
       .domain(this.props.yDomain)
-      .range(this.props.yRange)
+      .range(this.props.yRange),
   };
 
   _onNearestXY = (value, { index }) => {
@@ -35,8 +35,12 @@ export default class extends Component {
   };
 
   render() {
-    const { data, selectedPointId, showVoronoi, x, y } = this.state;
-    const { width, height, extent, sizeRange } = this.props;
+    const {
+      data, selectedPointId, showVoronoi, x, y,
+    } = this.state;
+    const {
+      width, height, extent, sizeRange,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <div className="isoChartControl">
@@ -61,7 +65,7 @@ export default class extends Component {
             colorType="literal"
             data={data.map((point, index) => ({
               ...point,
-              color: selectedPointId === index ? '#FF9833' : '#12939A'
+              color: selectedPointId === index ? '#FF9833' : '#12939A',
             }))}
             onNearestXY={this._onNearestXY}
             sizeRange={sizeRange}

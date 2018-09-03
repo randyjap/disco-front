@@ -37,23 +37,29 @@ class MobileView extends Component {
     this.onDrawerClose = this.onDrawerClose.bind(this);
     this.toggleListVisible = this.toggleListVisible.bind(this);
   }
+
   openDrawer() {
     this.setState({ open: true });
   }
+
   closeDrawer() {
     this.setState({ open: false });
   }
+
   onDrawerClose() {
     this.setState({ open: false });
   }
+
   toggleListVisible() {
     this.setState({ listVisible: !this.state.listVisible });
   }
-  onDrawerChange = val => {
+
+  onDrawerChange = (val) => {
     if (!val) {
       this.setState({ open: false });
     }
   };
+
   render() {
     const {
       allMails,
@@ -83,7 +89,7 @@ class MobileView extends Component {
         replyMail,
         changeReplyMail,
         selectMail,
-        this.toggleListVisible
+        this.toggleListVisible,
       );
     }
     return (
@@ -118,8 +124,7 @@ class MobileView extends Component {
                     placeholder="Search Email"
                     value={search}
                     className="isoSearchEmail"
-                    onChange={event =>
-                      this.setState({ search: event.target.value })
+                    onChange={event => this.setState({ search: event.target.value })
                     }
                     onSearch={value => changeSearchString(value)}
                   />
@@ -129,7 +134,7 @@ class MobileView extends Component {
                     filterMails,
                     selectMail,
                     null,
-                    this.toggleListVisible
+                    this.toggleListVisible,
                   )}
                 </Scrollbars>
               </div>
@@ -149,7 +154,7 @@ class MobileView extends Component {
         <MailDrawer>
           <ReactDrawer
             open={this.state.open}
-            right={true}
+            right
             onChange={this.onDrawerChange}
           >
             <i onClick={this.closeDrawer} className="icono-cross" />
@@ -164,13 +169,13 @@ class MobileView extends Component {
                     allMails,
                     filterAction,
                     filterAttr,
-                    this.onDrawerClose
+                    this.onDrawerClose,
                   )}
                   {mailTags(
                     allMails,
                     filterAction,
                     filterAttr,
-                    this.onDrawerClose
+                    this.onDrawerClose,
                   )}
                 </Scrollbars>
               </div>

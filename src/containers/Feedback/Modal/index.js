@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
 // import Modals from '../../../components/feedback/modal';
-import Button from "../../../components/uielements/button";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import basicStyle from "../../../settings/basicStyle";
-import IntlMessages from "../../../components/utility/intlMessages";
-import Modals from "../../../components/feedback/modal";
+import Button from '../../../components/uielements/button';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import basicStyle from '../../../settings/basicStyle';
+import IntlMessages from '../../../components/utility/intlMessages';
+import Modals from '../../../components/feedback/modal';
 
-import ModalStyle, { ModalContent } from "./modal.style";
-import WithDirection from "../../../settings/withDirection";
+import ModalStyle, { ModalContent } from './modal.style';
+import WithDirection from '../../../settings/withDirection';
 
 const isoModal = ModalStyle(Modals);
 const Modal = WithDirection(isoModal);
@@ -33,79 +33,83 @@ function info() {
       </ModalContent>
     ),
     onOk() {},
-    okText: "OK",
-    cancelText: "Cancel"
+    okText: 'OK',
+    cancelText: 'Cancel',
   });
 }
 
 function success() {
   Modals.success({
-    title: "This is a success message",
+    title: 'This is a success message',
     content:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-    okText: "OK",
-    cancelText: "Cancel"
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.',
+    okText: 'OK',
+    cancelText: 'Cancel',
   });
 }
 
 function error() {
   Modals.error({
-    title: "This is an error message",
+    title: 'This is an error message',
     content:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-    okText: "OK",
-    cancelText: "Cancel"
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.',
+    okText: 'OK',
+    cancelText: 'Cancel',
   });
 }
 
 function warning() {
   Modals.warning({
-    title: "This is a warning message",
+    title: 'This is a warning message',
     content:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.",
-    okText: "OK",
-    cancelText: "Cancel"
+      'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.',
+    okText: 'OK',
+    cancelText: 'Cancel',
   });
 }
 
 function showConfirm() {
   confirm({
-    title: "Want to delete these items?",
+    title: 'Want to delete these items?',
     content:
-      "When clicked the OK button, this dialog will be closed after 1 second",
+      'When clicked the OK button, this dialog will be closed after 1 second',
     onOk() {
       return new Promise((resolve, reject) => {
         setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
       }).catch(() => {});
     },
     onCancel() {},
-    okText: "OK",
-    cancelText: "Cancel"
+    okText: 'OK',
+    cancelText: 'Cancel',
   });
 }
 
 export default class extends Component {
   state = {
     loading: false,
-    visible: false
+    visible: false,
   };
+
   showModal = () => {
     this.setState({
-      visible: true
+      visible: true,
     });
   };
+
   handleOk = () => {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 2000);
   };
+
   handleCancel = () => {
     this.setState({ visible: false });
   };
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
-    const marginStyle = { marginRight: "5px", marginBottom: "5px" };
+    const marginStyle = { marginRight: '5px', marginBottom: '5px' };
 
     return (
       <LayoutWrapper>
@@ -140,7 +144,7 @@ export default class extends Component {
                       onClick={this.handleOk}
                     >
                       Submit
-                    </Button>
+                    </Button>,
                   ]}
                 >
                   <p>

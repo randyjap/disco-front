@@ -16,6 +16,7 @@ const Carousel = props => (
 );
 export default class extends Component {
   onChange = (a, b, c) => {};
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (

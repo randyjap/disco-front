@@ -9,7 +9,7 @@ class Range extends Component {
     max: PropTypes.number,
     currentRefinement: PropTypes.object,
     refine: PropTypes.func.isRequired,
-    canRefine: PropTypes.bool.isRequired
+    canRefine: PropTypes.bool.isRequired,
   };
 
   state = { currentValues: { min: this.props.min, max: this.props.max } };
@@ -19,26 +19,26 @@ class Range extends Component {
       this.setState({
         currentValues: {
           min: sliderState.currentRefinement.min,
-          max: sliderState.currentRefinement.max
-        }
+          max: sliderState.currentRefinement.max,
+        },
       });
     }
   }
 
-  onValuesUpdated = sliderState => {
+  onValuesUpdated = (sliderState) => {
     this.setState({
-      currentValues: { min: sliderState.values[0], max: sliderState.values[1] }
+      currentValues: { min: sliderState.values[0], max: sliderState.values[1] },
     });
   };
 
-  onChange = sliderState => {
+  onChange = (sliderState) => {
     if (
-      this.props.currentRefinement.min !== sliderState.values[0] ||
-      this.props.currentRefinement.max !== sliderState.values[1]
+      this.props.currentRefinement.min !== sliderState.values[0]
+      || this.props.currentRefinement.max !== sliderState.values[1]
     ) {
       this.props.refine({
         min: sliderState.values[0],
-        max: sliderState.values[1]
+        max: sliderState.values[1],
       });
     }
   };
@@ -47,9 +47,12 @@ class Range extends Component {
     const { min, max, currentRefinement } = this.props;
     const { currentValues } = this.state;
     return min !== max
-      ? <div className="isoAlRangeSlider">
+      ? (
+        <div className="isoAlRangeSlider">
           <div className="isoAlRangeNumber">
-            <span>{currentValues.min}</span> -
+            <span>{currentValues.min}</span>
+            {' '}
+-
             <span>{currentValues.max}</span>
           </div>
           <Rheostat
@@ -60,6 +63,7 @@ class Range extends Component {
             onValuesUpdated={this.onValuesUpdated}
           />
         </div>
+      )
       : null;
   }
 }

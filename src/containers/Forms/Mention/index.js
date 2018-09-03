@@ -10,33 +10,34 @@ const webFrameworks = [
   {
     name: 'React',
     type: 'JavaScript',
-    icon: 'https://zos.alipayobjects.com/rmsportal/LFIeMPzdLcLnEUe.svg'
+    icon: 'https://zos.alipayobjects.com/rmsportal/LFIeMPzdLcLnEUe.svg',
   },
   {
     name: 'Angular',
     type: 'JavaScript',
-    icon: 'https://zos.alipayobjects.com/rmsportal/PJTbxSvzYWjDZnJ.png'
+    icon: 'https://zos.alipayobjects.com/rmsportal/PJTbxSvzYWjDZnJ.png',
   },
   {
     name: 'Dva',
     type: 'Javascript',
-    icon: 'https://zos.alipayobjects.com/rmsportal/EYPwSeEJKxDtVxI.png'
+    icon: 'https://zos.alipayobjects.com/rmsportal/EYPwSeEJKxDtVxI.png',
   },
   {
     name: 'Flask',
     type: 'Python',
-    icon: 'https://zos.alipayobjects.com/rmsportal/xaypBUijfnpAlXE.png'
-  }
+    icon: 'https://zos.alipayobjects.com/rmsportal/xaypBUijfnpAlXE.png',
+  },
 ];
 
 export default class extends Component {
   state = {
-    suggestions: []
+    suggestions: [],
   };
-  onSearchChange = value => {
+
+  onSearchChange = (value) => {
     const searchValue = value.toLowerCase();
     const filtered = webFrameworks.filter(
-      item => item.name.toLowerCase().indexOf(searchValue) !== -1
+      item => item.name.toLowerCase().indexOf(searchValue) !== -1,
     );
     const suggestions = filtered.map(suggestion => (
       <Nav
@@ -47,15 +48,21 @@ export default class extends Component {
         <span>
           <img
             alt={suggestion.name}
-            style={{ height: 16, width: 16, marginRight: 5, float: 'left' }}
+            style={{
+              height: 16, width: 16, marginRight: 5, float: 'left',
+            }}
             src={suggestion.icon}
           />
-          {suggestion.name} - {suggestion.type}
+          {suggestion.name}
+          {' '}
+-
+          {suggestion.type}
         </span>
       </Nav>
     ));
     this.setState({ suggestions });
   };
+
   render() {
     const { suggestions } = this.state;
     return (

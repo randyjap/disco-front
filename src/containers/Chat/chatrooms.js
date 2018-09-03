@@ -1,33 +1,35 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 // import Input from '../../components/uielements/input';
-import AddNewUser from "./addNewUser";
-import Scrollbars from "../../components/utility/customScrollBar.js";
-import Button from "../../components/uielements/button";
-import actions from "../../redux/chat/actions";
-import { timeDifference } from "../../helpers/utility";
-import HelperText from "../../components/utility/helper-text";
+import AddNewUser from './addNewUser';
+import Scrollbars from '../../components/utility/customScrollBar.js';
+import Button from '../../components/uielements/button';
+import actions from '../../redux/chat/actions';
+import { timeDifference } from '../../helpers/utility';
+import HelperText from '../../components/utility/helper-text';
 import {
   UserListsWrapper,
   UserLists,
   SidebarSearchBox,
   Input,
-  ChatSidebar
-} from "./message.style";
+  ChatSidebar,
+} from './message.style';
 
 class ChatRooms extends Component {
   state = {
-    value: "",
-    searchedChatRooms: this.props.chatRooms
+    value: '',
+    searchedChatRooms: this.props.chatRooms,
   };
+
   componentWillReceiveProps(nextProps) {
-    this.setState({ value: "", searchedChatRooms: nextProps.chatRooms });
+    this.setState({ value: '', searchedChatRooms: nextProps.chatRooms });
   }
-  onSearch = event => {
+
+  onSearch = (event) => {
     const value = event.target.value;
     const searchedChatRooms = value ? [] : this.props.chatRooms;
     if (value) {
-      this.props.chatRooms.forEach(chatRoom => {
+      this.props.chatRooms.forEach((chatRoom) => {
         if (
           chatRoom.otherUserInfo.name
             .toLowerCase()
@@ -39,13 +41,14 @@ class ChatRooms extends Component {
     }
     this.setState({ value, searchedChatRooms });
   };
+
   render() {
     const {
       users,
       setSelectedChatroom,
       selectedChatRoom,
       toggleMobileList,
-      toggleCompose
+      toggleCompose,
     } = this.props;
     const { value, searchedChatRooms } = this.state;
     const singleChatRoom = (chatRoom, index) => {
@@ -53,9 +56,9 @@ class ChatRooms extends Component {
       const { name, profileImageUrl } = otherUserInfo;
       const selected = selectedChatRoom.id === chatRoom.id;
       const style = {
-        background: selected ? "#f7f7f7" : "rgba(0,0,0,0)"
+        background: selected ? '#f7f7f7' : 'rgba(0,0,0,0)',
       };
-      const selectChatroom = event => {
+      const selectChatroom = (event) => {
         event.stopPropagation();
         if (!selected) {
           setSelectedChatroom(chatRoom);
@@ -120,13 +123,15 @@ class ChatRooms extends Component {
   }
 }
 function mapStateToProps(state) {
-  const { users, chatRooms, openCompose, selectedChatRoom } = state.Chat;
+  const {
+    users, chatRooms, openCompose, selectedChatRoom,
+  } = state.Chat;
   const { view } = state.App;
   return {
     users,
     chatRooms: chatRooms.filter(chatRoom => chatRoom.lastMessageTime > 0),
-    selectedChatRoom: view === "DesktopView" ? selectedChatRoom : {},
-    openCompose
+    selectedChatRoom: view === 'DesktopView' ? selectedChatRoom : {},
+    openCompose,
   };
 }
 export default connect(mapStateToProps, actions)(ChatRooms);

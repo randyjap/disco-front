@@ -15,6 +15,7 @@ class VoiceRecognition extends Component {
   state = {
     listening: false,
   };
+
   render() {
     const {
       transcript,

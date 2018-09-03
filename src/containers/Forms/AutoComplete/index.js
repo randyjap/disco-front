@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import AutoComplete, {
-  AutoCompleteOption
+  AutoCompleteOption,
 } from '../../../components/uielements/autocomplete';
 import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';
@@ -15,32 +15,30 @@ const Option = AutoCompleteOption;
 export default class extends Component {
   state = {
     result: [],
-    dataSource: []
+    dataSource: [],
   };
 
-  handleCustomizedChange = value => {
+  handleCustomizedChange = (value) => {
     let result;
     if (!value || value.indexOf('@') >= 0) {
       result = [];
     } else {
       result = ['gmail.com', '163.com', 'qq.com'].map(
-        domain => `${value}@${domain}`
+        domain => `${value}@${domain}`,
       );
     }
     this.setState({ result });
   };
 
-  handleChange = value => {
+  handleChange = (value) => {
     this.setState({
-      dataSource: !value ? [] : [value, value + value, value + value + value]
+      dataSource: !value ? [] : [value, value + value, value + value + value],
     });
   };
 
   render() {
     const { dataSource, result } = this.state;
-    const children = result.map(email => {
-      return <Option key={email}>{email}</Option>;
-    });
+    const children = result.map(email => <Option key={email}>{email}</Option>);
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
       <LayoutWrapper>

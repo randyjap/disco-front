@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import basicStyle from "../../../settings/basicStyle";
-import IntlMessages from "../../../components/utility/intlMessages";
-import Alert from "../../../components/feedback/alert";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import basicStyle from '../../../settings/basicStyle';
+import IntlMessages from '../../../components/utility/intlMessages';
+import Alert from '../../../components/feedback/alert';
 
 export default class extends Component {
-  onClose = function(e) {};
+  onClose = function (e) {};
 
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     const marginBot = {
-      marginBottom: "10px"
+      marginBottom: '10px',
     };
     return (
       <LayoutWrapper>

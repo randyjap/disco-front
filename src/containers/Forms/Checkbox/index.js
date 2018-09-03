@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import Checkbox, {
-  CheckboxGroup
+  CheckboxGroup,
 } from '../../../components/uielements/checkbox';
 import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';
@@ -16,24 +16,25 @@ export default class extends Component {
   state = {
     checkedList: defaultCheckedList,
     indeterminate: true,
-    checkAll: false
+    checkAll: false,
   };
 
-  handleOnChange = checkedValues => {};
+  handleOnChange = (checkedValues) => {};
 
-  onChange = checkedList => {
+  onChange = (checkedList) => {
     this.setState({
       checkedList,
       indeterminate:
         !!checkedList.length && checkedList.length < plainOptions.length,
-      checkAll: checkedList.length === plainOptions.length
+      checkAll: checkedList.length === plainOptions.length,
     });
   };
-  onCheckAllChange = e => {
+
+  onCheckAllChange = (e) => {
     this.setState({
       checkedList: e.target.checked ? plainOptions : [],
       indeterminate: false,
-      checkAll: e.target.checked
+      checkAll: e.target.checked,
     });
   };
 
@@ -42,12 +43,12 @@ export default class extends Component {
     const options = [
       { label: 'Apple', value: 'Apple' },
       { label: 'Pear', value: 'Pear' },
-      { label: 'Orange', value: 'Orange' }
+      { label: 'Orange', value: 'Orange' },
     ];
     const optionsWithDisabled = [
       { label: 'Apple', value: 'Apple' },
       { label: 'Pear', value: 'Pear' },
-      { label: 'Orange', value: 'Orange', disabled: false }
+      { label: 'Orange', value: 'Orange', disabled: false },
     ];
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -103,7 +104,7 @@ export default class extends Component {
                   <div
                     style={{
                       borderBottom: '1px solid #E9E9E9',
-                      paddingBottom: '15px'
+                      paddingBottom: '15px',
                     }}
                   >
                     <Checkbox

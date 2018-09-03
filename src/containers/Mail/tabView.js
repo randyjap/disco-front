@@ -35,20 +35,25 @@ class TabView extends Component {
     this.closeDrawer = this.closeDrawer.bind(this);
     this.onDrawerClose = this.onDrawerClose.bind(this);
   }
+
   openDrawer() {
     this.setState({ open: true });
   }
+
   closeDrawer() {
     this.setState({ open: false });
   }
+
   onDrawerClose() {
     this.setState({ open: false });
   }
-  onDrawerChange = val => {
+
+  onDrawerChange = (val) => {
     if (!val) {
       this.setState({ open: false });
     }
   };
+
   render() {
     const {
       allMails,
@@ -77,7 +82,7 @@ class TabView extends Component {
         index,
         replyMail,
         changeReplyMail,
-        selectMail
+        selectMail,
       );
     }
     return (
@@ -99,8 +104,7 @@ class TabView extends Component {
                   placeholder="Search Email"
                   value={search}
                   className="isoSearchEmail"
-                  onChange={event =>
-                    this.setState({ search: event.target.value })
+                  onChange={event => this.setState({ search: event.target.value })
                   }
                   onSearch={value => changeSearchString(value)}
                 />
@@ -128,7 +132,7 @@ class TabView extends Component {
         <MailDrawer>
           <ReactDrawer
             open={this.state.open}
-            right={true}
+            right
             onChange={this.onDrawerChange}
           >
             <i onClick={this.closeDrawer} className="icono-cross" />
@@ -143,13 +147,13 @@ class TabView extends Component {
                     allMails,
                     filterAction,
                     filterAttr,
-                    this.onDrawerClose
+                    this.onDrawerClose,
                   )}
                   {mailTags(
                     allMails,
                     filterAction,
                     filterAttr,
-                    this.onDrawerClose
+                    this.onDrawerClose,
                   )}
                 </Scrollbars>
               </div>

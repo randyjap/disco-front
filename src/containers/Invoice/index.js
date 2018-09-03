@@ -17,12 +17,14 @@ class Invoices extends Component {
   state = {
     selected: [],
   };
+
   componentDidMount() {
     const { initialInvoices, initData } = this.props;
     if (!initialInvoices) {
       initData();
     }
   }
+
   columns = [
     {
       title: 'Number',
@@ -62,15 +64,15 @@ class Invoices extends Component {
         if (text === 'shipped' || text === 'Shipped' || text === 'SHIPPED') {
           className = 'shipped';
         } else if (
-          text === 'delivered' ||
-          text === 'Delivered' ||
-          text === 'DELIVERED'
+          text === 'delivered'
+          || text === 'Delivered'
+          || text === 'DELIVERED'
         ) {
           className = 'delivered';
         } else if (
-          text === 'pending' ||
-          text === 'Pending' ||
-          text === 'PENDING'
+          text === 'pending'
+          || text === 'Pending'
+          || text === 'PENDING'
         ) {
           className = 'pending';
         }
@@ -88,7 +90,8 @@ class Invoices extends Component {
             <Button color="primary" className="invoiceViewBtn">
               View
             </Button>
-          </Link>{' '}
+          </Link>
+          {' '}
           <Button
             className="invoiceDltBtn"
             // icon="delete"
@@ -104,7 +107,9 @@ class Invoices extends Component {
       ),
     },
   ];
+
   getnewInvoiceId = () => new Date().getTime();
+
   render() {
     const { match, invoices, deleteInvoice } = this.props;
     const { selected } = this.state;
@@ -116,10 +121,9 @@ class Invoices extends Component {
         {
           key: 'all-data',
           text: 'Select All Invoices',
-          onSelect: () =>
-            this.setState({
-              selected: this.props.invoices.map(invoice => invoice.key),
-            }),
+          onSelect: () => this.setState({
+            selected: this.props.invoices.map(invoice => invoice.key),
+          }),
         },
         {
           key: 'no-data',
@@ -129,7 +133,7 @@ class Invoices extends Component {
         {
           key: 'delete-selected',
           text: 'Delete selected',
-          onSelect: changableRowKeys => {
+          onSelect: (changableRowKeys) => {
             if (selected.length > 0) {
               deleteInvoice(selected);
               this.setState({ selected: [] });
@@ -184,5 +188,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  invoiceActions
+  invoiceActions,
 )(Invoices);

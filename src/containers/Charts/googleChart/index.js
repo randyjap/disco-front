@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Async from '../../../helpers/asyncComponent';
 import { Row, Col } from 'antd';
+import Async from '../../../helpers/asyncComponent';
 import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';
 import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
@@ -14,7 +14,7 @@ const GoogleChart = props => (
     <Async
       load={import(/* webpackChunkName: "googleChart" */ 'react-google-charts')}
       componentProps={props}
-      componentArguement={'googleChart'}
+      componentArguement="googleChart"
     />
   </ChartWrapper>
 );
@@ -24,8 +24,8 @@ export default class ReCharts extends Component {
     const chartEvents = [
       {
         eventName: 'select',
-        callback(Chart) {}
-      }
+        callback(Chart) {},
+      },
     ];
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (

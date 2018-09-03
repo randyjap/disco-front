@@ -3,18 +3,22 @@ import ReduxSagaFirebase from 'redux-saga-firebase';
 import 'firebase/firestore';
 import { firebaseConfig } from '../../settings';
 
-const valid =
-  firebaseConfig && firebaseConfig.apiKey && firebaseConfig.projectId;
+const valid = firebaseConfig && firebaseConfig.apiKey && firebaseConfig.projectId;
 
 const firebaseApp = valid && firebase.initializeApp(firebaseConfig);
 const firebaseAuth = valid && firebase.auth;
 
 class FirebaseHelper {
   isValid = valid;
+
   EMAIL = 'email';
+
   FACEBOOK = 'facebook';
+
   GOOGLE = 'google';
+
   GITHUB = 'github';
+
   TWITTER = 'twitter';
 
   constructor() {
@@ -26,14 +30,11 @@ class FirebaseHelper {
       const settings = { timestampsInSnapshots: true };
       this.database.settings(settings);
     }
-    this.rsf =
-      this.isValid && new ReduxSagaFirebase(firebaseApp, firebase.firestore());
+    this.rsf = this.isValid && new ReduxSagaFirebase(firebaseApp, firebase.firestore());
     this.rsfFirestore = this.isValid && this.rsf.firestore;
   }
 
-  createBatch = () => {
-    return this.database.batch();
-  };
+  createBatch = () => this.database.batch();
 
   login(provider, info) {
     if (!this.isValid) {
@@ -43,7 +44,7 @@ class FirebaseHelper {
       case this.EMAIL:
         return firebaseAuth().signInWithEmailAndPassword(
           info.email,
-          info.password
+          info.password,
         );
       case this.FACEBOOK:
         return firebaseAuth().FacebookAuthProvider();
@@ -62,22 +63,23 @@ class FirebaseHelper {
   }
 
   isAuthenticated() {
-    firebaseAuth().onAuthStateChanged(user => {
-      return user ? true : false;
-    });
+    firebaseAuth().onAuthStateChanged(user => !!user);
   }
+
   resetPassword(email) {
     return firebaseAuth().sendPasswordResetEmail(email);
   }
+
   createNewRef() {
     return firebase
       .database()
       .ref()
       .push().key;
   }
+
   processFireStoreCollection(snapshot) {
     let data = {};
-    snapshot.forEach(doc => {
+    snapshot.forEach((doc) => {
       data = {
         ...data,
         [doc.id]: doc.data(),

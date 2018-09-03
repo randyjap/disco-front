@@ -23,7 +23,7 @@ const EXTENDED_DISCRETE_COLOR_RANGE = [
   '#E79FD5',
   '#1E96BE',
   '#89DAC1',
-  '#B3AD9E'
+  '#B3AD9E',
 ];
 
 function getKeyPath(node) {
@@ -32,7 +32,7 @@ function getKeyPath(node) {
   }
 
   return [node.data && (node.data.name || node.name)].concat(
-    getKeyPath(node.parent)
+    getKeyPath(node.parent),
   );
 }
 
@@ -42,12 +42,12 @@ function updateData(data, keyPath) {
   }
   if (!data.color) {
     data.style = {
-      fill: EXTENDED_DISCRETE_COLOR_RANGE[5]
+      fill: EXTENDED_DISCRETE_COLOR_RANGE[5],
     };
   }
   data.style = {
     ...data.style,
-    fillOpacity: keyPath && !keyPath[data.name] ? 0.2 : 1
+    fillOpacity: keyPath && !keyPath[data.name] ? 0.2 : 1,
   };
 
   return data;
@@ -58,7 +58,7 @@ const decoratedData = datas => updateData(datas, false);
 export default class extends Component {
   state = {
     pathValue: false,
-    data: decoratedData(this.props.datas)
+    data: decoratedData(this.props.datas),
   };
 
   render() {
@@ -68,7 +68,7 @@ export default class extends Component {
         <Sunburst
           className="basic-sunburst-example"
           hideRootNode
-          onValueMouseOver={node => {
+          onValueMouseOver={(node) => {
             const path = getKeyPath(node).reverse();
             const pathAsMap = path.reduce((res, row) => {
               res[row] = true;
@@ -76,18 +76,17 @@ export default class extends Component {
             }, {});
             this.setState({
               pathValue: path.join(' > '),
-              data: updateData(decoratedData(this.props.datas), pathAsMap)
+              data: updateData(decoratedData(this.props.datas), pathAsMap),
             });
           }}
-          onValueMouseOut={() =>
-            this.setState({
-              pathValue: false,
-              data: updateData(decoratedData(this.props.datas), false)
-            })}
+          onValueMouseOut={() => this.setState({
+            pathValue: false,
+            data: updateData(decoratedData(this.props.datas), false),
+          })}
           style={{
             stroke: '#ddd',
             strokeOpacity: 0.3,
-            strokeWidth: '0.5'
+            strokeWidth: '0.5',
           }}
           colorType="literal"
           data={data}

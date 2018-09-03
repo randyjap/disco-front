@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import clone from 'clone';
 import Input from '../../../components/uielements/input';
 import Modal from '../../../components/feedback/modal';
 import actions from '../../../redux/investors/actions';
@@ -18,16 +19,17 @@ import {
   TableWrapper,
   ButtonHolders,
 } from './investors.style';
-import clone from 'clone';
 
 class Investors extends Component {
   componentDidMount() {
     this.props.loadFromFireStore();
   }
+
   handleRecord = (actionName, investor) => {
     if (investor.key && actionName !== 'delete') actionName = 'update';
     this.props.saveIntoFireStore(investor, actionName);
   };
+
   resetRecords = () => {
     this.props.resetFireStoreDocuments();
   };
@@ -37,7 +39,7 @@ class Investors extends Component {
   };
 
   onRecordChange = (key, event) => {
-    let { investor } = clone(this.props);
+    const { investor } = clone(this.props);
     if (key) investor[key] = event.target.value;
     this.props.update(investor);
   };
@@ -46,12 +48,10 @@ class Investors extends Component {
     const { modalActive, investors } = this.props;
     const { investor } = clone(this.props);
     const dataSource = [];
-    Object.keys(investors).map((investor, index) => {
-      return dataSource.push({
-        ...investors[investor],
-        key: investor,
-      });
-    });
+    Object.keys(investors).map((investor, index) => dataSource.push({
+      ...investors[investor],
+      key: investor,
+    }));
 
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {},
@@ -103,42 +103,38 @@ class Investors extends Component {
         dataIndex: 'investment_count',
         key: 'investment_count',
         width: '190px',
-        sorter: (a, b) =>
-          parseInt(a.investment_count, 10) - parseInt(b.investment_count, 10),
+        sorter: (a, b) => parseInt(a.investment_count, 10) - parseInt(b.investment_count, 10),
       },
       {
         title: 'Number of Exists',
         dataIndex: 'exists_count',
         key: 'exists_count',
         width: '160px',
-        sorter: (a, b) =>
-          parseInt(a.exists_count, 10) - parseInt(b.exists_count, 10),
+        sorter: (a, b) => parseInt(a.exists_count, 10) - parseInt(b.exists_count, 10),
       },
       {
         title: 'Actions',
         width: '60px',
         key: 'action',
-        render: (text, row) => {
-          return (
-            <ActionWrapper>
-              <a onClick={this.handleModal.bind(this, row)}>
-                <i className="ion-android-create" />
-              </a>
+        render: (text, row) => (
+          <ActionWrapper>
+            <a onClick={this.handleModal.bind(this, row)}>
+              <i className="ion-android-create" />
+            </a>
 
-              <Popconfirms
-                title="Are you sure to delete this record?"
-                okText="Yes"
-                cancelText="No"
-                placement="topRight"
-                onConfirm={this.handleRecord.bind(this, 'delete', row)}
-              >
-                <a className="deleteBtn">
-                  <i className="ion-android-delete" />
-                </a>
-              </Popconfirms>
-            </ActionWrapper>
-          );
-        },
+            <Popconfirms
+              title="Are you sure to delete this record?"
+              okText="Yes"
+              cancelText="No"
+              placement="topRight"
+              onConfirm={this.handleRecord.bind(this, 'delete', row)}
+            >
+              <a className="deleteBtn">
+                <i className="ion-android-delete" />
+              </a>
+            </Popconfirms>
+          </ActionWrapper>
+        ),
       },
     ];
 
@@ -220,7 +216,7 @@ class Investors extends Component {
                     value={investor.investment_count}
                     onChange={this.onRecordChange.bind(
                       this,
-                      'investment_count'
+                      'investment_count',
                     )}
                   />
                 </Fieldset>
@@ -248,11 +244,9 @@ class Investors extends Component {
                 // defaultPageSize: 1,
                 hideOnSinglePage: true,
                 total: dataSource.length,
-                showTotal: (total, range) => {
-                  return `Showing ${range[0]}-${range[1]} of ${
-                    dataSource.length
-                  } Results`;
-                },
+                showTotal: (total, range) => `Showing ${range[0]}-${range[1]} of ${
+                  dataSource.length
+                } Results`,
               }}
             />
           </ContentHolder>
@@ -266,5 +260,5 @@ export default connect(
   state => ({
     ...state.Investors,
   }),
-  actions
+  actions,
 )(Investors);

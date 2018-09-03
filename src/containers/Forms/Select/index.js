@@ -5,6 +5,7 @@ import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';
 import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
 import ContentHolder from '../../../components/utility/contentHolder';
+
 const Option = SelectOption;
 
 const children = [];
@@ -12,16 +13,16 @@ for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
 export default class extends Component {
-  handleChange = value => {};
+  handleChange = (value) => {};
 
   render() {
     const rowStyle = {
       width: '100%',
       display: 'flex',
-      flexFlow: 'row wrap'
+      flexFlow: 'row wrap',
     };
     const colStyle = {
-      marginBottom: '16px'
+      marginBottom: '16px',
     };
     const gutter = 16;
 

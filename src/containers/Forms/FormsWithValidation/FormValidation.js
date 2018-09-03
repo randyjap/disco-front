@@ -4,28 +4,32 @@ import Form from '../../../components/uielements/form';
 import Checkbox from '../../../components/uielements/checkbox';
 import Button from '../../../components/uielements/button';
 import Notification from '../../../components/notification';
+
 const FormItem = Form.Item;
 
 class FormWIthSubmissionButton extends Component {
   state = {
     confirmDirty: false,
   };
-  handleSubmit = e => {
+
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         Notification(
           'success',
           'Received values of form',
-          JSON.stringify(values)
+          JSON.stringify(values),
         );
       }
     });
   };
-  handleConfirmBlur = e => {
+
+  handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
+
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
@@ -34,6 +38,7 @@ class FormWIthSubmissionButton extends Component {
       callback();
     }
   };
+
   checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
@@ -120,8 +125,10 @@ class FormWIthSubmissionButton extends Component {
             ],
           })(
             <Checkbox>
-              I have read the <a href="">agreement</a>
-            </Checkbox>
+              I have read the
+              {' '}
+              <a href="">agreement</a>
+            </Checkbox>,
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>

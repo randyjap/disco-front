@@ -6,6 +6,7 @@ import Modal from '../../components/feedback/modal';
 import { CalendarModalBody } from './calendar.style';
 
 import DeleteButton from './deleteButton';
+
 const RangePicker = DateRangepicker;
 
 const localeDatePicker = {
@@ -37,16 +38,17 @@ const localeDatePicker = {
     previousDecade: 'Last decade',
     nextDecade: 'Next decade',
     previousCentury: 'Last century',
-    nextCentury: 'Next century'
+    nextCentury: 'Next century',
   },
   timePickerLocale: {
-    placeholder: 'Select time'
-  }
+    placeholder: 'Select time',
+  },
 };
 export default class extends Component {
   handleOk = () => {
     this.props.setModalData('ok', this.props.selectedData);
   };
+
   handleCancel = () => {
     this.props.setModalData('cancel');
   };
@@ -54,27 +56,26 @@ export default class extends Component {
   handleDelete = () => {
     this.props.setModalData('delete', this.props.selectedData);
   };
+
   render() {
     const { modalVisible, selectedData, setModalData } = this.props;
-    const visible = modalVisible ? true : false;
+    const visible = !!modalVisible;
     if (!visible) {
       return <div />;
     }
     const title = selectedData && selectedData.title ? selectedData.title : '';
     const desc = selectedData && selectedData.desc ? selectedData.desc : '';
-    const start =
-      selectedData && selectedData.start ? moment(selectedData.start) : '';
-    const end =
-      selectedData && selectedData.end ? moment(selectedData.end) : '';
-    const onChangeTitle = event => {
+    const start = selectedData && selectedData.start ? moment(selectedData.start) : '';
+    const end = selectedData && selectedData.end ? moment(selectedData.end) : '';
+    const onChangeTitle = (event) => {
       selectedData.title = event.target.value;
       setModalData('updateValue', selectedData);
     };
-    const onChangeDesc = event => {
+    const onChangeDesc = (event) => {
       selectedData.desc = event.target.value;
       setModalData('updateValue', selectedData);
     };
-    const onChangeFromTimePicker = value => {
+    const onChangeFromTimePicker = (value) => {
       try {
         selectedData.start = value[0].toDate();
         selectedData.end = value[1].toDate();
@@ -113,7 +114,7 @@ export default class extends Component {
                 locale={localeDatePicker}
                 ranges={{
                   Today: [moment(), moment()],
-                  'This Month': [moment(), moment().endOf('month')]
+                  'This Month': [moment(), moment().endOf('month')],
                 }}
                 value={[start, end]}
                 showTime

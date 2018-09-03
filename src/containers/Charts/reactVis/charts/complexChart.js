@@ -8,7 +8,7 @@ import {
   LineSeries,
   VerticalBarSeries,
   DiscreteColorLegend,
-  Crosshair
+  Crosshair,
 } from 'react-vis';
 import Button from '../../../../components/uielements/button';
 
@@ -25,7 +25,7 @@ function getRandomSeriesData(total) {
     y = Math.random() * firstY - firstY / 2 + lastY;
     result.push({
       x: i,
-      y
+      y,
     });
     lastY = y;
   }
@@ -39,19 +39,19 @@ export default class extends Component {
       {
         title: 'Apples',
         disabled: false,
-        data: getRandomSeriesData(totalValues)
+        data: getRandomSeriesData(totalValues),
       },
       {
         title: 'Bananas',
         disabled: false,
-        data: getRandomSeriesData(totalValues)
-      }
-    ]
+        data: getRandomSeriesData(totalValues),
+      },
+    ],
   };
 
   _updateButtonClicked = () => {
     const { series } = this.state;
-    series.forEach(s => {
+    series.forEach((s) => {
       s.data = getRandomSeriesData(Math.random() * 50 + 5);
     });
     this.setState({ series });
@@ -60,27 +60,25 @@ export default class extends Component {
   _nearestXHandler = (value, { index }) => {
     const { series } = this.state;
     this.setState({
-      crosshairValues: series.map(s => s.data[index])
+      crosshairValues: series.map(s => s.data[index]),
     });
   };
 
   _mouseLeaveHandler = () => {
     this.setState({ crosshairValues: [] });
   };
-  _formatCrosshairTitle = values => {
-    return {
-      title: 'X',
-      value: values[0].x
-    };
-  };
-  _formatCrosshairItems = values => {
+
+  _formatCrosshairTitle = values => ({
+    title: 'X',
+    value: values[0].x,
+  });
+
+  _formatCrosshairItems = (values) => {
     const { series } = this.state;
-    return values.map((v, i) => {
-      return {
-        title: series[i].title,
-        value: v.y
-      };
-    });
+    return values.map((v, i) => ({
+      title: series[i].title,
+      value: v.y,
+    }));
   };
 
   _legendClickHandler = (item, i) => {

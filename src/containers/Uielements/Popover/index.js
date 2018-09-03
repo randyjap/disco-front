@@ -13,9 +13,13 @@ import PopoverWrapper from './popover.style';
 const content = (
   <PopoverWrapper>
     <p>
-      The most basic example. <br />
+      The most basic example.
+      {' '}
+      <br />
       The size of the floating layer depends
-      <br /> on the contents region.
+      <br />
+      {' '}
+on the contents region.
     </p>
     <p>Content</p>
   </PopoverWrapper>
@@ -23,16 +27,19 @@ const content = (
 
 export default class extends Component {
   state = {
-    visible: false
+    visible: false,
   };
+
   hide = () => {
     this.setState({
-      visible: false
+      visible: false,
     });
   };
-  handleVisibleChange = visible => {
+
+  handleVisibleChange = (visible) => {
     this.setState({ visible });
   };
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -247,11 +254,11 @@ export default class extends Component {
             >
               <ContentHolder>
                 <Popover
-                  content={
+                  content={(
                     <a onClick={this.hide}>
                       {<IntlMessages id="uiElements.popover.close" />}
                     </a>
-                  }
+)}
                   title={<IntlMessages id="uiElements.popover.title" />}
                   trigger="click"
                   visible={this.state.visible}

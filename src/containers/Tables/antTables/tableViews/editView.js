@@ -3,7 +3,7 @@ import clone from 'clone';
 import TableWrapper from '../antTable.style';
 import {
   EditableCell,
-  DeleteCell
+  DeleteCell,
 } from '../../../../components/tables/helperCells';
 
 export default class extends Component {
@@ -13,9 +13,10 @@ export default class extends Component {
     this.onDeleteCell = this.onDeleteCell.bind(this);
     this.state = {
       columns: this.createcolumns(clone(this.props.tableInfo.columns)),
-      dataList: this.props.dataList.getAll()
+      dataList: this.props.dataList.getAll(),
     };
   }
+
   createcolumns(columns) {
     const editColumnRender = (text, record, index) => (
       <EditableCell
@@ -31,21 +32,24 @@ export default class extends Component {
       dataIndex: 'operation',
       render: (text, record, index) => (
         <DeleteCell index={index} onDeleteCell={this.onDeleteCell} />
-      )
+      ),
     };
     columns.push(deleteColumn);
     return columns;
   }
+
   onCellChange(value, columnsKey, index) {
     const { dataList } = this.state;
     dataList[index][columnsKey] = value;
     this.setState({ dataList });
   }
-  onDeleteCell = index => {
+
+  onDeleteCell = (index) => {
     const { dataList } = this.state;
     dataList.splice(index, 1);
     this.setState({ dataList });
   };
+
   render() {
     const { columns, dataList } = this.state;
 

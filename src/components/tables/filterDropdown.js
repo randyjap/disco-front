@@ -4,6 +4,7 @@ import Button from '../uielements/button';
 
 export default class extends Component {
   state = {};
+
   render() {
     const { searchText, onInputChange, onSearch } = this.props;
     return (

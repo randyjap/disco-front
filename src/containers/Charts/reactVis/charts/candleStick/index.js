@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { XYPlot, XAxis, YAxis, LineSeries, makeWidthFlexible } from 'react-vis';
+import {
+  XYPlot, XAxis, YAxis, LineSeries, makeWidthFlexible,
+} from 'react-vis';
 import './candlestick.scss';
 import Candlestick from './candlestick';
 
@@ -7,7 +9,7 @@ const FlexibleXYPlot = makeWidthFlexible(XYPlot);
 
 export default class extends Component {
   state = {
-    data: this.props.datas
+    data: this.props.datas,
   };
 
   render() {

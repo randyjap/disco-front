@@ -38,23 +38,24 @@ export default class ComposeMail extends Component {
     this.state = {
       editorState: null,
       loading: false,
-      iconLoading: false
+      iconLoading: false,
     };
   }
+
   render() {
-    const onEditorStateChange = editorState => {
+    const onEditorStateChange = (editorState) => {
       this.setState({ editorState });
     };
     const ComposeAutoCompleteTO = {
       allMails: this.props.allMails,
       updateData: () => {},
       placeholder: 'To',
-      autofocus: true
+      autofocus: true,
     };
     const ComposeAutoCompleteCC = {
       allMails: this.props.allMails,
       updateData: () => {},
-      placeholder: 'CC'
+      placeholder: 'CC',
     };
     const editorOption = {
       style: { width: '90%', height: '70%' },
@@ -62,9 +63,9 @@ export default class ComposeMail extends Component {
       toolbarClassName: 'home-toolbar',
       wrapperClassName: 'home-wrapper',
       editorClassName: 'home-editor',
-      onEditorStateChange: onEditorStateChange,
-      uploadCallback: uploadCallback,
-      toolbar: { image: { uploadCallback: uploadCallback } }
+      onEditorStateChange,
+      uploadCallback,
+      toolbar: { image: { uploadCallback } },
     };
 
     return (
@@ -90,7 +91,7 @@ export default class ComposeMail extends Component {
 
           <Button
             type="primary"
-            onClick={e => notification('success', `Mail has been sent`, '')}
+            onClick={e => notification('success', 'Mail has been sent', '')}
             className="isoSendMailBtn"
           >
             <IntlMessages id="email.send" />

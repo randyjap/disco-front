@@ -5,7 +5,7 @@ import Dropdown, {
   DropdownButtons,
   DropdownMenu,
   MenuItem,
-  SubMenu
+  SubMenu,
 } from '../../../components/uielements/dropdown';
 import Buttons from '../../../components/uielements/button';
 import message from '../../../components/uielements/message';
@@ -16,29 +16,31 @@ import ContentHolder from '../../../components/utility/contentHolder';
 import basicStyle from '../../../settings/basicStyle';
 import IntlMessages from '../../../components/utility/intlMessages';
 import { rtl } from '../../../settings/withDirection';
+
 const MenuDivider = Menu.Divider;
 const DropdownButton = DropdownButtons;
 const Button = Buttons;
 
 export default class IsoDropDown extends Component {
   state = {
-    visible: false
+    visible: false,
   };
 
-  handleButtonClick = e => {
+  handleButtonClick = (e) => {
     message.info('Click on left button.');
   };
 
-  handleMenuClickToLink = e => {
+  handleMenuClickToLink = (e) => {
     message.info('Click on menu item.');
   };
 
-  handleMenuClick = e => {
+  handleMenuClick = (e) => {
     if (e.key === '3') {
       this.setState({ visible: false });
     }
   };
-  handleVisibleChange = flag => {
+
+  handleVisibleChange = (flag) => {
     this.setState({ visible: flag });
   };
 
@@ -46,7 +48,7 @@ export default class IsoDropDown extends Component {
     const { rowStyle, colStyle, gutter } = basicStyle;
     const demoStyle = {
       marginBottom: '8px',
-      marginRight: '8px'
+      marginRight: '8px',
     };
 
     const menuHover = (
@@ -119,7 +121,8 @@ export default class IsoDropDown extends Component {
               <ContentHolder>
                 <Dropdown overlay={menuHover}>
                   <a className="ant-dropdown-link">
-                    {<IntlMessages id="uiElements.dropdown.hoverMe" />}{' '}
+                    {<IntlMessages id="uiElements.dropdown.hoverMe" />}
+                    {' '}
                     <Icon type="down" />
                   </a>
                 </Dropdown>
@@ -164,7 +167,9 @@ export default class IsoDropDown extends Component {
               <ContentHolder>
                 <Dropdown overlay={menuHoverDisable}>
                   <a className="ant-dropdown-link">
-                    Hover me <Icon type="down" />
+                    Hover me
+                    {' '}
+                    <Icon type="down" />
                   </a>
                 </Dropdown>
               </ContentHolder>
@@ -178,7 +183,9 @@ export default class IsoDropDown extends Component {
               <ContentHolder>
                 <Dropdown overlay={menuHover} trigger={['click']}>
                   <a className="ant-dropdown-link">
-                    Click me <Icon type="down" />
+                    Click me
+                    {' '}
+                    <Icon type="down" />
                   </a>
                 </Dropdown>
               </ContentHolder>
@@ -203,7 +210,7 @@ export default class IsoDropDown extends Component {
                   overlay={menuClicked}
                   disabled
                   style={{
-                    margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px'
+                    margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
                   }}
                 >
                   Dropdown
@@ -211,10 +218,12 @@ export default class IsoDropDown extends Component {
                 <Dropdown overlay={menuClicked}>
                   <Button
                     style={{
-                      margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px'
+                      margin: rtl === 'rtl' ? '0 8px 0 0' : '0 0 0 8px',
                     }}
                   >
-                    Button <Icon type="down" />
+                    Button
+                    {' '}
+                    <Icon type="down" />
                   </Button>
                 </Dropdown>
               </ContentHolder>
@@ -228,7 +237,9 @@ export default class IsoDropDown extends Component {
               <ContentHolder>
                 <Dropdown overlay={menuSubmenu}>
                   <a className="ant-dropdown-link">
-                    Cascading menu <Icon type="down" />
+                    Cascading menu
+                    {' '}
+                    <Icon type="down" />
                   </a>
                 </Dropdown>
               </ContentHolder>

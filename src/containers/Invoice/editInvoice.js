@@ -13,7 +13,7 @@ import InvoicePageWrapper from './singleInvoice.style';
 import { stringToPosetiveInt } from '../../helpers/utility';
 import { orderStatusOptions } from './config';
 
-const updateValues = invoice => {
+const updateValues = (invoice) => {
   const { invoiceList } = invoice;
   let subTotal = 0;
   invoiceList.forEach((item, index) => {
@@ -27,7 +27,7 @@ const updateValues = invoice => {
   invoice.totalCost = invoice.vatPrice + subTotal;
   return invoice;
 };
-const checkInvoice = invoice => {
+const checkInvoice = (invoice) => {
   const emptyKeys = [
     'number',
     'billTo',
@@ -77,6 +77,7 @@ export default class extends Component {
       updateInvoice(editableInvoice);
     }
   };
+
   render() {
     const {
       editableInvoice,
@@ -113,7 +114,7 @@ export default class extends Component {
                   <Input
                     placeholder="Number"
                     value={editableInvoice.number}
-                    onChange={event => {
+                    onChange={(event) => {
                       editableInvoice.number = event.target.value;
                       editInvoice(editableInvoice);
                     }}
@@ -125,7 +126,7 @@ export default class extends Component {
                     <span className="RightSideStatusSpan">Order Status: </span>
                     <OrderStatus
                       value={editableInvoice.orderStatus}
-                      onChange={orderStatus => {
+                      onChange={(orderStatus) => {
                         editableInvoice.orderStatus = orderStatus;
                         editInvoice(editableInvoice);
                       }}
@@ -134,16 +135,17 @@ export default class extends Component {
                     />
                   </div>
                   <div className="RightSideDate">
-                    Order date:{' '}
+                    Order date:
+                    {' '}
                     <DatePicker
                       allowClear={false}
                       value={moment(new Date(editableInvoice.orderDate))}
-                      onChange={val => {
+                      onChange={(val) => {
                         editableInvoice.orderDate = val.toDate().getTime();
                         editInvoice(editableInvoice);
                       }}
                       format="MMMM Do YYYY"
-                      animateYearScrolling={true}
+                      animateYearScrolling
                     />
                   </div>
                 </div>
@@ -153,7 +155,7 @@ export default class extends Component {
                   <Input
                     placeholder="Bill From"
                     value={editableInvoice.billFrom}
-                    onChange={event => {
+                    onChange={(event) => {
                       editableInvoice.billFrom = event.target.value;
                       editInvoice(editableInvoice);
                     }}
@@ -163,7 +165,7 @@ export default class extends Component {
                     placeholder="Bill From Address"
                     value={editableInvoice.billFromAddress}
                     rows={5}
-                    onChange={event => {
+                    onChange={(event) => {
                       editableInvoice.billFromAddress = event.target.value;
                       editInvoice(editableInvoice);
                     }}
@@ -174,7 +176,7 @@ export default class extends Component {
                   <Input
                     placeholder="Bill To"
                     value={editableInvoice.billTo}
-                    onChange={event => {
+                    onChange={(event) => {
                       editableInvoice.billTo = event.target.value;
                       editInvoice(editableInvoice);
                     }}
@@ -184,7 +186,7 @@ export default class extends Component {
                     placeholder="Bill To Address"
                     value={editableInvoice.billToAddress}
                     rows={5}
-                    onChange={event => {
+                    onChange={(event) => {
                       editableInvoice.billToAddress = event.target.value;
                       editInvoice(editableInvoice);
                     }}
@@ -219,9 +221,11 @@ export default class extends Component {
                 <div className="TotalBill">
                   <p>
                     <span className="TotalBillTitle">Sub-total : </span>
-                    <span>{`${editableInvoice.currency}${
-                      editableInvoice.subTotal
-                    }`}</span>
+                    <span>
+                      {`${editableInvoice.currency}${
+                        editableInvoice.subTotal
+                      }`}
+                    </span>
                   </p>
                   <div className="vatRateCalc">
                     <span className="vatRateCalcSpan"> Total Vat : </span>
@@ -229,10 +233,10 @@ export default class extends Component {
                       <Input
                         value={editableInvoice.vatRate}
                         addonAfter="%"
-                        onChange={event => {
+                        onChange={(event) => {
                           editableInvoice.vatRate = stringToPosetiveInt(
                             event.target.value,
-                            editableInvoice.vatRate
+                            editableInvoice.vatRate,
                           );
                           editInvoice(updateValues(editableInvoice));
                         }}
@@ -250,7 +254,7 @@ export default class extends Component {
                     <div className="currencySignWrap">
                       <Input
                         value={editableInvoice.currency}
-                        onChange={event => {
+                        onChange={(event) => {
                           editableInvoice.currency = event.target.value;
                           editInvoice(editableInvoice);
                         }}

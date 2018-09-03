@@ -146,9 +146,7 @@ const routes = [
   },
   {
     path: 'breadcrumb',
-    component: asyncComponent(() =>
-      import('../Uielements/Breadcrumb/breadcrumb')
-    ),
+    component: asyncComponent(() => import('../Uielements/Breadcrumb/breadcrumb')),
   },
   {
     path: 'backToTop',
@@ -220,9 +218,7 @@ const routes = [
   },
   {
     path: 'pagination',
-    component: asyncComponent(() =>
-      import('../Uielements/Pagination/pagination')
-    ),
+    component: asyncComponent(() => import('../Uielements/Pagination/pagination')),
   },
   {
     path: 'reactTrend',
@@ -242,15 +238,11 @@ const routes = [
   },
   {
     path: 'shop',
-    component: asyncComponent(() =>
-      import('../Ecommerce/algolia/instantSearch')
-    ),
+    component: asyncComponent(() => import('../Ecommerce/algolia/instantSearch')),
   },
   {
     path: 'reactDates',
-    component: asyncComponent(() =>
-      import('../AdvancedUI/ReactDates/reactDates')
-    ),
+    component: asyncComponent(() => import('../AdvancedUI/ReactDates/reactDates')),
   },
   {
     path: 'codeMirror',
@@ -292,11 +284,11 @@ class AppRouter extends Component {
     const { url, style } = this.props;
     return (
       <div style={style}>
-        {routes.map(singleRoute => {
+        {routes.map((singleRoute) => {
           const { path, exact, ...otherProps } = singleRoute;
           return (
             <Route
-              exact={exact === false ? false : true}
+              exact={exact !== false}
               key={singleRoute.path}
               path={`${url}/${singleRoute.path}`}
               {...otherProps}

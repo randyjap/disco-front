@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import clone from 'clone';
 import actions from '../../../redux/articles/actions';
 import Input, { Textarea } from '../../../components/uielements/input';
 import Select, {
@@ -22,16 +23,17 @@ import {
   TableWrapper,
   StatusTag,
 } from './articles.style';
-import clone from 'clone';
 
 class Articles extends Component {
   componentDidMount() {
     this.props.loadFromFireStore();
   }
+
   handleRecord = (actionName, article) => {
     if (article.key && actionName !== 'delete') actionName = 'update';
     this.props.saveIntoFireStore(article, actionName);
   };
+
   resetRecords = () => {
     this.props.resetFireStoreDocuments();
   };
@@ -41,13 +43,13 @@ class Articles extends Component {
   };
 
   onRecordChange = (key, event) => {
-    let { article } = clone(this.props);
+    const { article } = clone(this.props);
     if (key) article[key] = event.target.value;
     this.props.update(article);
   };
 
   onSelectChange = (key, value) => {
-    let { article } = clone(this.props);
+    const { article } = clone(this.props);
     if (key) article[key] = value;
     this.props.update(article);
   };
@@ -56,12 +58,10 @@ class Articles extends Component {
     const { modalActive, articles } = this.props;
     const { article } = clone(this.props);
     const dataSource = [];
-    Object.keys(articles).map((article, index) => {
-      return dataSource.push({
-        ...articles[article],
-        key: article,
-      });
-    });
+    Object.keys(articles).map((article, index) => dataSource.push({
+      ...articles[article],
+      key: article,
+    }));
 
     const rowSelection = {
       onChange: (selectedRowKeys, selectedRows) => {},
@@ -79,12 +79,12 @@ class Articles extends Component {
           return 0;
         },
         render: (text, row) => {
-          const trimByWord = sentence => {
+          const trimByWord = (sentence) => {
             let result = sentence;
             let resultArray = result.split(' ');
             if (resultArray.length > 7) {
               resultArray = resultArray.slice(0, 7);
-              result = resultArray.join(' ') + '...';
+              result = `${resultArray.join(' ')}...`;
             }
             return result;
           };
@@ -103,12 +103,12 @@ class Articles extends Component {
           return 0;
         },
         render: (text, row) => {
-          const trimByWord = sentence => {
+          const trimByWord = (sentence) => {
             let result = sentence;
             let resultArray = result.split(' ');
             if (resultArray.length > 20) {
               resultArray = resultArray.slice(0, 20);
-              result = resultArray.join(' ') + '...';
+              result = `${resultArray.join(' ')}...`;
             }
             return result;
           };
@@ -127,12 +127,12 @@ class Articles extends Component {
           return 0;
         },
         render: (text, row) => {
-          const trimByWord = sentence => {
+          const trimByWord = (sentence) => {
             let result = sentence;
             let resultArray = result.split(' ');
             if (resultArray.length > 8) {
               resultArray = resultArray.slice(0, 8);
-              result = resultArray.join(' ') + '...';
+              result = `${resultArray.join(' ')}...`;
             }
             return result;
           };
@@ -177,27 +177,25 @@ class Articles extends Component {
         key: 'action',
         width: '60px',
         className: 'noWrapCell',
-        render: (text, row) => {
-          return (
-            <ActionWrapper>
-              <a onClick={this.handleModal.bind(this, row)}>
-                <i className="ion-android-create" />
-              </a>
+        render: (text, row) => (
+          <ActionWrapper>
+            <a onClick={this.handleModal.bind(this, row)}>
+              <i className="ion-android-create" />
+            </a>
 
-              <Popconfirms
-                title="Are you sure to delete this article？"
-                okText="Yes"
-                cancelText="No"
-                placement="topRight"
-                onConfirm={this.handleRecord.bind(this, 'delete', row)}
-              >
-                <a className="deleteBtn">
-                  <i className="ion-android-delete" />
-                </a>
-              </Popconfirms>
-            </ActionWrapper>
-          );
-        },
+            <Popconfirms
+              title="Are you sure to delete this article？"
+              okText="Yes"
+              cancelText="No"
+              placement="topRight"
+              onConfirm={this.handleRecord.bind(this, 'delete', row)}
+            >
+              <a className="deleteBtn">
+                <i className="ion-android-delete" />
+              </a>
+            </Popconfirms>
+          </ActionWrapper>
+        ),
       },
     ];
 
@@ -292,7 +290,7 @@ class Articles extends Component {
               rowKey="key"
               rowSelection={rowSelection}
               columns={columns}
-              bordered={true}
+              bordered
               dataSource={dataSource}
               loading={this.props.isLoading}
               className="isoSimpleTable"
@@ -300,11 +298,9 @@ class Articles extends Component {
                 // defaultPageSize: 1,
                 hideOnSinglePage: true,
                 total: dataSource.length,
-                showTotal: (total, range) => {
-                  return `Showing ${range[0]}-${range[1]} of ${
-                    dataSource.length
-                  } Results`;
-                },
+                showTotal: (total, range) => `Showing ${range[0]}-${range[1]} of ${
+                  dataSource.length
+                } Results`,
               }}
             />
           </ContentHolder>
@@ -318,5 +314,5 @@ export default connect(
   state => ({
     ...state.Articles,
   }),
-  actions
+  actions,
 )(Articles);

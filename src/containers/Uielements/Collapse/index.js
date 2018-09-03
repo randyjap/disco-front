@@ -18,7 +18,8 @@ const Collapse = props => (
 );
 
 export default class extends Component {
-  callback = key => {};
+  callback = (key) => {};
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (

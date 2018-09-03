@@ -3,7 +3,7 @@ import { Col, Row, Icon } from 'antd';
 import Input, {
   InputSearch,
   InputGroup,
-  Textarea
+  Textarea,
 } from '../../../components/uielements/input';
 import InputNumber from '../../../components/uielements/InputNumber';
 import Select, { SelectOption } from '../../../components/uielements/select';
@@ -34,14 +34,15 @@ const selectAfter = (
 
 export default class extends Component {
   state = {
-    dataSource: []
+    dataSource: [],
   };
-  handleChange = value => {
+
+  handleChange = (value) => {
     this.setState({
       dataSource:
         !value || value.indexOf('@') >= 0
           ? []
-          : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`]
+          : [`${value}@gmail.com`, `${value}@163.com`, `${value}@qq.com`],
     });
   };
 
@@ -49,10 +50,10 @@ export default class extends Component {
     const rowStyle = {
       width: '100%',
       display: 'flex',
-      flexFlow: 'row wrap'
+      flexFlow: 'row wrap',
     };
     const colStyle = {
-      marginBottom: '16px'
+      marginBottom: '16px',
     };
     const gutter = 16;
     return (

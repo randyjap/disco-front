@@ -9,7 +9,7 @@ import { BillingFormWrapper, InputBoxWrapper } from './checkout.style';
 const Option = SelectOption;
 
 export default class extends Component {
-  handleOnChange = checkedValues => {};
+  handleOnChange = (checkedValues) => {};
 
   render() {
     return (

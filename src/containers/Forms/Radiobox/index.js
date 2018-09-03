@@ -14,12 +14,12 @@ const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange' }
+  { label: 'Orange', value: 'Orange' },
 ];
 const optionsWithDisabled = [
   { label: 'Apple', value: 'Apple' },
   { label: 'Pear', value: 'Pear' },
-  { label: 'Orange', value: 'Orange', disabled: false }
+  { label: 'Orange', value: 'Orange', disabled: false },
 ];
 
 export default class extends Component {
@@ -28,38 +28,44 @@ export default class extends Component {
     value1: 'Apple',
     value2: 'Apple',
     value3: 'Apple',
-    value4: 11
+    value4: 11,
   };
-  onChange = e => {
+
+  onChange = (e) => {
     this.setState({
-      value: e.target.value
+      value: e.target.value,
     });
   };
-  onChange1 = e => {
+
+  onChange1 = (e) => {
     this.setState({
-      value1: e.target.value
+      value1: e.target.value,
     });
   };
-  onChange2 = e => {
+
+  onChange2 = (e) => {
     this.setState({
-      value2: e.target.value
+      value2: e.target.value,
     });
   };
-  onChange3 = e => {
+
+  onChange3 = (e) => {
     this.setState({
-      value3: e.target.value
+      value3: e.target.value,
     });
   };
-  onChange4 = e => {
+
+  onChange4 = (e) => {
     this.setState({
-      value4: e.target.value
+      value4: e.target.value,
     });
   };
+
   render() {
     const radioStyle = {
       display: 'block',
       height: '30px',
-      lineHeight: '30px'
+      lineHeight: '30px',
     };
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -107,7 +113,7 @@ export default class extends Component {
                         style={{
                           width: 100,
                           marginLeft: rtl === 'rtl' ? 0 : 10,
-                          marginRight: rtl === 'rtl' ? 10 : 0
+                          marginRight: rtl === 'rtl' ? 10 : 0,
                         }}
                       />
                     ) : null}

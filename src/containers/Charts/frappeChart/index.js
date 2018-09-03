@@ -1,19 +1,20 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
-import FrappeChart from "frappe-charts/dist/frappe-charts.min.esm";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import Button from "../../../components/uielements/button";
-import basicStyle from "../../../settings/basicStyle";
-import * as configs from "./config";
-import "frappe-charts/dist/frappe-charts.min.css";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import FrappeChart from 'frappe-charts/dist/frappe-charts.min.esm';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import Button from '../../../components/uielements/button';
+import basicStyle from '../../../settings/basicStyle';
+import * as configs from './config';
+import 'frappe-charts/dist/frappe-charts.min.css';
 
 export default class extends Component {
   state = {
-    currentIndex: 2
+    currentIndex: 2,
   };
+
   componentDidMount() {
     new FrappeChart(configs.barChart);
     new FrappeChart(configs.lineChart);
@@ -24,6 +25,7 @@ export default class extends Component {
     new FrappeChart(configs.heatMapHalloween);
     this.updatedChart = new FrappeChart(configs.updatedChart);
   }
+
   addData = () => {
     let { currentIndex } = this.state;
     currentIndex += 1;
@@ -31,6 +33,7 @@ export default class extends Component {
     this.updatedChart.add_data_point(data.values, data.title);
     this.setState({ currentIndex });
   };
+
   removeData = () => {
     const { currentIndex } = this.state;
     if (currentIndex > 0) {
@@ -38,6 +41,7 @@ export default class extends Component {
       this.setState({ currentIndex: currentIndex - 1 });
     }
   };
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -47,10 +51,10 @@ export default class extends Component {
           <Col md={24} xs={24} style={colStyle}>
             <Box title={configs.updatedChart.header}>
               <ContentHolder>
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <Button
                     onClick={this.addData}
-                    style={{ marginRight: "10px" }}
+                    style={{ marginRight: '10px' }}
                   >
                     + Add Value
                   </Button>

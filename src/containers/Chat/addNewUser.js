@@ -1,51 +1,55 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import moment from "moment";
-import Input from "../../components/uielements/input";
-import Tooltip from "../../components/uielements/tooltip";
-import Radio, { RadioGroup } from "../../components/uielements/radio";
-import DatePicker from "../../components/uielements/datePicker";
-import Modal from "../../components/feedback/modal";
-import notification from "../../components/notification";
-import actions from "../../redux/chat/actions";
-import { AddUserBtn, Fieldset, Form, Label } from "./message.style";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import moment from 'moment';
+import Input from '../../components/uielements/input';
+import Tooltip from '../../components/uielements/tooltip';
+import Radio, { RadioGroup } from '../../components/uielements/radio';
+import DatePicker from '../../components/uielements/datePicker';
+import Modal from '../../components/feedback/modal';
+import notification from '../../components/notification';
+import actions from '../../redux/chat/actions';
+import {
+  AddUserBtn, Fieldset, Form, Label,
+} from './message.style';
 
-const dateFormat = "DD/MM/YYYY";
+const dateFormat = 'DD/MM/YYYY';
 
 class AddNewUser extends Component {
   handleCancel = () => {
     this.props.updateNewUsersProp({ modalActive: false });
   };
+
   initAddUser = () => {
     this.props.updateNewUsersProp({
       modalActive: true,
-      name: "New User",
-      dob: "22/04/1992",
-      mobileNo: "9429692135",
-      gender: "Male",
-      language: "English",
+      name: 'New User',
+      dob: '22/04/1992',
+      mobileNo: '9429692135',
+      gender: 'Male',
+      language: 'English',
       profileImageUrl:
-        "https://thumb7.shutterstock.com/display_pic_with_logo/818215/552201991/stock-photo-beautiful-young-grinning-professional-black-woman-in-office-with-eyeglasses-folded-arms-and-552201991.jpg"
+        'https://thumb7.shutterstock.com/display_pic_with_logo/818215/552201991/stock-photo-beautiful-young-grinning-professional-black-woman-in-office-with-eyeglasses-folded-arms-and-552201991.jpg',
     });
   };
-  userNameExist = newUser =>
-    this.props.users.findIndex(
-      user => user.name.toLowerCase() === newUser.name.toLowerCase()
-    ) !== -1;
+
+  userNameExist = newUser => this.props.users.findIndex(
+    user => user.name.toLowerCase() === newUser.name.toLowerCase(),
+  ) !== -1;
 
   addUser = () => {
     const { user, addNewUsersProp, addNewUser } = this.props;
     if (addNewUsersProp.name) {
       if (this.userNameExist(addNewUsersProp)) {
-        notification("error", "User name already exists");
+        notification('error', 'User name already exists');
       } else {
         addNewUser(user, addNewUsersProp);
-        notification("success", "New user created successfuly");
+        notification('success', 'New user created successfuly');
       }
     } else {
-      notification("error", "please add new user name");
+      notification('error', 'please add new user name');
     }
   };
+
   render() {
     const {
       addNewUsersProp,
@@ -55,7 +59,7 @@ class AddNewUser extends Component {
       mobileNo,
       gender,
       language,
-      updateNewUsersProp
+      updateNewUsersProp,
     } = this.props;
     return (
       <div>
@@ -79,8 +83,8 @@ class AddNewUser extends Component {
               <Input
                 label="Name"
                 placeholder="Enter Name"
-                value={name || ""}
-                onChange={event => {
+                value={name || ''}
+                onChange={(event) => {
                   addNewUsersProp.name = event.target.value;
                   updateNewUsersProp(addNewUsersProp);
                 }}
@@ -92,8 +96,8 @@ class AddNewUser extends Component {
               <Input
                 label="Mobile"
                 placeholder="Mobile No"
-                value={mobileNo || ""}
-                onChange={event => {
+                value={mobileNo || ''}
+                onChange={(event) => {
                   addNewUsersProp.mobileNo = event.target.value;
                   updateNewUsersProp(addNewUsersProp);
                 }}
@@ -106,7 +110,7 @@ class AddNewUser extends Component {
                 id="gender"
                 name="gender"
                 value={gender}
-                onChange={event => {
+                onChange={(event) => {
                   addNewUsersProp.gender = event.target.value;
                   updateNewUsersProp(addNewUsersProp);
                 }}
@@ -122,8 +126,8 @@ class AddNewUser extends Component {
               <Input
                 label="Language"
                 placeholder="Language"
-                value={language || ""}
-                onChange={event => {
+                value={language || ''}
+                onChange={(event) => {
                   addNewUsersProp.language = event.target.value;
                   updateNewUsersProp(addNewUsersProp);
                 }}
@@ -151,6 +155,8 @@ class AddNewUser extends Component {
 
 function mapStateToProps(state) {
   const { user, users, addNewUsersProp } = state.Chat;
-  return { user, users, addNewUsersProp, ...addNewUsersProp };
+  return {
+    user, users, addNewUsersProp, ...addNewUsersProp,
+  };
 }
 export default connect(mapStateToProps, actions)(AddNewUser);

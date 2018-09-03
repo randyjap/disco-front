@@ -34,41 +34,44 @@ export default class extends Component {
     expandedKeys: ['0-0-0', '0-0-1'],
     autoExpandParent: true,
     checkedKeys: ['0-0-0'],
-    selectedKeys: []
+    selectedKeys: [],
   };
-  onExpand = expandedKeys => {
+
+  onExpand = (expandedKeys) => {
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
     // or, you can remove all expanded children keys.
     this.setState({
       expandedKeys,
-      autoExpandParent: false
+      autoExpandParent: false,
     });
   };
-  onCheck = checkedKeys => {
+
+  onCheck = (checkedKeys) => {
     this.setState({
       checkedKeys,
-      selectedKeys: ['0-3', '0-4']
+      selectedKeys: ['0-3', '0-4'],
     });
   };
+
   onSelect = (selectedKeys, info) => {
     this.setState({ selectedKeys });
   };
+
   render() {
-    const loop = data =>
-      data.map(item => {
-        if (item.children) {
-          return (
-            <TreeNode
-              key={item.key}
-              title={item.key}
-              disableCheckbox={item.key === '0-0-0'}
-            >
-              {loop(item.children)}
-            </TreeNode>
-          );
-        }
-        return <TreeNode key={item.key} title={item.key} />;
-      });
+    const loop = data => data.map((item) => {
+      if (item.children) {
+        return (
+          <TreeNode
+            key={item.key}
+            title={item.key}
+            disableCheckbox={item.key === '0-0-0'}
+          >
+            {loop(item.children)}
+          </TreeNode>
+        );
+      }
+      return <TreeNode key={item.key} title={item.key} />;
+    });
     return (
       <Tree
         checkable

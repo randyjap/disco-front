@@ -15,13 +15,13 @@ function _getRandomData() {
     leaves.push({
       title,
       size: Math.random() * 1000,
-      color: Math.random()
+      color: Math.random(),
     });
   }
   return {
     title: '',
     color: 1,
-    children: leaves
+    children: leaves,
   };
 }
 
@@ -29,7 +29,7 @@ export default class extends Component {
   state = {
     hoveredNode: false,
     treemapData: _getRandomData(),
-    useCirclePacking: false
+    useCirclePacking: false,
   };
 
   render() {
@@ -38,23 +38,22 @@ export default class extends Component {
     const treeProps = {
       animation: {
         damping: 9,
-        stiffness: 300
+        stiffness: 300,
       },
       data: this.state.treemapData,
       onLeafMouseOver: x => this.setState({ hoveredNode: x }),
       onLeafMouseOut: () => this.setState({ hoveredNode: false }),
       onLeafClick: () => this.setState({ treemapData: _getRandomData() }),
-      height: height,
+      height,
       mode: this.state.useCirclePacking ? 'circlePack' : 'squarify',
-      width: width
+      width,
     };
     return (
       <ChartWrapper className="isoChartWrapper">
         <div className="isoChartControl">
           <Button
-            onClick={() =>
-              this.setState({ useCirclePacking: !useCirclePacking })}
-            buttonContent={'TOGGLE CIRCLE PACK'}
+            onClick={() => this.setState({ useCirclePacking: !useCirclePacking })}
+            buttonContent="TOGGLE CIRCLE PACK"
           />
         </div>
         <Treemap {...treeProps} />

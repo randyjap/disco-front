@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import clone from "clone";
-import { Link } from "react-router-dom";
-import { Layout } from "antd";
-import options from "./options";
-import Scrollbars from "../../components/utility/customScrollBar.js";
-import Menu from "../../components/uielements/menu";
-import IntlMessages from "../../components/utility/intlMessages";
-import SidebarWrapper from "./sidebar.style";
-import appActions from "../../redux/app/actions";
-import Logo from "../../components/utility/logo";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import clone from 'clone';
+import { Link } from 'react-router-dom';
+import { Layout } from 'antd';
+import options from './options';
+import Scrollbars from '../../components/utility/customScrollBar.js';
+import Menu from '../../components/uielements/menu';
+import IntlMessages from '../../components/utility/intlMessages';
+import SidebarWrapper from './sidebar.style';
+import appActions from '../../redux/app/actions';
+import Logo from '../../components/utility/logo';
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -19,10 +19,10 @@ const {
   toggleOpenDrawer,
   changeOpenKeys,
   changeCurrent,
-  toggleCollapsed
+  toggleCollapsed,
 } = appActions;
-const stripTrailingSlash = str => {
-  if (str.substr(-1) === "/") {
+const stripTrailingSlash = (str) => {
+  if (str.substr(-1) === '/') {
     return str.substr(0, str.length - 1);
   }
   return str;
@@ -34,22 +34,24 @@ class Sidebar extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.onOpenChange = this.onOpenChange.bind(this);
   }
+
   handleClick(e) {
     this.props.changeCurrent([e.key]);
-    if (this.props.app.view === "MobileView") {
+    if (this.props.app.view === 'MobileView') {
       setTimeout(() => {
         this.props.toggleCollapsed();
         this.props.toggleOpenDrawer();
       }, 100);
     }
   }
+
   onOpenChange(newOpenKeys) {
     const { app, changeOpenKeys } = this.props;
     const latestOpenKey = newOpenKeys.find(
-      key => !(app.openKeys.indexOf(key) > -1)
+      key => !(app.openKeys.indexOf(key) > -1),
     );
     const latestCloseKey = app.openKeys.find(
-      key => !(newOpenKeys.indexOf(key) > -1)
+      key => !(newOpenKeys.indexOf(key) > -1),
     );
     let nextOpenKeys = [];
     if (latestOpenKey) {
@@ -60,29 +62,33 @@ class Sidebar extends Component {
     }
     changeOpenKeys(nextOpenKeys);
   }
-  getAncestorKeys = key => {
+
+  getAncestorKeys = (key) => {
     const map = {
-      sub3: ["sub2"]
+      sub3: ['sub2'],
     };
     return map[key] || [];
   };
+
   getMenuItem = ({ singleOption, submenuStyle, submenuColor }) => {
-    const { key, label, leftIcon, children } = singleOption;
+    const {
+      key, label, leftIcon, children,
+    } = singleOption;
     const url = stripTrailingSlash(this.props.url);
     if (children) {
       return (
         <SubMenu
           key={key}
-          title={
+          title={(
             <span className="isoMenuHolder" style={submenuColor}>
               <i className={leftIcon} />
               <span className="nav-text">
                 <IntlMessages id={label} />
               </span>
             </span>
-          }
+)}
         >
-          {children.map(child => {
+          {children.map((child) => {
             const linkTo = child.withoutDashboard
               ? `/${child.key}`
               : `${url}/${child.key}`;
@@ -110,38 +116,39 @@ class Sidebar extends Component {
       </Menu.Item>
     );
   };
+
   render() {
-    const { app, toggleOpenDrawer, customizedTheme, height } = this.props;
+    const {
+      app, toggleOpenDrawer, customizedTheme, height,
+    } = this.props;
     const collapsed = clone(app.collapsed) && !clone(app.openDrawer);
     const { openDrawer } = app;
-    const mode = collapsed === true ? "vertical" : "inline";
-    const onMouseEnter = event => {
+    const mode = collapsed === true ? 'vertical' : 'inline';
+    const onMouseEnter = (event) => {
       if (openDrawer === false) {
         toggleOpenDrawer();
       }
-      return;
     };
     const onMouseLeave = () => {
       if (openDrawer === true) {
         toggleOpenDrawer();
       }
-      return;
     };
     const styling = {
-      backgroundColor: customizedTheme.backgroundColor
+      backgroundColor: customizedTheme.backgroundColor,
     };
     const submenuStyle = {
-      backgroundColor: "rgba(0,0,0,0.3)",
-      color: customizedTheme.textColor
+      backgroundColor: 'rgba(0,0,0,0.3)',
+      color: customizedTheme.textColor,
     };
     const submenuColor = {
-      color: customizedTheme.textColor
+      color: customizedTheme.textColor,
     };
     return (
       <SidebarWrapper>
         <Sider
           trigger={null}
-          collapsible={true}
+          collapsible
           collapsed={collapsed}
           width={240}
           className="YoubiquitySidebar"
@@ -160,20 +167,18 @@ class Sidebar extends Component {
               selectedKeys={app.current}
               onOpenChange={this.onOpenChange}
             >
-              {options.map(singleOption =>
-                this.getMenuItem({ submenuStyle, submenuColor, singleOption })
-              )}
+              {options.map(singleOption => this.getMenuItem({ submenuStyle, submenuColor, singleOption }))}
               {/* Demo Menu */}
               <SubMenu
                 key="sub1"
-                title={
+                title={(
                   <span className="isoMenuHolder" style={submenuColor}>
                     <i className="ion-android-options" />
                     <span className="nav-text">
                       <IntlMessages id="sidebar.menuLevels" />
                     </span>
                   </span>
-                }
+)}
               >
                 <MenuItemGroup
                   key="g1"
@@ -210,7 +215,9 @@ export default connect(
   state => ({
     app: state.App,
     customizedTheme: state.ThemeSwitcher.sidebarTheme,
-    height: state.App.height
+    height: state.App.height,
   }),
-  { toggleOpenDrawer, changeOpenKeys, changeCurrent, toggleCollapsed }
+  {
+    toggleOpenDrawer, changeOpenKeys, changeCurrent, toggleCollapsed,
+  },
 )(Sidebar);

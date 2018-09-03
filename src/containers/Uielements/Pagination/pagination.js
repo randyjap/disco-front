@@ -10,18 +10,21 @@ import IntlMessages from '../../../components/utility/intlMessages';
 
 export default class extends Component {
   state = {
-    current: 3
+    current: 3,
   };
+
   onShowSizeChange = (current, pageSize) => {};
-  onChange = pageNumber => {};
-  showTotal = total => {
-    return `Total ${total} items`;
-  };
-  onChangeControlled = page => {
+
+  onChange = (pageNumber) => {};
+
+  showTotal = total => `Total ${total} items`;
+
+  onChangeControlled = (page) => {
     this.setState({
-      current: page
+      current: page,
     });
   };
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -126,8 +129,7 @@ export default class extends Component {
                 <br />
                 <Pagination
                   total={85}
-                  showTotal={(total, range) =>
-                    `${range[0]}-${range[1]} of ${total} items`}
+                  showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} items`}
                   pageSize={20}
                   defaultCurrent={1}
                 />

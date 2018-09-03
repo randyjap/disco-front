@@ -1,55 +1,55 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
-import Async from "../../../helpers/asyncComponent";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import PageHeader from "../../../components/utility/pageHeader";
-import ContentHolder from "../../../components/utility/contentHolder";
-import IntlMessages from "../../../components/utility/intlMessages";
-import Box from "../../../components/utility/box";
-import NoAPIKey from "../../../components/utility/noApiKey";
-import basicStyle from "../../../settings/basicStyle";
-import { mapboxConfig } from "../../../settings";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import Async from '../../../helpers/asyncComponent';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import PageHeader from '../../../components/utility/pageHeader';
+import ContentHolder from '../../../components/utility/contentHolder';
+import IntlMessages from '../../../components/utility/intlMessages';
+import Box from '../../../components/utility/box';
+import NoAPIKey from '../../../components/utility/noApiKey';
+import basicStyle from '../../../settings/basicStyle';
+import { mapboxConfig } from '../../../settings';
 
 const BasicLeafletMap = props => (
   <Async
-    load={import(/* webpackChunkName: "basicLeafletMap" */ "./maps/basic")}
+    load={import(/* webpackChunkName: "basicLeafletMap" */ './maps/basic')}
     componentProps={props}
-    componentArguement={"leafletMap"}
+    componentArguement="leafletMap"
   />
 );
 const BasicLeafletMapWithMarker = props => (
   <Async
-    load={import(/* webpackChunkName: "basicLeafletMapWithMarker" */ "./maps/mapWithDefaultMarker.js")}
+    load={import(/* webpackChunkName: "basicLeafletMapWithMarker" */ './maps/mapWithDefaultMarker.js')}
     componentProps={props}
-    componentArguement={"leafletMap"}
+    componentArguement="leafletMap"
   />
 );
 const LeafletMapWithCustomIconMarker = props => (
   <Async
-    load={import(/* webpackChunkName: "LeafletMapWithCustomMarker" */ "./maps/mapWithCustomIconMarker.js")}
+    load={import(/* webpackChunkName: "LeafletMapWithCustomMarker" */ './maps/mapWithCustomIconMarker.js')}
     componentProps={props}
-    componentArguement={"leafletMap"}
+    componentArguement="leafletMap"
   />
 );
 const LeafletMapWithCustomHtmlMarker = props => (
   <Async
-    load={import(/* webpackChunkName: "LeafletMapWithCustomHtmlMarker" */ "./maps/mapWithCustomHtmlMarker.js")}
+    load={import(/* webpackChunkName: "LeafletMapWithCustomHtmlMarker" */ './maps/mapWithCustomHtmlMarker.js')}
     componentProps={props}
-    componentArguement={"leafletMap"}
+    componentArguement="leafletMap"
   />
 );
 const LeafletMapWithMarkerCluster = props => (
   <Async
-    load={import(/* webpackChunkName: "LeafletMapWithMarkerCluster" */ "./maps/mapWithMarkerCluster.js")}
+    load={import(/* webpackChunkName: "LeafletMapWithMarkerCluster" */ './maps/mapWithMarkerCluster.js')}
     componentProps={props}
-    componentArguement={"leafletMap"}
+    componentArguement="leafletMap"
   />
 );
 const LeafletMapWithRouting = props => (
   <Async
-    load={import(/* webpackChunkName: "LeafletMapWithCustomMarker" */ "./maps/mapWithRouting.js")}
+    load={import(/* webpackChunkName: "LeafletMapWithCustomMarker" */ './maps/mapWithRouting.js')}
     componentProps={props}
-    componentArguement={"leafletMap"}
+    componentArguement="leafletMap"
   />
 );
 

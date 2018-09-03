@@ -12,9 +12,11 @@ import Spin from './spin.style';
 
 export default class extends Component {
   state = { loading: false };
-  toggle = value => {
+
+  toggle = (value) => {
     this.setState({ loading: value });
   };
+
   render() {
     const container = (
       <Alert
@@ -26,7 +28,7 @@ export default class extends Component {
     const style = {
       textAlign: 'center',
       background: '#f1f3f6',
-      padding: '30px 50px'
+      padding: '30px 50px',
     };
 
     const { rowStyle, colStyle, gutter } = basicStyle;

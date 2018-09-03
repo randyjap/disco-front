@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import Async from "../../../helpers/asyncComponent";
-import DynamicChartComponent from "./dynamicChartComponent";
-import * as configs from "./configs";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import ContentHolder from "../../../components/utility/contentHolder";
+import React, { Component } from 'react';
+import Async from '../../../helpers/asyncComponent';
+import DynamicChartComponent from './dynamicChartComponent';
+import * as configs from './configs';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import ContentHolder from '../../../components/utility/contentHolder';
 
-import "echarts-liquidfill";
+import 'echarts-liquidfill';
 
 const ReactEcharts = props => (
   <Async
-    load={import(/* webpackChunkName: "Echarts" */ "echarts-for-react")}
+    load={import(/* webpackChunkName: "Echarts" */ 'echarts-for-react')}
     componentProps={props}
   />
 );
@@ -20,12 +20,13 @@ export default class extends Component {
   clickBtn() {
     window.open(
       this.refs.echarts_react.getEchartsInstance().getDataURL(),
-      "_blank"
+      '_blank',
     );
   }
+
   render() {
-    const style = { height: "700px", width: "100%" };
-    const className = "react_for_echarts";
+    const style = { height: '700px', width: '100%' };
+    const className = 'react_for_echarts';
     return (
       <LayoutWrapper className="isoMapPage">
         <PageHeader>E Charts</PageHeader>

@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
-import Input from '../uielements/input';
 import { Icon } from 'antd';
+import Input from '../uielements/input';
 
 export default class extends Component {
   state = {
     value: this.props.value,
-    editable: false
+    editable: false,
   };
-  handleChange = event => {
+
+  handleChange = (event) => {
     const value = event.target.value;
     this.setState({ value });
   };
+
   check = () => {
     this.setState({ editable: false });
     if (this.props.onChange) {
       this.props.onChange(
         this.state.value,
         this.props.columnsKey,
-        this.props.index
+        this.props.index,
       );
     }
   };
+
   edit = () => {
     this.setState({ editable: true });
   };
+
   render() {
     const { value, editable } = this.state;
     return (

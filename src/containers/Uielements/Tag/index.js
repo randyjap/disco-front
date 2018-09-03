@@ -27,9 +27,11 @@ export default class extends Component {
     selectedTags: [],
     tags: ['Unremovable', 'Tag 2', 'Tag 3'],
     inputVisible: false,
-    inputValue: ''
+    inputValue: '',
   };
-  log = e => {};
+
+  log = (e) => {};
+
   handleChange = (tag, checked) => {
     const { selectedTags } = this.state;
     const nextSelectedTags = checked
@@ -37,20 +39,23 @@ export default class extends Component {
       : selectedTags.filter(t => t !== tag);
     this.setState({ selectedTags: nextSelectedTags });
   };
-  preventDefault = e => {
+
+  preventDefault = (e) => {
     e.preventDefault();
   };
-  handleClose = removedTag => {
+
+  handleClose = (removedTag) => {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     this.setState({ tags });
   };
+
   showInput = () => {
     this.setState({ inputVisible: true }, () => {
       document.getElementById('newTagsInput').focus();
     });
   };
 
-  handleInputChange = e => {
+  handleInputChange = (e) => {
     this.setState({ inputValue: e.target.value });
   };
 
@@ -64,11 +69,14 @@ export default class extends Component {
     this.setState({
       tags,
       inputVisible: false,
-      inputValue: ''
+      inputValue: '',
     });
   };
+
   render() {
-    const { selectedTags, tags, inputVisible, inputValue } = this.state;
+    const {
+      selectedTags, tags, inputVisible, inputValue,
+    } = this.state;
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
       <LayoutWrapper>
@@ -115,7 +123,10 @@ export default class extends Component {
               subtitle={<IntlMessages id="uiElements.tags.hotTagsSubTitle" />}
             >
               <ContentHolder>
-                <strong>{<IntlMessages id="uiElements.tags.hots" />} </strong>
+                <strong>
+                  {<IntlMessages id="uiElements.tags.hots" />}
+                  {' '}
+                </strong>
                 {tagsFromServer.map(tag => (
                   <CheckableTag
                     key={tag}

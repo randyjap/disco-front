@@ -11,7 +11,7 @@ import LaddaButton, {
   SLIDE_LEFT,
   SLIDE_UP,
   ZOOM_IN,
-  ZOOM_OUT
+  ZOOM_OUT,
 } from 'react-ladda';
 import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';
@@ -21,13 +21,13 @@ import './laddaButton.css';
 
 export default class extends Component {
   state = {
-    loading: false
+    loading: false,
   };
 
   toggle = () => {
     this.setState({
       loading: !this.state.loading,
-      progress: 0.5
+      progress: 0.5,
     });
     setTimeout(() => {
       this.setState({ loading: false });
@@ -38,10 +38,10 @@ export default class extends Component {
     const rowStyle = {
       width: '100%',
       display: 'flex',
-      flexFlow: 'row wrap'
+      flexFlow: 'row wrap',
     };
     const colStyle = {
-      marginBottom: '16px'
+      marginBottom: '16px',
     };
     const gutter = 16;
     return (

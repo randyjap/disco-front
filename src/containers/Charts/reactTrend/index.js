@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Async from "../../../helpers/asyncComponent";
+import React, { Component } from 'react';
+import Async from '../../../helpers/asyncComponent';
 import {
   data,
   autoDraw,
@@ -9,15 +9,15 @@ import {
   gradient,
   radius,
   strokeWidth,
-  strokeLinecap
-} from "./config";
-import PageHeader from "../../../components/utility/pageHeader";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import Box from "../../../components/utility/box";
+  strokeLinecap,
+} from './config';
+import PageHeader from '../../../components/utility/pageHeader';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import Box from '../../../components/utility/box';
 
 const Trend = props => (
   <Async
-    load={import(/* webpackChunkName: "react-trend" */ "react-trend")}
+    load={import(/* webpackChunkName: "react-trend" */ 'react-trend')}
     componentProps={props}
   />
 );

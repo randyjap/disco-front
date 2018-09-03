@@ -11,8 +11,9 @@ import { rtl } from '../../../settings/withDirection';
 
 export default class extends Component {
   state = {
-    percent: 0
+    percent: 0,
   };
+
   increase = () => {
     let percent = this.state.percent + 10;
     if (percent > 100) {
@@ -20,6 +21,7 @@ export default class extends Component {
     }
     this.setState({ percent });
   };
+
   decline = () => {
     let percent = this.state.percent - 10;
     if (percent < 0) {
@@ -27,10 +29,11 @@ export default class extends Component {
     }
     this.setState({ percent });
   };
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     const marginStyle = {
-      margin: rtl === 'rtl' ? '0 0 10px 10px' : '0 10px 10px 0'
+      margin: rtl === 'rtl' ? '0 0 10px 10px' : '0 10px 10px 0',
     };
     return (
       <LayoutWrapper>

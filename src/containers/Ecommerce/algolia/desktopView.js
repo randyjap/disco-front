@@ -10,27 +10,29 @@ import AlgoliaSearchPageWrapper from './algolia.style';
 
 export default class extends Component {
   state = {
-    searchState: getInitData()
+    searchState: getInitData(),
   };
-  setVoice = query => {
+
+  setVoice = (query) => {
     const searchState = {
       ...this.state.searchState,
       page: '1',
-      query
+      query,
     };
     this.setState({ searchState });
     setUrl(searchState);
   };
+
   render() {
     const searchInfo = {
       ...AlgoliaSearchConfig,
       indexName: 'default_search',
       searchState: this.state.searchState,
       urlSync: true,
-      onSearchStateChange: searchState => {
+      onSearchStateChange: (searchState) => {
         this.setState({ searchState });
         setUrl(searchState);
-      }
+      },
     };
     return (
       <AlgoliaSearchPageWrapper className="isoAlgoliaSearchPage">

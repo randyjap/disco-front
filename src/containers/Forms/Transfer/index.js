@@ -9,11 +9,13 @@ import IntlMessages from '../../../components/utility/intlMessages';
 export default class extends Component {
   state = {
     mockData: [],
-    targetKeys: []
+    targetKeys: [],
   };
+
   componentDidMount() {
     this.getMock();
   }
+
   getMock = () => {
     const targetKeys = [];
     const mockData = [];
@@ -22,7 +24,7 @@ export default class extends Component {
         key: i.toString(),
         title: `content${i + 1}`,
         description: `description of content${i + 1}`,
-        chosen: Math.random() * 2 > 1
+        chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
         targetKeys.push(data.key);
@@ -31,12 +33,13 @@ export default class extends Component {
     }
     this.setState({ mockData, targetKeys });
   };
-  filterOption = (inputValue, option) => {
-    return option.description.indexOf(inputValue) > -1;
-  };
-  handleChange = targetKeys => {
+
+  filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
+
+  handleChange = (targetKeys) => {
     this.setState({ targetKeys });
   };
+
   render() {
     return (
       <LayoutWrapper>

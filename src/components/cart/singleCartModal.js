@@ -3,7 +3,7 @@ import { notification } from '../index';
 import TopbarCartWrapper from './singleCartModal.style';
 
 export default class extends Component {
-  onChange = value => {
+  onChange = (value) => {
     if (!isNaN(value)) {
       if (value !== this.props.quantity) {
         this.props.changeQuantity(this.props.objectID, value);
@@ -29,7 +29,7 @@ export default class extends Component {
         </div>
         <div className="isoCartDetails">
           <h3>
-            <a >
+            <a>
               {name}
             </a>
           </h3>

@@ -4,18 +4,16 @@ import { CircularGridLines, RadialChart } from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
 function mapData(hoveredSection, datas) {
-  return datas.map((row, index) => {
-    return {
-      ...row,
-      innerRadius: hoveredSection === index + 1 ? row.radius - 1 : null,
-      opacity: !hoveredSection || hoveredSection === index + 1 ? 1 : 0.6
-    };
-  });
+  return datas.map((row, index) => ({
+    ...row,
+    innerRadius: hoveredSection === index + 1 ? row.radius - 1 : null,
+    opacity: !hoveredSection || hoveredSection === index + 1 ? 1 : 0.6,
+  }));
 }
 
 export default class extends Component {
   state = {
-    hoveredSection: false
+    hoveredSection: false,
   };
 
   render() {
@@ -26,7 +24,7 @@ export default class extends Component {
       height,
       radiusDomain,
       tickTotal,
-      rRange
+      rRange,
     } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">

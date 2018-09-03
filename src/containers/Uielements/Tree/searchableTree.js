@@ -31,7 +31,7 @@ const generateData = (_level, _preKey, _tns) => {
 generateData(z);
 
 const dataList = [];
-const generateList = data => {
+const generateList = (data) => {
   for (let i = 0; i < data.length; i++) {
     const node = data[i];
     const key = node.key;
@@ -64,16 +64,18 @@ export default class extends Component {
     searchValue: '',
     autoExpandParent: true,
   };
-  onExpand = expandedKeys => {
+
+  onExpand = (expandedKeys) => {
     this.setState({
       expandedKeys,
       autoExpandParent: false,
     });
   };
-  onChange = e => {
+
+  onChange = (e) => {
     const value = e.target.value;
     const expandedKeys = dataList
-      .map(item => {
+      .map((item) => {
         if (item.key.indexOf(value) > -1) {
           return getParentKey(item.key, gData);
         }
@@ -86,32 +88,31 @@ export default class extends Component {
       autoExpandParent: true,
     });
   };
+
   render() {
     const { searchValue, expandedKeys, autoExpandParent } = this.state;
-    const loop = data =>
-      data.map(item => {
-        const index = item.key.search(searchValue);
-        const beforeStr = item.key.substr(0, index);
-        const afterStr = item.key.substr(index + searchValue.length);
-        const title =
-          index > -1 ? (
-            <span>
-              {beforeStr}
-              <span style={{ color: '#f50' }}>{searchValue}</span>
-              {afterStr}
-            </span>
-          ) : (
-            <span>{item.key}</span>
-          );
-        if (item.children) {
-          return (
-            <TreeNode key={item.key} title={title}>
-              {loop(item.children)}
-            </TreeNode>
-          );
-        }
-        return <TreeNode key={item.key} title={title} />;
-      });
+    const loop = data => data.map((item) => {
+      const index = item.key.search(searchValue);
+      const beforeStr = item.key.substr(0, index);
+      const afterStr = item.key.substr(index + searchValue.length);
+      const title = index > -1 ? (
+        <span>
+          {beforeStr}
+          <span style={{ color: '#f50' }}>{searchValue}</span>
+          {afterStr}
+        </span>
+      ) : (
+        <span>{item.key}</span>
+      );
+      if (item.children) {
+        return (
+          <TreeNode key={item.key} title={title}>
+            {loop(item.children)}
+          </TreeNode>
+        );
+      }
+      return <TreeNode key={item.key} title={title} />;
+    });
     return (
       <div>
         <InputSearch

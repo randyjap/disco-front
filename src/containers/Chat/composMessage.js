@@ -4,19 +4,23 @@ import Button from '../../components/uielements/button';
 import notification from '../../components/notification';
 import actions from '../../redux/chat/actions';
 import { ComposeMessageWrapper, Textarea } from './message.style';
+
 const { sendMessage } = actions;
 
 class ComposeMessage extends Component {
   state = {
     value: '',
   };
+
   componentWillReceiveProps(nextProps) {
     this.setState({ value: '' });
   }
-  onChange = event => {
+
+  onChange = (event) => {
     this.setState({ value: event.target.value });
   };
-  onKeyPress = event => {
+
+  onKeyPress = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
       const { value } = this.state;
@@ -28,6 +32,7 @@ class ComposeMessage extends Component {
       }
     }
   };
+
   render() {
     const { value } = this.state;
     return (
@@ -64,5 +69,5 @@ export default connect(
   mapStateToProps,
   {
     sendMessage,
-  }
+  },
 )(ComposeMessage);

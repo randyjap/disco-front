@@ -4,9 +4,11 @@ import 'react-placeholder/lib/reactPlaceholder.css';
 
 class AsyncComponent extends Component {
   state = { Component: undefined };
+
   componentWillUnmount() {
     this.mounted = false;
   }
+
   async componentDidMount() {
     this.mounted = true;
     const componentArguement = this.props.componentArguement;
@@ -22,7 +24,7 @@ class AsyncComponent extends Component {
     }
     if (this.mounted) {
       this.setState({
-        Component: <Component {...this.props.componentProps} />
+        Component: <Component {...this.props.componentProps} />,
       });
     }
   }

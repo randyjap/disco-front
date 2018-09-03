@@ -6,7 +6,7 @@ import ChartWrapper from '../../chart.style';
 function randomLeaf() {
   return {
     size: Math.random() * 1000,
-    color: Math.random()
+    color: Math.random(),
   };
 }
 
@@ -23,7 +23,7 @@ function updateData() {
   return {
     title: '',
     color: 1,
-    children: leaves
+    children: leaves,
   };
 }
 
@@ -31,7 +31,7 @@ const DIVERGING_COLOR_SCALE = ['#00939C', '#85C4C8', '#EC9370', '#C22E00'];
 
 export default class extends Component {
   state = {
-    data: updateData()
+    data: updateData(),
   };
 
   render() {
@@ -42,13 +42,13 @@ export default class extends Component {
         <div className="isoChartControl">
           <Button
             onClick={() => this.setState({ data: updateData() })}
-            buttonContent={'UPDATE'}
+            buttonContent="UPDATE"
           />
         </div>
         <Sunburst
           animation={{ damping: 20, stiffness: 300 }}
           data={data}
-          colorType={'category'}
+          colorType="category"
           colorRange={DIVERGING_COLOR_SCALE}
           style={{ stroke: '#fff' }}
           height={this.props.height}

@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
-import message from "../../../components/feedback/message";
-import Button from "../../../components/uielements/button";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import basicStyle from "../../../settings/basicStyle";
-import IntlMessages from "../../../components/utility/intlMessages";
-import MessageContent from "./message.style";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import message from '../../../components/feedback/message';
+import Button from '../../../components/uielements/button';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import basicStyle from '../../../settings/basicStyle';
+import IntlMessages from '../../../components/utility/intlMessages';
+import MessageContent from './message.style';
 
 const success = () => {
   message.success(
     <MessageContent>
       This is a message of success will dessapear after 3 seconds
     </MessageContent>,
-    3
+    3,
   );
 };
 
 const error = () => {
   message.error(
     <MessageContent>This is a message of error</MessageContent>,
-    10
+    10,
   );
 };
 
@@ -33,7 +33,7 @@ const warning = () => {
 const loadSuccess = () => {
   const hide = message.loading(
     <MessageContent>Action in progress..</MessageContent>,
-    0
+    0,
   );
   setTimeout(hide, 2500);
 };
@@ -43,18 +43,18 @@ const customDuration = () => {
     <MessageContent>
       This is a prompt message for success, and it will disappear in 10 seconds
     </MessageContent>,
-    10
+    10,
   );
 };
 
 export default class extends Component {
   info = () => {
-    message.info("This is a normal message");
+    message.info('This is a normal message');
   };
 
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
-    const marginStyle = { marginRight: "5px", marginBottom: "5px" };
+    const marginStyle = { marginRight: '5px', marginBottom: '5px' };
 
     return (
       <LayoutWrapper>

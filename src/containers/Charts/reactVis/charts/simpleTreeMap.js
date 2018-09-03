@@ -12,18 +12,17 @@ const MODE = [
   'slice',
   'dice',
   'slicedice',
-  'binary'
+  'binary',
 ];
 
 export default class extends Component {
   state = {
-    modeIndex: 0
+    modeIndex: 0,
   };
 
   updateModeIndex = increment => () => {
     const newIndex = this.state.modeIndex + (increment ? 1 : -1);
-    const modeIndex =
-      newIndex < 0 ? MODE.length - 1 : newIndex >= MODE.length ? 0 : newIndex;
+    const modeIndex = newIndex < 0 ? MODE.length - 1 : newIndex >= MODE.length ? 0 : newIndex;
     this.setState({ modeIndex });
   };
 
@@ -33,12 +32,16 @@ export default class extends Component {
     return (
       <ChartWrapper className="isoChartWrapper">
         <div className="isoChartControl">
-          <span> {MODE[modeIndex]} </span>
+          <span>
+            {' '}
+            {MODE[modeIndex]}
+            {' '}
+          </span>
           <Button
             onClick={this.updateModeIndex(false)}
-            buttonContent={'PREV'}
+            buttonContent="PREV"
           />
-          <Button onClick={this.updateModeIndex(true)} buttonContent={'NEXT'} />
+          <Button onClick={this.updateModeIndex(true)} buttonContent="NEXT" />
         </div>
         <Treemap
           animation

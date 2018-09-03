@@ -38,11 +38,12 @@ export default class extends Component {
     this.state = {
       editorState: null,
       loading: false,
-      iconLoading: false
+      iconLoading: false,
     };
   }
+
   render() {
-    const onEditorStateChange = editorState => {
+    const onEditorStateChange = (editorState) => {
       this.setState({ editorState });
     };
     const editorOption = {
@@ -51,9 +52,9 @@ export default class extends Component {
       toolbarClassName: 'home-toolbar',
       wrapperClassName: 'home-wrapper',
       editorClassName: 'home-editor',
-      onEditorStateChange: onEditorStateChange,
-      uploadCallback: uploadCallback,
-      toolbar: { image: { uploadCallback: uploadCallback } }
+      onEditorStateChange,
+      uploadCallback,
+      toolbar: { image: { uploadCallback } },
     };
 
     return (

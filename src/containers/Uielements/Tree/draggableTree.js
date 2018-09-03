@@ -32,15 +32,16 @@ generateData(z);
 export default class extends Component {
   state = {
     gData,
-    expandedKeys: ['0-0', '0-0-0', '0-0-0-0']
+    expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
   };
-  onDragEnter = info => {};
-  onDrop = info => {
+
+  onDragEnter = (info) => {};
+
+  onDrop = (info) => {
     const dropKey = info.node.props.eventKey;
     const dragKey = info.dragNode.props.eventKey;
     const dropPos = info.node.props.pos.split('-');
-    const dropPosition =
-      info.dropPosition - Number(dropPos[dropPos.length - 1]);
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
     const loop = (data, key, callback) => {
       data.forEach((item, index, arr) => {
         if (item.key === key) {
@@ -70,27 +71,27 @@ export default class extends Component {
         ar.splice(i - 1, 0, dragObj);
       }
     } else {
-      loop(data, dropKey, item => {
+      loop(data, dropKey, (item) => {
         item.children = item.children || [];
         item.children.push(dragObj);
       });
     }
     this.setState({
-      gData: data
+      gData: data,
     });
   };
+
   render() {
-    const loop = data =>
-      data.map(item => {
-        if (item.children && item.children.length) {
-          return (
-            <TreeNode key={item.key} title={item.key}>
-              {loop(item.children)}
-            </TreeNode>
-          );
-        }
-        return <TreeNode key={item.key} title={item.key} />;
-      });
+    const loop = data => data.map((item) => {
+      if (item.children && item.children.length) {
+        return (
+          <TreeNode key={item.key} title={item.key}>
+            {loop(item.children)}
+          </TreeNode>
+        );
+      }
+      return <TreeNode key={item.key} title={item.key} />;
+    });
     return (
       <Tree
         className="draggable-tree"

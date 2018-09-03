@@ -1,31 +1,33 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Row, Col } from "antd";
-import PageHeader from "../../components/utility/pageHeader";
-import Box from "../../components/utility/box";
-import LayoutWrapper from "../../components/utility/layoutWrapper.js";
-import { InputSearch } from "../../components/uielements/input";
-import IntlMessages from "../../components/utility/intlMessages";
-import notification from "../../components/notification";
-import YoutubeResult from "../../components/youtubeSearch/result";
-import basicStyle from "../../settings/basicStyle";
-import actions from "../../redux/youtubeSearch/actions";
-import NoAPIKey from "../../components/utility/noApiKey";
-import { youtubeSearchApi } from "../../settings";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Row, Col } from 'antd';
+import PageHeader from '../../components/utility/pageHeader';
+import Box from '../../components/utility/box';
+import LayoutWrapper from '../../components/utility/layoutWrapper.js';
+import { InputSearch } from '../../components/uielements/input';
+import IntlMessages from '../../components/utility/intlMessages';
+import notification from '../../components/notification';
+import YoutubeResult from '../../components/youtubeSearch/result';
+import basicStyle from '../../settings/basicStyle';
+import actions from '../../redux/youtubeSearch/actions';
+import NoAPIKey from '../../components/utility/noApiKey';
+import { youtubeSearchApi } from '../../settings';
 
 const { youtubeSearch, onPageChange } = actions;
 
 class YoutubeSearch extends Component {
-  onSearch = value => {
+  onSearch = (value) => {
     if (value && value.length > 0) {
       this.props.youtubeSearch(value);
     } else {
-      notification("error", "Please type something");
+      notification('error', 'Please type something');
     }
   };
+
   componentDidMount() {
     this.onSearch(this.props.YoutubeSearch.searcText);
   }
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -62,5 +64,5 @@ function mapStateToProps(state) {
 }
 export default connect(
   mapStateToProps,
-  { youtubeSearch, onPageChange }
+  { youtubeSearch, onPageChange },
 )(YoutubeSearch);

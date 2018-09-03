@@ -16,9 +16,9 @@ const treeData = [
       {
         label: 'Child Node1',
         value: '0-0-0',
-        key: '0-0-0'
-      }
-    ]
+        key: '0-0-0',
+      },
+    ],
   },
   {
     label: 'Node2',
@@ -28,29 +28,31 @@ const treeData = [
       {
         label: 'Child Node3',
         value: '0-1-0',
-        key: '0-1-0'
+        key: '0-1-0',
       },
       {
         label: 'Child Node4',
         value: '0-1-1',
-        key: '0-1-1'
+        key: '0-1-1',
       },
       {
         label: 'Child Node5',
         value: '0-1-2',
-        key: '0-1-2'
-      }
-    ]
-  }
+        key: '0-1-2',
+      },
+    ],
+  },
 ];
 
 export default class extends Component {
   state = {
-    value: ['0-0-0']
+    value: ['0-0-0'],
   };
-  onChange = value => {
+
+  onChange = (value) => {
     this.setState({ value });
   };
+
   render() {
     const tProps = {
       treeData,
@@ -61,8 +63,8 @@ export default class extends Component {
       showCheckedStrategy: SHOW_PARENT,
       searchPlaceholder: 'Please select',
       style: {
-        width: 300
-      }
+        width: 300,
+      },
     };
     return (
       <LayoutWrapper>

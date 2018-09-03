@@ -5,13 +5,16 @@ import ChartWrapper from '../../chart.style';
 
 export default class extends Component {
   state = { value: false };
+
   render() {
     const { value } = this.state;
-    const { datas, width, height, innerRadius, radius } = this.props;
+    const {
+      datas, width, height, innerRadius, radius,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <RadialChart
-          className={'donut-chart-example'}
+          className="donut-chart-example"
           innerRadius={innerRadius}
           radius={radius}
           data={datas}

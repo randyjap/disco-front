@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { InstantSearch } from 'react-instantsearch/dom';
 import Button from '../../../components/uielements/button.js';
 import EmptyComponent from '../../../components/emptyComponent.js';
-import { InstantSearch } from 'react-instantsearch/dom';
 import { Footer, Sidebar } from '../../../components/algolia';
 import Content from './content';
 import { setUrl, getInitData } from '../../../helpers/urlSync';
@@ -12,17 +12,19 @@ import AlgoliaSearchPageWrapper from './algolia.style';
 export default class extends Component {
   state = {
     collapsed: true,
-    searchState: getInitData()
+    searchState: getInitData(),
   };
-  setVoice = query => {
+
+  setVoice = (query) => {
     const searchState = {
       ...this.state.searchState,
       page: '1',
-      query
+      query,
     };
     this.setState({ searchState });
     setUrl(searchState);
   };
+
   render() {
     const { collapsed } = this.state;
     const className = collapsed ? '' : 'sidebarOpen';
@@ -32,10 +34,10 @@ export default class extends Component {
       indexName: 'default_search',
       searchState: this.state.searchState,
       urlSync: true,
-      onSearchStateChange: searchState => {
+      onSearchStateChange: (searchState) => {
         this.setState({ searchState });
         setUrl(searchState);
-      }
+      },
     };
     return (
       <AlgoliaSearchPageWrapper className={`${className} isoAlgoliaSearchPage`}>

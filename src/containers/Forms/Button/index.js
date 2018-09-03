@@ -4,7 +4,7 @@ import Button, { ButtonGroup } from '../../../components/uielements/button';
 import { RadioGroup, RadioButton } from '../../../components/uielements/radio';
 import Dropdown, {
   DropdownMenu,
-  MenuItem
+  MenuItem,
 } from '../../../components/uielements/dropdown';
 import PageHeader from '../../../components/utility/pageHeader';
 import Box from '../../../components/utility/box';
@@ -28,10 +28,10 @@ export default class extends Component {
   state = {
     size: 'default',
     loading: false,
-    iconLoading: false
+    iconLoading: false,
   };
 
-  handleSizeChange = e => {
+  handleSizeChange = (e) => {
     this.setState({ size: e.target.value });
   };
 
@@ -46,7 +46,7 @@ export default class extends Component {
   render() {
     const size = this.state.size;
     const margin = {
-      margin: rtl === 'rtl' ? '0 0 8px 8px' : '0 8px 8px 0'
+      margin: rtl === 'rtl' ? '0 0 8px 8px' : '0 8px 8px 0',
     };
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -142,10 +142,12 @@ export default class extends Component {
               <ContentHolder>
                 <ButtonGroup size={size}>
                   <Button type="primary">
-                    <Icon type="left" />Backward
+                    <Icon type="left" />
+Backward
                   </Button>
                   <Button type="primary">
-                    Forward<Icon type="right" />
+                    Forward
+                    <Icon type="right" />
                   </Button>
                 </ButtonGroup>
               </ContentHolder>
@@ -229,7 +231,9 @@ export default class extends Component {
                 <Button style={margin}>secondary</Button>
                 <Dropdown overlay={menu}>
                   <Button>
-                    more <Icon type="down" />
+                    more
+                    {' '}
+                    <Icon type="down" />
                   </Button>
                 </Dropdown>
               </ContentHolder>
@@ -262,10 +266,12 @@ export default class extends Component {
                 <h4>With Icon</h4>
                 <ButtonGroup style={margin}>
                   <Button type="primary">
-                    <Icon type="left" />Go back
+                    <Icon type="left" />
+Go back
                   </Button>
                   <Button type="primary">
-                    Go forward<Icon type="right" />
+                    Go forward
+                    <Icon type="right" />
                   </Button>
                 </ButtonGroup>
                 <ButtonGroup>

@@ -6,7 +6,7 @@ import Image from '../../image/rob.png';
 import IntlMessages from '../../components/utility/intlMessages';
 import FourZeroFourStyleWrapper from './404.style';
 
-const validateEmail = email => {
+const validateEmail = (email) => {
   const regax = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return regax.test(email);
 };
@@ -14,15 +14,16 @@ const validateEmail = email => {
 export default class extends Component {
   state = {
     email: '',
-    disabled: true
+    disabled: true,
   };
+
   render() {
     const options = {
       endDate: '03/01/2019 10:55 AM',
-      prefix: 'until my birthday!'
+      prefix: 'until my birthday!',
     };
     const { email, disabled } = this.state;
-    const onChange = event => {
+    const onChange = (event) => {
       const value = event.target.value;
       this.setState({ disabled: !validateEmail(value), email: value });
     };

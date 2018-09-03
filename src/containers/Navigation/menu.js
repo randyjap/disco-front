@@ -9,25 +9,28 @@ export default class extends Component {
     current: '1',
     openKeys: [],
     theme: 'dark',
-    mode: 'inline'
+    mode: 'inline',
   };
-  handleClick = e => {
+
+  handleClick = (e) => {
     this.setState({
-      current: e.key
+      current: e.key,
     });
   };
-  changeMode = value => {
+
+  changeMode = (value) => {
     this.setState({
-      mode: value ? 'vertical' : 'inline'
+      mode: value ? 'vertical' : 'inline',
     });
   };
-  onOpenChange = openKeys => {
+
+  onOpenChange = (openKeys) => {
     const state = this.state;
     const latestOpenKey = openKeys.find(
-      key => !(state.openKeys.indexOf(key) > -1)
+      key => !(state.openKeys.indexOf(key) > -1),
     );
     const latestCloseKey = state.openKeys.find(
-      key => !(openKeys.indexOf(key) > -1)
+      key => !(openKeys.indexOf(key) > -1),
     );
 
     let nextOpenKeys = [];
@@ -39,15 +42,17 @@ export default class extends Component {
     }
     this.setState({ openKeys: nextOpenKeys });
   };
-  getAncestorKeys = key => {
+
+  getAncestorKeys = (key) => {
     const map = {
-      sub3: ['sub2']
+      sub3: ['sub2'],
     };
     return map[key] || [];
   };
-  changeTheme = value => {
+
+  changeTheme = (value) => {
     this.setState({
-      theme: value ? 'dark' : 'light'
+      theme: value ? 'dark' : 'light',
     });
   };
 
@@ -62,17 +67,20 @@ export default class extends Component {
             mode="horizontal"
           >
             <Menu.Item key="mail">
-              <Icon type="mail" />Navigation One
+              <Icon type="mail" />
+Navigation One
             </Menu.Item>
             <Menu.Item key="app" disabled>
-              <Icon type="appstore" />Navigation Two
+              <Icon type="appstore" />
+Navigation Two
             </Menu.Item>
             <SubMenu
-              title={
+              title={(
                 <span>
-                  <Icon type="setting" />Navigation Three - Submenu
+                  <Icon type="setting" />
+Navigation Three - Submenu
                 </span>
-              }
+)}
             >
               <MenuItemGroup title="Item 1">
                 <Menu.Item key="setting:1">Option 1</Menu.Item>
@@ -110,12 +118,12 @@ export default class extends Component {
           >
             <SubMenu
               key="sub1"
-              title={
+              title={(
                 <span>
                   <Icon type="mail" />
                   <span>Navigation One</span>
                 </span>
-              }
+)}
             >
               <MenuItemGroup key="g1" title="Item 1">
                 <Menu.Item key="1">Option 1</Menu.Item>
@@ -128,12 +136,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub2"
-              title={
+              title={(
                 <span>
                   <Icon type="appstore" />
                   <span>Navigation Two</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="5">Option 5</Menu.Item>
               <Menu.Item key="6">Option 6</Menu.Item>
@@ -144,12 +152,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub4"
-              title={
+              title={(
                 <span>
                   <Icon type="setting" />
                   <span>Navigation Three</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="9">Option 9</Menu.Item>
               <Menu.Item key="10">Option 10</Menu.Item>
@@ -175,12 +183,12 @@ export default class extends Component {
           >
             <SubMenu
               key="sub1"
-              title={
+              title={(
                 <span>
                   <Icon type="mail" />
                   <span>Navigation One</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="1">Option 1</Menu.Item>
               <Menu.Item key="2">Option 2</Menu.Item>
@@ -189,12 +197,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub2"
-              title={
+              title={(
                 <span>
                   <Icon type="appstore" />
                   <span>Navigation Two</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="5">Option 5</Menu.Item>
               <Menu.Item key="6">Option 6</Menu.Item>
@@ -205,12 +213,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub4"
-              title={
+              title={(
                 <span>
                   <Icon type="setting" />
                   <span>Navigation Three</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="9">Option 9</Menu.Item>
               <Menu.Item key="10">Option 10</Menu.Item>
@@ -234,12 +242,12 @@ export default class extends Component {
           >
             <SubMenu
               key="sub1"
-              title={
+              title={(
                 <span>
                   <Icon type="mail" />
                   <span>Navigation One</span>
                 </span>
-              }
+)}
             >
               <MenuItemGroup title="Item 1">
                 <Menu.Item key="1">Option 1</Menu.Item>
@@ -252,12 +260,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub2"
-              title={
+              title={(
                 <span>
                   <Icon type="appstore" />
                   <span>Navigation Two</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="5">Option 5</Menu.Item>
               <Menu.Item key="6">Option 6</Menu.Item>
@@ -268,12 +276,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub4"
-              title={
+              title={(
                 <span>
                   <icon type="setting" />
                   <span>Navigation Three</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="9">Option 9</Menu.Item>
               <Menu.Item key="10">Option 10</Menu.Item>
@@ -309,12 +317,12 @@ export default class extends Component {
             >
               <SubMenu
                 key="sub1"
-                title={
+                title={(
                   <span>
                     <Icon type="mail" />
                     <span>Navigation One</span>
                   </span>
-                }
+)}
               >
                 <Menu.Item key="1">Option 1</Menu.Item>
                 <Menu.Item key="2">Option 2</Menu.Item>
@@ -323,12 +331,12 @@ export default class extends Component {
               </SubMenu>
               <SubMenu
                 key="sub2"
-                title={
+                title={(
                   <span>
                     <Icon type="appstore" />
                     <span>Navigtion Two</span>
                   </span>
-                }
+)}
               >
                 <Menu.Item key="5">Option 5</Menu.Item>
                 <Menu.Item key="6">Option 6</Menu.Item>
@@ -339,12 +347,12 @@ export default class extends Component {
               </SubMenu>
               <SubMenu
                 key="sub4"
-                title={
+                title={(
                   <span>
                     <Icon type="setting" />
                     <span>Navigation Three</span>
                   </span>
-                }
+)}
               >
                 <Menu.Item key="9">Option 9</Menu.Item>
                 <Menu.Item key="10">Option 10</Menu.Item>
@@ -371,12 +379,12 @@ export default class extends Component {
           >
             <SubMenu
               key="sub1"
-              title={
+              title={(
                 <span>
                   <Icon type="mail" />
                   <span>Navigation One</span>
                 </span>
-              }
+)}
             >
               <MenuItemGroup title="Item 1">
                 <Menu.Item key="1">Option 1</Menu.Item>
@@ -389,12 +397,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub2"
-              title={
+              title={(
                 <span>
                   <Icon type="appstore" />
                   <span>Navigation Two</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="5">Option 5</Menu.Item>
               <Menu.Item key="6">Option 6</Menu.Item>
@@ -405,12 +413,12 @@ export default class extends Component {
             </SubMenu>
             <SubMenu
               key="sub4"
-              title={
+              title={(
                 <span>
                   <Icon type="setting" />
                   <span>Navigation Three</span>
                 </span>
-              }
+)}
             >
               <Menu.Item key="9">Option 9</Menu.Item>
               <Menu.Item key="10">Option 10</Menu.Item>

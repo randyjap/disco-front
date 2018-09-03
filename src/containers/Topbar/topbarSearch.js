@@ -1,29 +1,33 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Searchbar from "../../components/topbar/searchBox";
-import TopbarSearchModal from "./topbarSearchModal.style";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Searchbar from '../../components/topbar/searchBox';
+import TopbarSearchModal from './topbarSearchModal.style';
 
 class TopbarSearch extends Component {
   state = {
-    visiblity: false
+    visiblity: false,
   };
+
   handleCancel = () => {
     this.setState({
-      visible: false
+      visible: false,
     });
   };
+
   handleBlur = () => {
     setTimeout(() => {
       this.setState({
-        visible: false
+        visible: false,
       });
     }, 200);
   };
+
   showModal = () => {
     this.setState({
-      visible: true
+      visible: true,
     });
   };
+
   render() {
     const { customizedTheme } = this.props;
     const { visible } = this.state;
@@ -42,7 +46,7 @@ class TopbarSearch extends Component {
           footer={null}
         >
           <div className="isoSearchContainer">
-            {visible ? <Searchbar onBlur={this.handleBlur} /> : ""}
+            {visible ? <Searchbar onBlur={this.handleBlur} /> : ''}
           </div>
         </TopbarSearchModal>
       </div>
@@ -52,5 +56,5 @@ class TopbarSearch extends Component {
 
 export default connect(state => ({
   ...state.App,
-  customizedTheme: state.ThemeSwitcher.topbarTheme
+  customizedTheme: state.ThemeSwitcher.topbarTheme,
 }))(TopbarSearch);

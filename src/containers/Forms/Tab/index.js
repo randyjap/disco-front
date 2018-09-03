@@ -24,33 +24,36 @@ export default class extends Component {
         title: 'Tab 1',
         content: 'Content of Tab 1',
         key: '1',
-        closable: false
+        closable: false,
       },
-      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' }
+      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
     ];
     this.state = {
       activeKey: panes[0].key,
-      panes
+      panes,
     };
   }
 
-  onChange = activeKey => {
+  onChange = (activeKey) => {
     this.setState({ activeKey });
   };
+
   onEdit = (targetKey, action) => {
     this[action](targetKey);
   };
+
   add = () => {
     const panes = this.state.panes;
     const activeKey = `newTab${this.newTabIndex++}`;
     panes.push({
       title: 'New Tab',
       content: 'Content of new Tab',
-      key: activeKey
+      key: activeKey,
     });
     this.setState({ panes, activeKey });
   };
-  remove = targetKey => {
+
+  remove = (targetKey) => {
     let activeKey = this.state.activeKey;
     let lastIndex;
     this.state.panes.forEach((pane, i) => {
@@ -64,12 +67,15 @@ export default class extends Component {
     }
     this.setState({ panes, activeKey });
   };
+
   state = {
-    tabPosition: 'top'
+    tabPosition: 'top',
   };
-  changeTabPosition = tabPosition => {
+
+  changeTabPosition = (tabPosition) => {
     this.setState({ tabPosition });
   };
+
   render() {
     return (
       <LayoutWrapper>
@@ -106,21 +112,23 @@ export default class extends Component {
         <Box title={<IntlMessages id="forms.Tabs.iconTabTitle" />}>
           <Tabs defaultActiveKey="2">
             <TabPane
-              tab={
+              tab={(
                 <span>
-                  <Icon type="apple" />Tab 1
+                  <Icon type="apple" />
+Tab 1
                 </span>
-              }
+)}
               key="1"
             >
               Tab 1
             </TabPane>
             <TabPane
-              tab={
+              tab={(
                 <span>
-                  <Icon type="android" />Tab 2
+                  <Icon type="android" />
+Tab 2
                 </span>
-              }
+)}
               key="2"
             >
               Tab 2
