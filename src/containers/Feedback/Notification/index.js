@@ -18,7 +18,7 @@ const openNotification = () => {
         I will close after 2 seconds automatically. I will be close
         automatically. I will never close automatically.
       </NotificationContent>
-    )
+    ),
   };
   notifications.open(args);
 };
@@ -28,16 +28,16 @@ const customDurationNotification = () => {
     message: 'Notification Title',
     description:
       'I will never close automatically. Click the close button. I will be close automatically. I will never close automatically.',
-    duration: 0
+    duration: 0,
   };
   notifications.open(args);
 };
 
-const openNotificationWithIcon = type => {
+const openNotificationWithIcon = (type) => {
   notifications[type]({
     message: 'Notification Title',
     description:
-      'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
+      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
   });
 };
 
@@ -46,7 +46,7 @@ const openNotificationCustomIcon = () => {
     message: 'Notification Title',
     description:
       'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-    icon: <Icon type="smile-circle" style={{ color: '#4482FF' }} />
+    icon: <Icon type="smile-circle" style={{ color: '#4482FF' }} />,
   });
 };
 
@@ -54,7 +54,7 @@ const close = () => {};
 
 const openNotificationWithConfirm = () => {
   const key = `open${Date.now()}`;
-  const btnClick = function() {
+  const btnClick = function () {
     notifications.close(key);
   };
   const btn = (
@@ -68,7 +68,7 @@ const openNotificationWithConfirm = () => {
       'A function will be be called after the notification is closed (automatically after the "duration" time of manually).',
     btn,
     key,
-    onClose: close
+    onClose: close,
   });
 };
 

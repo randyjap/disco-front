@@ -4,7 +4,7 @@ import LayoutContentWrapper from '../../../components/utility/layoutWrapper.js';
 import TableDemoStyle from './demo.style';
 import fakeData from '../fakeData';
 import { tableinfos } from './configs';
-import * as TableViews from './tableViews/';
+import * as TableViews from './tableViews';
 
 const dataList = new fakeData(10);
 
@@ -32,6 +32,7 @@ export default class AntTable extends Component {
     }
     return <Component tableInfo={tableInfo} dataList={dataList} />;
   }
+
   render() {
     return (
       <LayoutContentWrapper>

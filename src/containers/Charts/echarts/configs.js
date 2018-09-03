@@ -3,8 +3,8 @@ import { largeDataGraph, largeDataLunar } from './largeData';
 
 function getVirtulData(year) {
   year = year || '2017';
-  const date = +echarts.number.parseDate(year + '-01-01');
-  const end = +echarts.number.parseDate(+year + 1 + '-01-01');
+  const date = +echarts.number.parseDate(`${year}-01-01`);
+  const end = +echarts.number.parseDate(`${+year + 1}-01-01`);
   const dayTime = 3600 * 24 * 1000;
   const data = [];
   for (let time = date; time < end; time += dayTime) {
@@ -560,8 +560,8 @@ function GraphComponent() {
   return option;
 }
 function LunarCalendarComponent() {
-  let heatmapData = [];
-  let lunarData = [];
+  const heatmapData = [];
+  const lunarData = [];
   for (let i = 0; i < largeDataLunar.length; i++) {
     heatmapData.push([largeDataLunar[i][0], Math.random() * 300]);
     lunarData.push([
@@ -573,9 +573,7 @@ function LunarCalendarComponent() {
   }
   const option = {
     tooltip: {
-      formatter: params => {
-        return 'Rainfall: ' + params.value[1].toFixed(2);
-      },
+      formatter: params => `Rainfall: ${params.value[1].toFixed(2)}`,
     },
     visualMap: {
       show: false,
@@ -622,9 +620,9 @@ function LunarCalendarComponent() {
         label: {
           normal: {
             show: true,
-            formatter: params => {
+            formatter: (params) => {
               const d = echarts.number.parseDate(params.value[0]);
-              return d.getDate() + '\n\n' + params.value[2] + '\n\n';
+              return `${d.getDate()}\n\n${params.value[2]}\n\n`;
             },
             textStyle: {
               color: '#000',
@@ -640,9 +638,7 @@ function LunarCalendarComponent() {
         label: {
           normal: {
             show: true,
-            formatter: params => {
-              return '\n\n\n' + (params.value[3] || '');
-            },
+            formatter: params => `\n\n\n${params.value[3] || ''}`,
             textStyle: {
               fontSize: 14,
               fontWeight: 700,
@@ -682,12 +678,10 @@ function CalendarComponent() {
     [1487779200000, 411],
     [1488124800000, 985],
   ];
-  const links = graphData.map((item, idx) => {
-    return {
-      source: idx,
-      target: idx + 1,
-    };
-  });
+  const links = graphData.map((item, idx) => ({
+    source: idx,
+    target: idx + 1,
+  }));
   links.pop();
   const option = {
     tooltip: {
@@ -800,7 +794,7 @@ function CalendarComponent() {
         type: 'graph',
         edgeSymbol: ['none', 'arrow'],
         coordinateSystem: 'calendar',
-        links: links,
+        links,
         symbolSize: 10,
         calendarIndex: 0,
         data: graphData,
@@ -814,18 +808,14 @@ function CalendarComponent() {
         type: 'effectScatter',
         coordinateSystem: 'calendar',
         calendarIndex: 1,
-        symbolSize: val => {
-          return val[1] / 40;
-        },
+        symbolSize: val => val[1] / 40,
         data: getVirtulData(2017),
       },
       {
         type: 'scatter',
         coordinateSystem: 'calendar',
         calendarIndex: 2,
-        symbolSize: val => {
-          return val[1] / 60;
-        },
+        symbolSize: val => val[1] / 60,
         data: getVirtulData(2017),
       },
       {

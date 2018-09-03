@@ -1,19 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Row, Col } from "antd";
-import clone from "clone";
-import Button from "../../../components/uielements/button";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper";
-import Card from "../../../components/card";
-import basicStyle from "../../../settings/basicStyle";
-import cardActions from "../../../redux/card/actions";
-import { createColumns } from "./config";
-import { ButtonWrapper } from "../../../components/card/cardModal.style";
-import SimpleTable from "../../Tables/antTables/tableViews/simpleView";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Row, Col } from 'antd';
+import clone from 'clone';
+import Button from '../../../components/uielements/button';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper';
+import Card from '../../../components/card';
+import basicStyle from '../../../settings/basicStyle';
+import cardActions from '../../../redux/card/actions';
+import { createColumns } from './config';
+import { ButtonWrapper } from '../../../components/card/cardModal.style';
+import SimpleTable from '../../Tables/antTables/tableViews/simpleView';
 
-const { addCard, editCard, deleteCard, restoreCards } = cardActions;
+const {
+  addCard, editCard, deleteCard, restoreCards,
+} = cardActions;
 class Cards extends Component {
   constructor(props) {
     super(props);
@@ -27,57 +29,63 @@ class Cards extends Component {
     this.state = {
       editView: false,
       selectedCard: null,
-      modalType: ""
+      modalType: '',
     };
   }
+
   editColumn(card) {
     this.setState({
       editView: true,
       selectedCard: clone(card),
-      modalType: "edit"
+      modalType: 'edit',
     });
   }
+
   addColumn() {
     this.setState({
       editView: true,
       selectedCard: {
         id: new Date().getTime(),
         key: new Date().getTime(),
-        number: "",
-        name: "",
-        expiry: "",
-        cvc: ""
+        number: '',
+        name: '',
+        expiry: '',
+        cvc: '',
       },
-      modalType: "add"
+      modalType: 'add',
     });
   }
+
   handleCancel() {
     this.setState({
       editView: false,
-      selectedCard: null
+      selectedCard: null,
     });
   }
+
   submitCard(card) {
-    if (this.state.modalType === "edit") {
+    if (this.state.modalType === 'edit') {
       this.props.editCard(this.state.selectedCard);
     } else {
       this.props.addCard(this.state.selectedCard);
     }
     this.setState({
       editView: false,
-      selectedCard: null
+      selectedCard: null,
     });
   }
+
   updateCard(selectedCard) {
     this.setState({ selectedCard });
   }
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     const { editView, selectedCard, modalType } = this.state;
     const cards = clone(this.props.cards);
-    const createNumber = number => {
+    const createNumber = (number) => {
       const length = number.length;
-      let newNumber = "";
+      let newNumber = '';
       for (let i = 0; i < length - 4; i++) {
         newNumber = `*${newNumber}`;
       }
@@ -114,7 +122,7 @@ class Cards extends Component {
                   updateCard={this.updateCard}
                 />
               ) : (
-                ""
+                ''
               )}
             </Box>
           </Col>
@@ -126,12 +134,12 @@ class Cards extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state.Cards
+    ...state.Cards,
   };
 }
 export default connect(mapStateToProps, {
   addCard,
   editCard,
   deleteCard,
-  restoreCards
+  restoreCards,
 })(Cards);

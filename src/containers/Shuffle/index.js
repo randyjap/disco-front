@@ -17,7 +17,7 @@ export default class extends Component {
       order: 'asc',
       sortingMethod: 'chronological',
       enterLeaveAnimation: 'accordionVertical',
-      articles
+      articles,
     };
 
     this.toggleList = this.toggleList.bind(this);
@@ -30,14 +30,14 @@ export default class extends Component {
   toggleList() {
     this.setState({
       view: 'list',
-      enterLeaveAnimation: 'accordionVertical'
+      enterLeaveAnimation: 'accordionVertical',
     });
   }
 
   toggleGrid() {
     this.setState({
       view: 'grid',
-      enterLeaveAnimation: 'accordionHorizontal'
+      enterLeaveAnimation: 'accordionHorizontal',
     });
   }
 
@@ -49,15 +49,15 @@ export default class extends Component {
       order: this.state.order === 'asc' ? 'desc' : 'asc',
       sortingMethod: 'chronological',
       articles: this.state.articles.sort(
-        this.state.order === 'asc' ? sortDesc : sortAsc
-      )
+        this.state.order === 'asc' ? sortDesc : sortAsc,
+      ),
     });
   }
 
   sortShuffle() {
     this.setState({
       sortingMethod: 'shuffle',
-      articles: shuffle(this.state.articles)
+      articles: shuffle(this.state.articles),
     });
   }
 
@@ -78,7 +78,7 @@ export default class extends Component {
 
     this.setState({
       [source]: sourceArticles,
-      [dest]: destArticles
+      [dest]: destArticles,
     });
   }
 
@@ -88,25 +88,23 @@ export default class extends Component {
 
     this.setState({
       sortingMethod: 'rotate',
-      articles
+      articles,
     });
   }
 
   renderArticles() {
-    return this.state.articles.map((article, i) => {
-      return (
-        <ListItem
-          key={article.id}
-          view={this.state.view}
-          index={i}
-          clickHandler={throttle(
-            () => this.moveArticle('articles', 'removedArticles', article.id),
-            800
-          )}
-          {...article}
-        />
-      );
-    });
+    return this.state.articles.map((article, i) => (
+      <ListItem
+        key={article.id}
+        view={this.state.view}
+        index={i}
+        clickHandler={throttle(
+          () => this.moveArticle('articles', 'removedArticles', article.id),
+          800,
+        )}
+        {...article}
+      />
+    ));
   }
 
   render() {
@@ -172,15 +170,13 @@ export default class extends Component {
             <footer key="foot" className="isoAddRemoveControlBar">
               <div className="isoControlBtnGroup">
                 <Toggle
-                  clickHandler={() =>
-                    this.moveArticle('removedArticles', 'articles')}
+                  clickHandler={() => this.moveArticle('removedArticles', 'articles')}
                   text={<IntlMessages id="toggle.addItem" />}
                   icon="plus"
                   active={this.state.removedArticles.length > 0}
                 />
                 <Toggle
-                  clickHandler={() =>
-                    this.moveArticle('articles', 'removedArticles')}
+                  clickHandler={() => this.moveArticle('articles', 'removedArticles')}
                   text={<IntlMessages id="toggle.removeItem" />}
                   icon="close"
                   active={this.state.articles.length > 0}

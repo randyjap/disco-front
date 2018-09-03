@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Button from "../../../components/uielements/button";
-import SingleOrderInfo from "./single-order";
-import { OrderTable } from "./checkout.style";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Button from '../../../components/uielements/button';
+import SingleOrderInfo from './single-order';
+import { OrderTable } from './checkout.style';
 
 let totalPrice;
 
@@ -15,7 +15,7 @@ class OrderInfo extends Component {
   renderProducts() {
     const { productQuantity, products } = this.props;
     totalPrice = 0;
-    return productQuantity.map(product => {
+    return productQuantity.map((product) => {
       totalPrice += product.quantity * products[product.objectID].price;
       return (
         <SingleOrderInfo
@@ -39,7 +39,10 @@ class OrderInfo extends Component {
           <div className="isoOrderTableBody">{this.renderProducts()}</div>
           <div className="isoOrderTableFooter">
             <span>Total</span>
-            <span>${totalPrice.toFixed(2)}</span>
+            <span>
+$
+              {totalPrice.toFixed(2)}
+            </span>
           </div>
 
           <Button type="primary" className="isoOrderBtn">
@@ -53,7 +56,7 @@ class OrderInfo extends Component {
 
 function mapStateToProps(state) {
   return {
-    ...state.Ecommerce
+    ...state.Ecommerce,
   };
 }
 export default connect(mapStateToProps)(OrderInfo);

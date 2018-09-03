@@ -28,7 +28,7 @@ const NoteComponentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    ${'' /* height: 100%; */} background: #ffffff;
+    ${''} background: #ffffff;
     border-right: ${props => (props['data-rtl'] === 'rtl' ? 0 : 1)}px solid
       ${palette('border', 0)};
     border-left: ${props => (props['data-rtl'] === 'rtl' ? 1 : 0)}px solid
@@ -81,10 +81,8 @@ const NoteComponentWrapper = styled.div`
         align-items: center;
         justify-content: flex-start;
         flex-direction: row;
-        margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
-        margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
+        margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : 'auto')};
+        margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'auto' : 'inherit')};
 
         span {
           font-size: 13px;
@@ -96,8 +94,7 @@ const NoteComponentWrapper = styled.div`
           height: 20px;
           cursor: pointer;
           border: 0;
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0')};
           padding: 0;
           ${borderRadius('3px')};
         }
@@ -107,16 +104,13 @@ const NoteComponentWrapper = styled.div`
         background-color: ${palette('primary', 0)};
         border: 0;
         padding: 5px 15px;
-        margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
-        margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
+        margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : 'auto')};
+        margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'auto' : 'inherit')};
         ${borderRadius('3px')};
         ${transition()};
 
         @media only screen and (max-width: 400px) {
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '15px 0 0 0' : '15px 0 0 0'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '15px 0 0 0' : '15px 0 0 0')};
         }
 
         span {
@@ -192,8 +186,7 @@ const NoteListSidebar = styled.div`
       height: 77px;
       padding: 0 15px;
       padding-left: ${props => (props['data-rtl'] === 'rtl' ? '15px' : '35px')};
-      padding-right: ${props =>
-        props['data-rtl'] === 'rtl' ? '35px' : '15px'};
+      padding-right: ${props => (props['data-rtl'] === 'rtl' ? '35px' : '15px')};
       border: 0;
       border-bottom: 1px solid rgba(230, 230, 230, 0.7);
       outline: 0 !important;
@@ -250,15 +243,13 @@ const NoteListSidebar = styled.div`
       .isoNoteBGColor {
         width: 5px;
         display: flex;
-        margin: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0'};
+        margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0')};
         flex-shrink: 0;
       }
 
       .isoNoteText {
         width: calc(100% - 60px);
-        margin: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 0 0 20px' : '0 20px 0 0'};
+        margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 20px' : '0 20px 0 0')};
         padding: 20px 0;
         cursor: pointer;
 

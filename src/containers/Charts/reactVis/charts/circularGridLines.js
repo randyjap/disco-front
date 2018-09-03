@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { XYPlot, XAxis, YAxis, MarkSeries, CircularGridLines } from 'react-vis';
+import {
+  XYPlot, XAxis, YAxis, MarkSeries, CircularGridLines,
+} from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
 const margin = {
   top: 10,
   bottom: 10,
   left: 10,
-  right: 10
+  right: 10,
 };
 
 export default class extends Component {
@@ -18,7 +20,7 @@ export default class extends Component {
       xDomain,
       yDomain,
       strokeWidth,
-      sizeRange
+      sizeRange,
     } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
@@ -38,7 +40,7 @@ export default class extends Component {
             data={datas.map(row => ({
               ...row,
               x: Math.cos(row.theta) * row.r,
-              y: Math.sin(row.theta) * row.r
+              y: Math.sin(row.theta) * row.r,
             }))}
           />
         </XYPlot>

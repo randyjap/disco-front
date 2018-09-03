@@ -46,7 +46,7 @@ export default class extends Component {
                     <span className="orderDateSpan">Order date: </span>
                     <span className="orderDate">
                       {moment(new Date(currentInvoice.orderDate)).format(
-                        'MMMM Do YYYY'
+                        'MMMM Do YYYY',
                       )}
                     </span>
                   </p>
@@ -74,22 +74,31 @@ export default class extends Component {
                 <ViewTable invoiceList={currentInvoice.invoiceList} />
                 <div className="TotalBill">
                   <p>
-                    Sub-total :{' '}
-                    <span>{`${currentInvoice.currency}${
-                      currentInvoice.subTotal
-                    }`}</span>
+                    Sub-total :
+                    {' '}
+                    <span>
+                      {`${currentInvoice.currency}${
+                        currentInvoice.subTotal
+                      }`}
+                    </span>
                   </p>
                   <p>
-                    Vat :{' '}
-                    <span>{`${currentInvoice.currency}${
-                      currentInvoice.vatPrice
-                    }`}</span>
+                    Vat :
+                    {' '}
+                    <span>
+                      {`${currentInvoice.currency}${
+                        currentInvoice.vatPrice
+                      }`}
+                    </span>
                   </p>
                   <h3>
-                    Grand Total :{' '}
-                    <span>{`${currentInvoice.currency}${
-                      currentInvoice.totalCost
-                    }`}</span>
+                    Grand Total :
+                    {' '}
+                    <span>
+                      {`${currentInvoice.currency}${
+                        currentInvoice.totalCost
+                      }`}
+                    </span>
                   </h3>
                 </div>
               </div>

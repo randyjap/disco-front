@@ -12,4 +12,6 @@ const MenuItem = DropdownMenus(Menu.Item);
 const SubMenu = DropdownMenus(Menu.SubMenu);
 
 export default Dropdowns;
-export { DropdownButtons, DropdownMenu, MenuItem, SubMenu };
+export {
+  DropdownButtons, DropdownMenu, MenuItem, SubMenu,
+};

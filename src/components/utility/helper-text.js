@@ -8,7 +8,7 @@ export default ({ text = '' }) => (
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      padding: '20px'
+      padding: '20px',
     }}
   >
     <h3>{text}</h3>

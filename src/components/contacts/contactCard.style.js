@@ -29,8 +29,7 @@ const WDContactCardWrapper = styled.div`
     align-items: center;
     width: 120px;
     flex-shrink: 0;
-    margin-right: ${props =>
-      props['data-rtl'] === 'rtl' ? 'inherit' : '50px'};
+    margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '50px')};
     margin-left: ${props => (props['data-rtl'] === 'rtl' ? '50px' : 'inherit')};
     flex-shrink: 0;
 
@@ -102,25 +101,18 @@ const WDContactCardWrapper = styled.div`
         color: ${palette('text', 0)};
         line-height: 1.5;
         margin: 0;
-        margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '15px'};
-        margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? '15px' : 'inherit'};
-        text-align: ${props =>
-          props['data-rtl'] === 'rtl' ? 'right' : 'left'};
+        margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '15px')};
+        margin-left: ${props => (props['data-rtl'] === 'rtl' ? '15px' : 'inherit')};
+        text-align: ${props => (props['data-rtl'] === 'rtl' ? 'right' : 'left')};
         min-width: 80px;
         position: relative;
 
         @media only screen and (max-width: 430px) {
           margin-bottom: 5px;
-          margin-right: ${props =>
-            props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
-          margin-left: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
-          padding-right: ${props =>
-            props['data-rtl'] === 'rtl' ? 'inherit' : '10px'};
-          padding-left: ${props =>
-            props['data-rtl'] === 'rtl' ? '10px' : 'inherit'};
+          margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
+          margin-left: ${props => (props['data-rtl'] === 'rtl' ? '0' : 'inherit')};
+          padding-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '10px')};
+          padding-left: ${props => (props['data-rtl'] === 'rtl' ? '10px' : 'inherit')};
           min-width: 0;
         }
 
@@ -138,8 +130,7 @@ const WDContactCardWrapper = styled.div`
         color: ${palette('text', 2)};
         line-height: 1.5;
         margin: 0;
-        text-align: ${props =>
-          props['data-rtl'] === 'rtl' ? 'right' : 'left'};
+        text-align: ${props => (props['data-rtl'] === 'rtl' ? 'right' : 'left')};
       }
 
       input {

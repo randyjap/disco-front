@@ -26,7 +26,7 @@ export default class extends Component {
             minAngle={15}
             label
             background
-            clockWise={true}
+            clockWise
             dataKey="uv"
           />
           <Legend

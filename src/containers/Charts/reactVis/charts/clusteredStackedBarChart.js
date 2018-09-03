@@ -6,13 +6,15 @@ import {
   VerticalGridLines,
   HorizontalGridLines,
   VerticalBarSeries,
-  DiscreteColorLegend
+  DiscreteColorLegend,
 } from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
 export default class extends Component {
   render() {
-    const { datas, width, height, orientationItems } = this.props;
+    const {
+      datas, width, height, orientationItems,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <XYPlot
@@ -36,7 +38,7 @@ export default class extends Component {
               key,
               data: data.data,
               cluster: data.cluster,
-              color: data.color
+              color: data.color,
             };
             return <VerticalBarSeries {...config} />;
           })}

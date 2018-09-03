@@ -100,10 +100,8 @@ const SignInStyleWrapper = styled.div`
         font-weight: 400;
         line-height: 1.2;
         color: ${palette('grayscale', 1)};
-        padding-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '13px'};
-        padding-right: ${props =>
-          props['data-rtl'] === 'rtl' ? '13px' : 'inherit'};
+        padding-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '13px')};
+        padding-right: ${props => (props['data-rtl'] === 'rtl' ? '13px' : 'inherit')};
         margin: 15px 0;
         position: relative;
         display: flex;

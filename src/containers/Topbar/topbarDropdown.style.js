@@ -157,8 +157,7 @@ const TopbarDropdownWrapper = styled.div`
         width: 35px;
         height: 35px;
         overflow: hidden;
-        margin: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0'};
+        margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0')};
         display: -webkit-inline-flex;
         display: -ms-inline-flex;
         display: inline-flex;
@@ -189,8 +188,7 @@ const TopbarDropdownWrapper = styled.div`
 
         h5 {
           margin-bottom: 0;
-          padding: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0'};
+          padding: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0')};
         }
 
         .isoDate {

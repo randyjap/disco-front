@@ -170,10 +170,8 @@ const WDSortableCardWrapper = styled.div`
         }
 
         i {
-          padding-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : '10px'};
-          padding-left: ${props =>
-            props['data-rtl'] === 'rtl' ? '10px' : '0'};
+          padding-right: ${props => (props['data-rtl'] === 'rtl' ? '0' : '10px')};
+          padding-left: ${props => (props['data-rtl'] === 'rtl' ? '10px' : '0')};
         }
 
         &:last-child {
@@ -187,16 +185,12 @@ const WDSortableCardWrapper = styled.div`
       }
 
       &.isoControlBtnGroup {
-        margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : 'auto'};
-        margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
+        margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : 'auto')};
+        margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'auto' : 'inherit')};
 
         @media only screen and (max-width: 767px) {
-          margin-left: ${props =>
-            props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
-          margin-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
+          margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
+          margin-right: ${props => (props['data-rtl'] === 'rtl' ? '0' : 'inherit')};
           margin-top: 20px;
         }
       }
@@ -231,10 +225,8 @@ const WDSortableCardWrapper = styled.div`
         ${transition()};
 
         i {
-          padding-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : '10px'};
-          padding-left: ${props =>
-            props['data-rtl'] === 'rtl' ? '10px' : '0'};
+          padding-right: ${props => (props['data-rtl'] === 'rtl' ? '0' : '10px')};
+          padding-left: ${props => (props['data-rtl'] === 'rtl' ? '10px' : '0')};
         }
 
         &:last-child {

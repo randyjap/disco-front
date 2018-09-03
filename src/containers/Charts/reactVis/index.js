@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
 import {
   LineSeries,
   LineMark,
@@ -19,15 +19,15 @@ import {
   AnimatedSunburst,
   CandleStick,
   ComplexChart,
-  StreamGraph
-} from "./charts";
-import * as configs from "./config";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import basicStyle from "../../../settings/basicStyle";
-import "react-vis/dist/style.css";
+  StreamGraph,
+} from './charts';
+import * as configs from './config';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import basicStyle from '../../../settings/basicStyle';
+import 'react-vis/dist/style.css';
 
 export default class ReactVis extends Component {
   render() {

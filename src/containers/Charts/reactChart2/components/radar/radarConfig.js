@@ -9,7 +9,7 @@ const data = {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(72,166,242,1)',
-      data: [65, 59, 90, 81, 56, 55, 40]
+      data: [65, 59, 90, 81, 56, 55, 40],
     },
     {
       label: 'My Second dataset',
@@ -19,11 +19,11 @@ const data = {
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgba(255,99,132,1)',
-      data: [28, 48, 40, 19, 96, 27, 100]
-    }
-  ]
+      data: [28, 48, 40, 19, 96, 27, 100],
+    },
+  ],
 };
 
 export {
-  data
-}
+  data,
+};

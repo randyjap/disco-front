@@ -1,10 +1,10 @@
-import { fakedata } from "../../containers/Ecommerce/card/config";
-import cardActions from "./actions";
+import { fakedata } from '../../containers/Ecommerce/card/config';
+import cardActions from './actions';
 
 const cards = fakedata;
 
 const initState = {
-  cards
+  cards,
 };
 
 export default function cardReducer(state = initState, action) {
@@ -12,7 +12,7 @@ export default function cardReducer(state = initState, action) {
     case cardActions.CHANGE_CARDS:
       return {
         ...state,
-        cards: action.cards
+        cards: action.cards,
       };
     default:
       return state;

@@ -13,7 +13,7 @@ const buckets = [
 
 function getUnread(mails) {
   const unread = {};
-  mails.forEach(mail => {
+  mails.forEach((mail) => {
     if (!unread[mail.bucket]) {
       unread[mail.bucket] = 0;
     }
@@ -28,7 +28,7 @@ export default function mailbuckets(
   mails,
   filterAction,
   filterAttr,
-  onDrawerClose
+  onDrawerClose,
 ) {
   const unread = getUnread(mails);
   const renderSinglebucket = (bucket, key) => {

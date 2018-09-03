@@ -13,36 +13,38 @@ class SingleInvoice extends Component {
     }
     this.toggleCreatedInvoice(this.props);
   }
+
   componentWillReceiveProps(nextProps) {
     this.toggleCreatedInvoice(nextProps);
   }
+
   toggleCreatedInvoice(props) {
     const {
       match,
       initialInvoices,
       currentInvoice,
-      selectCurrentInvoice
+      selectCurrentInvoice,
     } = props;
     const { invoiceId } = match.params;
     if (initialInvoices && currentInvoice.id !== invoiceId) {
       selectCurrentInvoice(invoiceId);
     }
   }
+
   render() {
     const { match, currentInvoice, enableEditView } = this.props;
     const redirectPath = match.url.replace(match.params.invoiceId, '');
     if (currentInvoice.id !== match.params.invoiceId) {
       return <Loader />;
-    } else if (enableEditView) {
+    } if (enableEditView) {
       return <EditInvoice {...this.props} redirectPath={redirectPath} />;
-    } else {
-      return <ViewInvoice {...this.props} redirectPath={redirectPath} />;
     }
+    return <ViewInvoice {...this.props} redirectPath={redirectPath} />;
   }
 }
 function mapStateToProps(state) {
   return {
-    ...state.Invoices
+    ...state.Invoices,
   };
 }
 export default connect(mapStateToProps, invoiceActions)(SingleInvoice);

@@ -5,7 +5,7 @@ import {
   YAxis,
   VerticalGridLines,
   HorizontalGridLines,
-  HorizontalBarSeries
+  HorizontalBarSeries,
 } from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
@@ -22,7 +22,7 @@ export default class extends Component {
           {datas.map((data, key) => {
             const config = {
               key,
-              data: data.data
+              data: data.data,
             };
             return <HorizontalBarSeries {...config} />;
           })}

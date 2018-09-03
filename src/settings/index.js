@@ -1,22 +1,22 @@
 export default {
-  apiUrl: 'http://yoursite.com/api/'
+  apiUrl: 'http://yoursite.com/api/',
 };
 const siteConfig = {
   siteName: 'Youbiquity',
   siteIcon: 'ion-flash',
-  footerText: 'Youbiquity ©2017 Created by RedQ, Inc'
+  footerText: 'Youbiquity ©2017 Created by RedQ, Inc',
 };
 
 const themeConfig = {
   topbar: 'themedefault',
   sidebar: 'themedefault',
   layout: 'themedefault',
-  theme: 'themedefault'
+  theme: 'themedefault',
 };
 const language = 'english';
 const AlgoliaSearchConfig = {
   appId: '',
-  apiKey: ''
+  apiKey: '',
 };
 const Auth0Config = {
   domain: '',
@@ -29,12 +29,12 @@ const Auth0Config = {
     auth: {
       autoParseHash: true,
       redirect: true,
-      redirectUrl: 'http://localhost:3000/auth0loginCallback'
+      redirectUrl: 'http://localhost:3000/auth0loginCallback',
     },
     languageDictionary: {
       title: 'Youbiquity',
       emailInputPlaceholder: 'demo@gmail.com',
-      passwordInputPlaceholder: 'demodemo'
+      passwordInputPlaceholder: 'demodemo',
     },
     theme: {
       labeledSubmitButton: true,
@@ -44,11 +44,11 @@ const Auth0Config = {
         connectionName: {
           displayName: 'Log In',
           primaryColor: '#b7b7b7',
-          foregroundColor: '#000000'
-        }
-      }
-    }
-  }
+          foregroundColor: '#000000',
+        },
+      },
+    },
+  },
 };
 const firebaseConfig = {
   apiKey: '',
@@ -56,16 +56,16 @@ const firebaseConfig = {
   databaseURL: '',
   projectId: '',
   storageBucket: '',
-  messagingSenderId: ''
+  messagingSenderId: '',
 };
 const googleConfig = {
-  apiKey: '' //
+  apiKey: '', //
 };
 const mapboxConfig = {
   tileLayer: '',
   maxZoom: '',
   defaultZoom: '',
-  center: []
+  center: [],
 };
 const youtubeSearchApi = '';
 export {
@@ -77,5 +77,5 @@ export {
   firebaseConfig,
   googleConfig,
   mapboxConfig,
-  youtubeSearchApi
+  youtubeSearchApi,
 };

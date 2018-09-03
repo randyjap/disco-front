@@ -6,14 +6,14 @@ export default class extends Component {
     const { contact, otherAttributes } = this.props;
     const name = contact.name ? contact.name : 'No Name';
     const extraInfos = [];
-    otherAttributes.forEach(attribute => {
+    otherAttributes.forEach((attribute) => {
       const value = contact[attribute.value];
       if (value) {
         extraInfos.push(
           <div className="isoContactCardInfos" key={attribute.value}>
             <p className="isoInfoLabel">{`${attribute.title}`}</p>
             <p className="isoInfoDetails">{value}</p>
-          </div>
+          </div>,
         );
       }
     });

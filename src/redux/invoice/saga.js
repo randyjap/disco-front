@@ -5,7 +5,7 @@ import actions from './actions';
 export function* getInvoice() {
   yield put({
     type: actions.UPDATE_INVOICE,
-    invoices: createDemoData()
+    invoices: createDemoData(),
   });
 }
 export function* updateInvoiceSaga({ invoices, invoice }) {
@@ -13,12 +13,12 @@ export function* updateInvoiceSaga({ invoices, invoice }) {
   yield put({
     type: actions.UPDATE_INVOICE,
     invoices,
-    invoice
+    invoice,
   });
 }
 export default function* rootSaga() {
   yield all([
     yield takeEvery(actions.GET_INVOICE, getInvoice),
-    yield takeEvery(actions.UPDATE_INVOICE_SAGA, updateInvoiceSaga)
+    yield takeEvery(actions.UPDATE_INVOICE_SAGA, updateInvoiceSaga),
   ]);
 }

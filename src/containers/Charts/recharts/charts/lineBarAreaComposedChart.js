@@ -14,14 +14,18 @@ import ChartWrapper from '../../chart.style';
 
 export default class extends Component {
   render() {
-    const { datas, width, height, colors } = this.props;
+    const {
+      datas, width, height, colors,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <ComposedChart
           width={width}
           height={height}
           data={datas}
-          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
         >
           <XAxis dataKey="name" stroke={colors[3]} />
           <YAxis stroke={colors[3]} />

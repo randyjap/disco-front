@@ -100,10 +100,8 @@ const SignUpStyleWrapper = styled.div`
           width: calc(100% - 10px);
 
           &:first-child {
-            margin-right: ${props =>
-              props['data-rtl'] === 'rtl' ? 'inherit' : '20px'};
-            margin-left: ${props =>
-              props['data-rtl'] === 'rtl' ? '20px' : 'inherit'};
+            margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '20px')};
+            margin-left: ${props => (props['data-rtl'] === 'rtl' ? '20px' : 'inherit')};
           }
         }
       }

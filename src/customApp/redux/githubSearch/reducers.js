@@ -6,7 +6,7 @@ const initState = {
   page: 1,
   result: [],
   loading: false,
-  error: false
+  error: false,
 };
 
 export default function reducer(state = initState, action) {
@@ -15,7 +15,7 @@ export default function reducer(state = initState, action) {
       return {
         ...state,
         loading: true,
-        searcText: action.payload.searcText
+        searcText: action.payload.searcText,
       };
     case actions.GIT_SUCCESS_RESULT:
       return {
@@ -24,14 +24,14 @@ export default function reducer(state = initState, action) {
         error: false,
         result: action.result,
         total_count: action.total_count,
-        page: action.page
+        page: action.page,
       };
     case actions.GIT_ERROR_RESULT:
       return {
         ...state,
         loading: false,
         error: false,
-        result: []
+        result: [],
       };
     default:
       return state;

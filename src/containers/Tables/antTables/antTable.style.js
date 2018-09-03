@@ -1,6 +1,6 @@
-import Table from '../../../components/uielements/table';
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
+import Table from '../../../components/uielements/table';
 import {
   transition,
   boxShadow,
@@ -25,8 +25,7 @@ const TableWrapper = styled(Table)`
 
     &.ant-table-column-sort {
       background: ${palette('secondary', 1)};
-      margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 4px 0 0' : '0 0 0 4px'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 4px 0 0' : '0 0 0 4px')};
     }
   }
 
@@ -95,20 +94,17 @@ const TableWrapper = styled(Table)`
   .ant-pagination-next,
   .ant-pagination-jump-prev,
   .ant-pagination-jump-next {
-    transform: ${props =>
-      props['data-rtl'] === 'rtl' ? 'rotate(180deg)' : 'rotate(0)'};
+    transform: ${props => (props['data-rtl'] === 'rtl' ? 'rotate(180deg)' : 'rotate(0)')};
   }
 
   .ant-pagination-prev,
   .ant-pagination-jump-prev,
   .ant-pagination-jump-next {
-    margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0')};
   }
 
   .ant-pagination-item {
-    margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0'};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 8px' : '0 8px 0 0')};
 
     &:hover {
       border-color: ${palette('primary', 0)};
@@ -242,8 +238,7 @@ const TableWrapper = styled(Table)`
         padding: 0 15px;
         margin-left: -1px;
         cursor: pointer;
-        border-radius: ${props =>
-          props['data-rtl'] === 'rtl' ? '3px 0 0 3px' : '0 3px 3px 0'};
+        border-radius: ${props => (props['data-rtl'] === 'rtl' ? '3px 0 0 3px' : '0 3px 3px 0')};
         ${transition()};
 
         &:hover {
@@ -261,8 +256,7 @@ const TableWrapper = styled(Table)`
         align-items: center;
 
         i {
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0')};
           order: -1;
         }
       }
@@ -335,8 +329,7 @@ const TableWrapper = styled(Table)`
           color: ${palette('text', 3)};
           line-height: inherit;
           padding: 7px 10px;
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 10px' : '0 10px 0 0')};
           border: 1px solid ${palette('border', 0)};
           outline: 0 !important;
           overflow: hidden;
@@ -377,8 +370,7 @@ const TableWrapper = styled(Table)`
         align-items: center;
 
         .isoEditIcon {
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto')};
           cursor: pointer;
           flex-shrink: 0;
         }
@@ -392,8 +384,7 @@ const WDCustomizedTableWrapper = styled.div`
     margin-bottom: 40px;
 
     .ant-form-item {
-      margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 0 0 16px' : '0 16px 0 0'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 16px' : '0 16px 0 0')};
     }
 
     .ant-form-item-label {
@@ -401,8 +392,7 @@ const WDCustomizedTableWrapper = styled.div`
         color: ${palette('secondary', 2)};
 
         &:after {
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 2px 0 8px' : '0 8px 0 2px'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '0 2px 0 8px' : '0 8px 0 2px')};
         }
       }
     }

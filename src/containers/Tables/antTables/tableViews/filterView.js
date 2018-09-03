@@ -12,27 +12,30 @@ export default class extends Component {
       dataList: this.props.dataList.getAll(),
       filterDropdownVisible: false,
       searchText: '',
-      filtered: false
+      filtered: false,
     };
   }
+
   onSearch() {
     let { searchText } = this.state;
     searchText = searchText.toUpperCase();
     const dataList = this.props.dataList
       .getAll()
-      .filter(data => data['firstName'].toUpperCase().includes(searchText));
+      .filter(data => data.firstName.toUpperCase().includes(searchText));
     this.setState({
       dataList,
       filterDropdownVisible: false,
       searchText: '',
-      filtered: false
+      filtered: false,
     });
   }
+
   onInputChange(event) {
     this.setState({ searchText: event.target.value });
   }
+
   render() {
-    let { searchText } = this.state;
+    const { searchText } = this.state;
     const columns = this.props.tableInfo.columns;
     const filterDropdown = (
       <FilterDropdown
@@ -51,10 +54,7 @@ export default class extends Component {
         />
       ),
       filterDropdownVisible: this.state.filterDropdownVisible,
-      onFilterDropdownVisibleChange: visible =>
-        this.setState({ filterDropdownVisible: visible }, () =>
-          document.getElementById('tableFilterInput').focus()
-        )
+      onFilterDropdownVisibleChange: visible => this.setState({ filterDropdownVisible: visible }, () => document.getElementById('tableFilterInput').focus()),
     };
     return (
       <TableWrapper

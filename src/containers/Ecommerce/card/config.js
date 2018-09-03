@@ -1,21 +1,22 @@
 import React from 'react';
 import { DeleteCell } from '../../../components/tables/helperCells';
+
 function createColumns(editColumn, deleteColumn) {
   return [
     {
       title: 'Number',
       dataIndex: 'number',
-      rowKey: 'number'
+      rowKey: 'number',
     },
     {
       title: 'Full Name',
       dataIndex: 'name',
-      rowKey: 'name'
+      rowKey: 'name',
     },
     {
       title: 'Notes',
       dataIndex: 'notes',
-      rowKey: 'notes'
+      rowKey: 'notes',
     },
     {
       title: '',
@@ -28,8 +29,8 @@ function createColumns(editColumn, deleteColumn) {
             }}
           />
         </span>
-      )
-    }
+      ),
+    },
   ];
 }
 
@@ -39,21 +40,21 @@ const fakedata = [
     key: 1,
     number: '**** **** **** 4243',
     name: 'John Brown',
-    notes: 'Nulla vitae elit libero, a pharetra augue.'
+    notes: 'Nulla vitae elit libero, a pharetra augue.',
   },
   {
     id: 2,
     key: 2,
     number: '**** **** **** 4242',
     name: 'Jim Green',
-    notes: 'Nullam id dolor id nibh ultricies vehicula ut id elit.'
+    notes: 'Nullam id dolor id nibh ultricies vehicula ut id elit.',
   },
   {
     id: 1,
     key: 3,
     number: '**** **** **** 4241',
     name: 'Joe Black',
-    notes: 'Nulla vitae elit libero, a pharetra augue.'
-  }
+    notes: 'Nulla vitae elit libero, a pharetra augue.',
+  },
 ];
 export { createColumns, fakedata };

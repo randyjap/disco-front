@@ -18,8 +18,7 @@ const QuillEditor = styled.div`
     }
 
     .ql-picker-label {
-      padding: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 8px 0 2px' : '0 2px 0 8px'};
+      padding: ${props => (props['data-rtl'] === 'rtl' ? '0 8px 0 2px' : '0 2px 0 8px')};
 
       &:not(.ql-color-picker):not(.ql-icon-picker) {
         svg {

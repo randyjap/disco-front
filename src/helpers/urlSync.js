@@ -3,9 +3,7 @@ import options from '../containers/Sidebar/options';
 
 export function getInitData() {
   const initData = qs.parse(window.location.search.slice(1));
-  if (initData.toggle)
-    initData.toggle.free_shipping =
-      initData.toggle.free_shipping === 'true' ? true : undefined;
+  if (initData.toggle) initData.toggle.free_shipping = initData.toggle.free_shipping === 'true' ? true : undefined;
   return initData;
 }
 export function setUrl(searchState) {
@@ -16,13 +14,13 @@ export function setUrl(searchState) {
 }
 
 export function getDefaultPath() {
-  const getParent = lastRoute => {
+  const getParent = (lastRoute) => {
     const parent = [];
     if (!lastRoute) return parent;
     parent.push(lastRoute);
-    options.forEach(option => {
+    options.forEach((option) => {
       if (option.children) {
-        option.children.forEach(child => {
+        option.children.forEach((child) => {
           if (child.key === lastRoute) {
             parent.push(option.key);
           }

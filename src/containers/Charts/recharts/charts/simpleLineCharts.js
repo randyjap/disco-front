@@ -12,7 +12,9 @@ import ChartWrapper from '../../chart.style';
 
 export default class extends Component {
   render() {
-    const { datas, width, height, colors } = this.props;
+    const {
+      datas, width, height, colors,
+    } = this.props;
     // <div className="isoChartWrapper">
     return (
       <ChartWrapper>
@@ -20,7 +22,9 @@ export default class extends Component {
           width={width}
           height={height}
           data={datas}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{
+            top: 5, right: 30, left: 20, bottom: 5,
+          }}
         >
           <XAxis dataKey="name" stroke={colors[3]} />
           <YAxis stroke={colors[3]} />

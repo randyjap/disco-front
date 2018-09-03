@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { GoogleApiWrapper } from 'google-maps-react';
 import { posts } from '../config';
 import { googleConfig } from '../../../../settings';
-import { GoogleApiWrapper } from 'google-maps-react';
 import BasicMapWrapper from './map.style';
 
 class BasicMap extends Component {
@@ -12,9 +12,10 @@ class BasicMap extends Component {
       center: { lat: 40.78306, lng: -73.971249 }, // 40.783060, -73.971249
       zoom: 13,
       posts,
-      infoWindow: null
+      infoWindow: null,
     };
   }
+
   loadMap(element) {
     const { google } = this.props;
     if (!element || !google) return;
@@ -24,10 +25,11 @@ class BasicMap extends Component {
       scrollwheel: false,
       mapTypeControlOptions: {
         style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        position: google.maps.ControlPosition.TOP_RIGHT
-      }
+        position: google.maps.ControlPosition.TOP_RIGHT,
+      },
     });
   }
+
   render() {
     const { loaded } = this.props;
     return (
@@ -49,5 +51,5 @@ class BasicMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: googleConfig.apiKey
+  apiKey: googleConfig.apiKey,
 })(BasicMap);

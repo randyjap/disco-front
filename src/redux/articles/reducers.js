@@ -20,7 +20,7 @@ const initState = {
 
 export default function reducer(
   state = initState,
-  { type, payload, newRecord }
+  { type, payload, newRecord },
 ) {
   switch (type) {
     case actions.LOAD_FROM_FIRESTORE:

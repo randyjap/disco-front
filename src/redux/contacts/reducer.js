@@ -1,12 +1,12 @@
-import fakeData from "../../containers/Contacts/fakeData";
-import contactActions from "./actions";
+import fakeData from '../../containers/Contacts/fakeData';
+import contactActions from './actions';
 
 const contacts = new fakeData(10).getAll();
 
 const initState = {
   contacts,
   seectedId: contacts[0].id,
-  editView: false
+  editView: false,
 };
 
 export default function contactReducer(state = initState, action) {
@@ -15,30 +15,30 @@ export default function contactReducer(state = initState, action) {
       return {
         ...state,
         seectedId: action.id,
-        editView: false
+        editView: false,
       };
     case contactActions.ADD_CONTACT:
       return {
         ...state,
         contacts: action.contacts,
         seectedId: action.selectedId,
-        editView: true
+        editView: true,
       };
     case contactActions.EDIT_CONTACT:
       return {
         ...state,
-        contacts: action.contacts
+        contacts: action.contacts,
       };
     case contactActions.DELETE__CONTACT:
       return {
         ...state,
         contacts: action.contacts,
-        seectedId: action.seectedId
+        seectedId: action.seectedId,
       };
     case contactActions.EDIT_VIEW:
       return {
         ...state,
-        editView: action.view
+        editView: action.view,
       };
     default:
       return state;

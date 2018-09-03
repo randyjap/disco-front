@@ -5,26 +5,26 @@ const data = {
       16,
       7,
       3,
-      14
+      14,
     ],
     backgroundColor: [
       '#FF6384',
       '#48A6F2',
       '#511E78',
       '#E7E9ED',
-      '#ffbf00'
+      '#ffbf00',
     ],
-    label: 'My dataset' // for legend
+    label: 'My dataset', // for legend
   }],
   labels: [
     'Red',
     'Purple',
     'Yellow',
     'Grey',
-    'Blue'
-  ]
+    'Blue',
+  ],
 };
 
 export {
   data,
-}
+};

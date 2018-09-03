@@ -8,36 +8,30 @@ const actions = {
   initData: () => ({ type: actions.INIT_DATA_SAGA }),
   changeView: view => ({
     type: actions.CHANGE_VIEW,
-    view
+    view,
   }),
-  changeViewTopbarCart: viewTopbarCart => {
-    return {
-      type: actions.VIEW_TOPBAR_CART,
-      viewTopbarCart
-    };
+  changeViewTopbarCart: viewTopbarCart => ({
+    type: actions.VIEW_TOPBAR_CART,
+    viewTopbarCart,
+  }),
+  changeProductQuantity: productQuantity => (dispatch, getState) => {
+    const { products } = getState().Ecommerce;
+    dispatch({
+      type: actions.UPDATE_DATA_SAGA,
+      products,
+      productQuantity,
+    });
   },
-  changeProductQuantity: productQuantity => {
-    return (dispatch, getState) => {
-      const { products } = getState().Ecommerce;
-      dispatch({
-        type: actions.UPDATE_DATA_SAGA,
-        products,
-        productQuantity
-      });
-    };
+  addToCart: product => (dispatch, getState) => {
+    const { products, productQuantity } = getState().Ecommerce;
+    const objectID = product.objectID;
+    productQuantity.push({ objectID, quantity: 1 });
+    products[objectID] = product;
+    dispatch({
+      type: actions.UPDATE_DATA_SAGA,
+      products,
+      productQuantity,
+    });
   },
-  addToCart: product => {
-    return (dispatch, getState) => {
-      const { products, productQuantity } = getState().Ecommerce;
-      const objectID = product.objectID;
-      productQuantity.push({ objectID, quantity: 1 });
-      products[objectID] = product;
-      dispatch({
-        type: actions.UPDATE_DATA_SAGA,
-        products,
-        productQuantity
-      });
-    };
-  }
 };
 export default actions;

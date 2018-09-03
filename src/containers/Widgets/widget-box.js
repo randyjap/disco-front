@@ -3,7 +3,9 @@ import { WidgetBox } from './style';
 
 export default class extends Component {
   render() {
-    const { children, style, height, padding } = this.props;
+    const {
+      children, style, height, padding,
+    } = this.props;
 
     // const boxStyle = {
     //   height: this.props.height,

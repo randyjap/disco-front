@@ -17,8 +17,8 @@ import SocialProfile from './social-widget/social-profile-icon';
 import userpic from '../../image/user1.png';
 import { TableViews, tableinfos, dataList } from '../Tables/antTables';
 import * as rechartConfigs from '../Charts/recharts/config';
-import { StackedAreaChart } from '../Charts/recharts/charts/';
-import { GoogleChart } from '../Charts/googleChart/';
+import { StackedAreaChart } from '../Charts/recharts/charts';
+import { GoogleChart } from '../Charts/googleChart';
 import * as googleChartConfigs from '../Charts/googleChart/config';
 import IntlMessages from '../../components/utility/intlMessages';
 
@@ -64,7 +64,7 @@ export default class extends Component {
                     percent={70}
                     barHeight={7}
                     status="active"
-                    info={true} // Boolean: true, false
+                    info // Boolean: true, false
                   />
                   <SingleProgressWidget
                     label={
@@ -73,7 +73,7 @@ export default class extends Component {
                     percent={80}
                     barHeight={7}
                     status="active"
-                    info={true} // Boolean: true, false
+                    info // Boolean: true, false
                   />
                   <SingleProgressWidget
                     label={
@@ -82,7 +82,7 @@ export default class extends Component {
                     percent={40}
                     barHeight={7}
                     status="active"
-                    info={true} // Boolean: true, false
+                    info // Boolean: true, false
                   />
                   <SingleProgressWidget
                     label={
@@ -91,7 +91,7 @@ export default class extends Component {
                     percent={60}
                     barHeight={7}
                     status="active"
-                    info={true} // Boolean: true, false
+                    info // Boolean: true, false
                   />
                 </ReportsWidget>
               </IsoWidgetsWrapper>

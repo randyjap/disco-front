@@ -1,10 +1,10 @@
-const generateLayoutfunc = allBox => {
+const generateLayoutfunc = (allBox) => {
   const mdLayouts = [];
   const lgLayouts = [];
   const smLayouts = [];
   const xsLayouts = [];
   const xxsLayouts = [];
-  allBox.forEach(box => {
+  allBox.forEach((box) => {
     mdLayouts.push({
       ...box,
       x: parseInt(box.size.md.x, 10),

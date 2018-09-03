@@ -35,10 +35,9 @@ const CollapseStyleWrapper = styled.div`
 
         .arrow {
           font-size: 16px;
-          transform: ${props =>
-            props['data-rtl'] === 'rtl'
-              ? 'scale(0.75) rotate(180deg)'
-              : 'scale(0.75) rotate(0)'};
+          transform: ${props => (props['data-rtl'] === 'rtl'
+    ? 'scale(0.75) rotate(180deg)'
+    : 'scale(0.75) rotate(0)')};
           right: ${props => (props['data-rtl'] === 'rtl' ? 'auto' : '16px')};
           left: ${props => (props['data-rtl'] === 'rtl' ? '16px' : 'auto')};
         }
@@ -63,10 +62,9 @@ const CollapseStyleWrapper = styled.div`
       &.ant-collapse-item-active {
         > .ant-collapse-header {
           .arrow {
-            transform: ${props =>
-              props['data-rtl'] === 'rtl'
-                ? 'scale(0.75) rotate(90deg)'
-                : 'scale(0.75) rotate(90deg)'};
+            transform: ${props => (props['data-rtl'] === 'rtl'
+    ? 'scale(0.75) rotate(90deg)'
+    : 'scale(0.75) rotate(90deg)')};
           }
         }
       }

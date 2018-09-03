@@ -3,7 +3,9 @@ import { VCardWidgetWrapper } from './style';
 
 export default class extends Component {
   render() {
-    const { src, alt, name, title, description, children, style } = this.props;
+    const {
+      src, alt, name, title, description, children, style,
+    } = this.props;
     return (
       <VCardWidgetWrapper className="isoVCardWidgetWrapper" style={style}>
         <div className="isoVCardImage">

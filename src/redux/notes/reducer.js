@@ -6,7 +6,7 @@ const initState = {
   notes,
   colors,
   selectedId: notes[0].id,
-  seectedColor: notes[0].color
+  seectedColor: notes[0].color,
 };
 
 export default function noteReducer(state = initState, action) {
@@ -15,30 +15,30 @@ export default function noteReducer(state = initState, action) {
       return {
         ...state,
         selectedId: action.selectedId,
-        seectedColor: action.seectedColor
+        seectedColor: action.seectedColor,
       };
     case actions.ADD_NOTE:
       return {
         ...state,
         notes: action.notes,
-        selectedId: action.selectedId
+        selectedId: action.selectedId,
       };
     case actions.EDIT_NOTE:
       return {
         ...state,
-        notes: action.notes
+        notes: action.notes,
       };
     case actions.DELETE_NOTE:
       return {
         ...state,
         notes: action.notes,
-        selectedId: action.selectedId
+        selectedId: action.selectedId,
       };
     case actions.CHANGE_COLOR:
       return {
         ...state,
         notes: action.notes,
-        seectedColor: action.seectedColor
+        seectedColor: action.seectedColor,
       };
     default:
       return state;

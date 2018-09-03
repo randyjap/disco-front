@@ -5,33 +5,33 @@ const initState = {
   isActivated: false,
   changeThemes: getCurrentTheme(
     'changeThemes',
-    config.changeThemes.defaultTheme || 'themedefault'
+    config.changeThemes.defaultTheme || 'themedefault',
   ),
   topbarTheme: getCurrentTheme(
     'topbarTheme',
-    config.topbarTheme.defaultTheme || 'themedefault'
+    config.topbarTheme.defaultTheme || 'themedefault',
   ),
   sidebarTheme: getCurrentTheme(
     'sidebarTheme',
-    config.sidebarTheme.defaultTheme || 'themedefault'
+    config.sidebarTheme.defaultTheme || 'themedefault',
   ),
   layoutTheme: getCurrentTheme(
     'layoutTheme',
-    config.layoutTheme.defaultTheme || 'themedefault'
-  )
+    config.layoutTheme.defaultTheme || 'themedefault',
+  ),
 };
 
-export default function(state = initState, action) {
+export default function (state = initState, action) {
   switch (action.type) {
     case actions.SWITCH_ACTIVATION:
       return {
         ...state,
-        isActivated: !state.isActivated
+        isActivated: !state.isActivated,
       };
     case actions.CHANGE_THEME:
       return {
         ...state,
-        [action.attribute]: action.theme
+        [action.attribute]: action.theme,
       };
     default:
       return state;

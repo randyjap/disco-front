@@ -51,14 +51,13 @@ const CardWrapper = styled.div`
               display: flex;
               flex-direction: row;
               > a {
-                margin: ${props =>
-                  props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0'};
+                margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 15px' : '0 15px 0 0')};
               }
             }
           }
           &:hover {
             .isoInvoiceBtnView {
-              ${'' /* opacity: 1; */};
+              ${''};
             }
           }
         }

@@ -11,16 +11,15 @@ export default class extends Component {
       gutterLeft,
       padding,
       children,
-      align
+      align,
     } = this.props;
-    const alignContent =
-      this.props.align === 'start'
-        ? 'flex-start'
-        : this.props.align === 'end'
-          ? 'flex-end'
-          : this.props.align === 'center'
-            ? 'center'
-            : this.props.align === 'stretch' ? 'stretch' : '';
+    const alignContent = this.props.align === 'start'
+      ? 'flex-start'
+      : this.props.align === 'end'
+        ? 'flex-end'
+        : this.props.align === 'center'
+          ? 'center'
+          : this.props.align === 'stretch' ? 'stretch' : '';
 
     const columnStyle = {
       display: 'flex',
@@ -30,9 +29,9 @@ export default class extends Component {
       marginRight: gutterRight,
       marginBottom: gutterBottom,
       marginLeft: gutterLeft,
-      padding: padding,
+      padding,
       width: this.props.width,
-      alignContent: alignContent
+      alignContent,
     };
     return (
       <WidgetColumn className="isoWidgetsColumn" style={columnStyle}>

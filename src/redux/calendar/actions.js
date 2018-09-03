@@ -3,11 +3,11 @@ const calendarActions = {
   CALENDAR_EVENTS: 'CALENDAR_EVENTS',
   changeView: view => ({
     type: calendarActions.CALENDAR_VIEW,
-    view
+    view,
   }),
   changeEvents: events => ({
     type: calendarActions.CALENDAR_EVENTS,
-    events
-  })
+    events,
+  }),
 };
 export default calendarActions;

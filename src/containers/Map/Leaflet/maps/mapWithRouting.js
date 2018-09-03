@@ -11,31 +11,32 @@ export default class extends Component {
     super(props);
     this.mountMap = this.mountMap.bind(this);
   }
+
   mountMap(element) {
     if (!element) return;
     const { L } = window;
     const map = L.map(element).setView(
       mapboxConfig.center,
-      !isNaN(mapboxConfig.defaultZoom) ? mapboxConfig.defaultZoom : 13
+      !isNaN(mapboxConfig.defaultZoom) ? mapboxConfig.defaultZoom : 13,
     );
-    const osmAttr =
-      '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    const osmAttr = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
     L.tileLayer(mapboxConfig.tileLayer, {
       maxZoom: !isNaN(mapboxConfig.maxZoom) ? mapboxConfig.maxZoom : 18,
-      attribution: osmAttr
+      attribution: osmAttr,
     }).addTo(map);
     try {
       L.Routing
         .control({
           waypoints: [
             L.latLng(40.72143, -74.05729),
-            L.latLng(40.6943, -74.074201)
+            L.latLng(40.6943, -74.074201),
           ],
-          routeWhileDragging: true
+          routeWhileDragging: true,
         })
         .addTo(map);
     } catch (e) {}
   }
+
   render() {
     return (
       <LeafletMapWrapper className="isoLeafletMap">

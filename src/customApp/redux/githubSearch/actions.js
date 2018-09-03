@@ -4,20 +4,20 @@ const actions = {
   GIT_ERROR_RESULT: 'GIT_ERROR_RESULT',
   gitSearch: searcText => ({
     type: actions.GIT_SEARCH,
-    payload: { searcText, page: 1 }
+    payload: { searcText, page: 1 },
   }),
   onPageChange: (searcText, page) => ({
     type: actions.GIT_SEARCH,
-    payload: { searcText, page }
+    payload: { searcText, page },
   }),
   gitSearchSuccess: (result, total_count, page) => ({
     type: actions.GIT_SUCCESS_RESULT,
     result,
     total_count,
-    page
+    page,
   }),
   gitSearchError: () => ({
-    type: actions.GIT_ERROR_RESULT
-  })
+    type: actions.GIT_ERROR_RESULT,
+  }),
 };
 export default actions;

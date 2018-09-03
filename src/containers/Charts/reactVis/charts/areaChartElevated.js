@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ChartWrapper from '../../chart.style';
-
 import {
   XYPlot,
   XAxis,
@@ -8,8 +6,10 @@ import {
   VerticalGridLines,
   HorizontalGridLines,
   LineMarkSeries,
-  AreaSeries
+  AreaSeries,
 } from 'react-vis';
+import ChartWrapper from '../../chart.style';
+
 
 export default class extends Component {
   render() {
@@ -26,7 +26,7 @@ export default class extends Component {
               key,
               className: data.className,
               data: data.data,
-              color: data.color
+              color: data.color,
             };
             return <AreaSeries {...config} />;
           })}

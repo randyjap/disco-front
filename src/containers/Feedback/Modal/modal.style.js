@@ -20,8 +20,8 @@ const Modals = ComponentName => styled(ComponentName)`
   }
 
   .ant-modal-close {
-    right: ${props => props['data-rtl'] === 'rtl' ? 'inherit' : '0'};
-    left: ${props => props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
+    right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
+    left: ${props => (props['data-rtl'] === 'rtl' ? '0' : 'inherit')};
   }
 
   .ant-modal-body {
@@ -44,8 +44,7 @@ const Modals = ComponentName => styled(ComponentName)`
     }
 
     button + button {
-      margin: ${props =>
-  props['data-rtl'] === 'rtl' ? '0 8px 0 0' : '0 0 0 8px'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 8px 0 0' : '0 0 0 8px')};
     }
   }
 

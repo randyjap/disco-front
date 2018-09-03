@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import IntlMessages from "../../components/utility/intlMessages";
-import Scrollbar from "../../components/utility/customScrollBar";
-import Popover from "../../components/uielements/popover";
-import SingleCart from "../../components/cart/singleCartModal";
-import ecommerceAction from "../../redux/ecommerce/actions";
-import TopbarDropdownWrapper from "./topbarDropdown.style";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import IntlMessages from '../../components/utility/intlMessages';
+import Scrollbar from '../../components/utility/customScrollBar';
+import Popover from '../../components/uielements/popover';
+import SingleCart from '../../components/cart/singleCartModal';
+import ecommerceAction from '../../redux/ecommerce/actions';
+import TopbarDropdownWrapper from './topbarDropdown.style';
 
 const {
   initData,
   changeViewTopbarCart,
-  changeProductQuantity
+  changeProductQuantity,
 } = ecommerceAction;
 let totalPrice;
 class TopbarAddtoCart extends Component {
@@ -23,18 +23,22 @@ class TopbarAddtoCart extends Component {
     this.changeQuantity = this.changeQuantity.bind(this);
     this.cancelQuantity = this.cancelQuantity.bind(this);
   }
+
   hide() {
     this.props.changeViewTopbarCart(false);
   }
+
   handleVisibleChange() {
     this.props.changeViewTopbarCart(!this.props.viewTopbarCart);
   }
+
   componentDidMount() {
     const { loadingInitData, initData } = this.props;
     if (!loadingInitData) {
       initData();
     }
   }
+
   renderProducts() {
     const { productQuantity, products } = this.props;
     totalPrice = 0;
@@ -45,7 +49,7 @@ class TopbarAddtoCart extends Component {
         </div>
       );
     }
-    return productQuantity.map(product => {
+    return productQuantity.map((product) => {
       totalPrice += product.quantity * products[product.objectID].price;
       return (
         <SingleCart
@@ -58,25 +62,27 @@ class TopbarAddtoCart extends Component {
       );
     });
   }
+
   changeQuantity(objectID, quantity) {
     const { productQuantity } = this.props;
     const newProductQuantity = [];
-    productQuantity.forEach(product => {
+    productQuantity.forEach((product) => {
       if (product.objectID !== objectID) {
         newProductQuantity.push(product);
       } else {
         newProductQuantity.push({
           objectID,
-          quantity
+          quantity,
         });
       }
     });
     this.props.changeProductQuantity(newProductQuantity);
   }
+
   cancelQuantity(objectID) {
     const { productQuantity } = this.props;
     const newProductQuantity = [];
-    productQuantity.forEach(product => {
+    productQuantity.forEach((product) => {
       if (product.objectID !== objectID) {
         newProductQuantity.push(product);
       }
@@ -89,7 +95,7 @@ class TopbarAddtoCart extends Component {
       url,
       productQuantity,
       viewTopbarCart,
-      customizedTheme
+      customizedTheme,
     } = this.props;
     const content = (
       <TopbarDropdownWrapper className="topbarAddtoCart">
@@ -107,8 +113,13 @@ class TopbarAddtoCart extends Component {
           </Link>
 
           <h3>
-            <IntlMessages id="topbar.totalPrice" />:{" "}
-            <span>${totalPrice.toFixed(2)}</span>
+            <IntlMessages id="topbar.totalPrice" />
+:
+            {' '}
+            <span>
+$
+              {totalPrice.toFixed(2)}
+            </span>
           </h3>
         </div>
       </TopbarDropdownWrapper>
@@ -127,7 +138,7 @@ class TopbarAddtoCart extends Component {
             style={{ color: customizedTheme.textColor }}
           />
           {productQuantity.length === 0 ? (
-            ""
+            ''
           ) : (
             <span>{productQuantity.length}</span>
           )}
@@ -139,11 +150,11 @@ class TopbarAddtoCart extends Component {
 function mapStateToProps(state) {
   return {
     ...state.Ecommerce,
-    customizedTheme: state.ThemeSwitcher.topbarTheme
+    customizedTheme: state.ThemeSwitcher.topbarTheme,
   };
 }
 export default connect(mapStateToProps, {
   initData,
   changeViewTopbarCart,
-  changeProductQuantity
+  changeProductQuantity,
 })(TopbarAddtoCart);

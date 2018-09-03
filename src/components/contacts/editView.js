@@ -27,11 +27,11 @@ export default class extends Component {
     const extraInfos = [];
     const names = [
       { value: 'firstName', title: 'First Name' },
-      { value: 'lastName', title: 'Last Name' }
+      { value: 'lastName', title: 'Last Name' },
     ];
-    [...names, ...otherAttributes].forEach(attribute => {
+    [...names, ...otherAttributes].forEach((attribute) => {
       const value = contact[attribute.value];
-      const editContact = event => {
+      const editContact = (event) => {
         contact[attribute.value] = event.target.value;
         let name = '';
         if (contact.firstName) {
@@ -54,7 +54,7 @@ export default class extends Component {
               rows={5}
               onChange={event => editContact(event)}
             />
-          </div>
+          </div>,
         );
       } else {
         extraInfos.push(
@@ -65,7 +65,7 @@ export default class extends Component {
               value={value}
               onChange={event => editContact(event)}
             />
-          </div>
+          </div>,
         );
       }
     });

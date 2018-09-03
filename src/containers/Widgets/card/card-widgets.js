@@ -3,9 +3,11 @@ import CardWidgetWrapper from './style';
 
 export default class extends Component {
   render() {
-    const { icon, iconcolor, number, text } = this.props;
+    const {
+      icon, iconcolor, number, text,
+    } = this.props;
     const iconStyle = {
-      color: iconcolor
+      color: iconcolor,
     };
 
     return (

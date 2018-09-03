@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { palette } from "styled-theme";
-import { borderRadius } from "../../../settings/style-util";
-import WithDirection from "../../../settings/withDirection";
+import styled from 'styled-components';
+import { palette } from 'styled-theme';
+import { borderRadius } from '../../../settings/style-util';
+import WithDirection from '../../../settings/withDirection';
 
 const WDCheckoutContents = styled.div`
   .isoCheckoutPage {
@@ -10,10 +10,9 @@ const WDCheckoutContents = styled.div`
     .isoSectionTitle {
       font-size: 16px;
       font-weight: 500;
-      color: ${palette("text", 0)};
+      color: ${palette('text', 0)};
       line-height: 1.2;
-      padding: ${props =>
-        props["data-rtl"] === "rtl" ? "0 30px 0 0" : "0 0 0 30px"};
+      padding: ${props => (props['data-rtl'] === 'rtl' ? '0 30px 0 0' : '0 0 0 30px')};
       margin: 20px 0 35px;
     }
 
@@ -34,13 +33,13 @@ const WDCheckoutContents = styled.div`
         width: 100%;
         height: 1px;
         display: flex;
-        background-color: ${palette("grayscale", 4)};
+        background-color: ${palette('grayscale', 4)};
       }
 
       span {
         font-size: 14px;
         font-weight: 500;
-        color: ${palette("text", 0)};
+        color: ${palette('text', 0)};
         line-height: 1.2;
         padding: 0 15px;
       }
@@ -63,8 +62,7 @@ const WDCheckoutContents = styled.div`
 
 const WDBillingFormWrapper = styled.div`
   width: 60%;
-  padding: ${props =>
-    props["data-rtl"] === "rtl" ? "0 30px 0 20px" : "0 20px 0 30px"};
+  padding: ${props => (props['data-rtl'] === 'rtl' ? '0 30px 0 20px' : '0 20px 0 30px')};
   display: flex;
   flex-direction: column;
 
@@ -87,8 +85,7 @@ const WDBillingFormWrapper = styled.div`
       width: 100%;
       display: flex;
       flex-direction: column;
-      margin: ${props =>
-        props["data-rtl"] === "rtl" ? "0 0 0 35px" : "0 35px 0 0"};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 35px' : '0 35px 0 0')};
 
       &:last-child {
         margin: 0;
@@ -118,7 +115,7 @@ const WDBillingFormWrapper = styled.div`
     span {
       font-size: 13px;
       font-weight: 500;
-      color: ${palette("text", 0)};
+      color: ${palette('text', 0)};
       line-height: 1.2;
     }
   }
@@ -138,7 +135,7 @@ const WDInputBoxWrapper = styled.div`
     label {
       font-size: 14px;
       font-weight: 500;
-      color: ${palette("text", 0)};
+      color: ${palette('text', 0)};
       line-height: 1.2;
       margin-bottom: 17px;
       display: flex;
@@ -147,10 +144,9 @@ const WDInputBoxWrapper = styled.div`
       .asterisk {
         font-size: 15px;
         font-weight: 400;
-        color: ${palette("color", 0)};
+        color: ${palette('color', 0)};
         line-height: 1.2;
-        margin: ${props =>
-          props["data-rtl"] === "rtl" ? "0 3px 0 0" : "0 0 0 3px"};
+        margin: ${props => (props['data-rtl'] === 'rtl' ? '0 3px 0 0' : '0 0 0 3px')};
       }
     }
 
@@ -162,8 +158,7 @@ const WDInputBoxWrapper = styled.div`
 
 const WDOrderTable = styled.div`
   width: 40%;
-  padding: ${props =>
-    props["data-rtl"] === "rtl" ? "0 20px 0 30px" : "0 30px 0 20px"};
+  padding: ${props => (props['data-rtl'] === 'rtl' ? '0 20px 0 30px' : '0 30px 0 20px')};
 
   @media only screen and (max-width: 767px) {
     width: 100%;
@@ -185,7 +180,7 @@ const WDOrderTable = styled.div`
       .tableHead {
         font-size: 15px;
         font-weight: 500;
-        color: ${palette("text", 0)};
+        color: ${palette('text', 0)};
         line-height: 1.2;
       }
     }
@@ -202,19 +197,18 @@ const WDOrderTable = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 10px 0;
-        border-bottom: 1px solid ${palette("border", 0)};
+        border-bottom: 1px solid ${palette('border', 0)};
 
         &:last-child {
           border-bottom: 0;
         }
 
         p {
-          padding-right: ${props =>
-            props["data-rtl"] === "rtl" ? "0 0 0 35px" : "0 35px 0 0"};
+          padding-right: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 35px' : '0 35px 0 0')};
           span {
             font-size: 13px;
             font-weight: 400;
-            color: ${palette("text", 2)};
+            color: ${palette('text', 2)};
             line-height: 1.5;
             padding: 0 3px;
             display: inline-block;
@@ -222,7 +216,7 @@ const WDOrderTable = styled.div`
             &.isoQuantity {
               font-size: 13px;
               font-weight: 400;
-              color: ${palette("text", 1)};
+              color: ${palette('text', 1)};
               line-height: 1.5;
               display: inline-block;
             }
@@ -232,7 +226,7 @@ const WDOrderTable = styled.div`
         .totalPrice {
           font-size: 13px;
           font-weight: 500;
-          color: ${palette("text", 2)};
+          color: ${palette('text', 2)};
           line-height: 1.5;
         }
       }
@@ -248,14 +242,14 @@ const WDOrderTable = styled.div`
       span {
         font-size: 14px;
         font-weight: 500;
-        color: ${palette("text", 0)};
+        color: ${palette('text', 0)};
         line-height: 1.2;
       }
     }
 
     button {
       height: 42px;
-      ${borderRadius("2px")};
+      ${borderRadius('2px')};
     }
   }
 `;
@@ -265,4 +259,6 @@ const BillingFormWrapper = WithDirection(WDBillingFormWrapper);
 const OrderTable = WithDirection(WDOrderTable);
 const InputBoxWrapper = WithDirection(WDInputBoxWrapper);
 
-export { CheckoutContents, BillingFormWrapper, OrderTable, InputBoxWrapper };
+export {
+  CheckoutContents, BillingFormWrapper, OrderTable, InputBoxWrapper,
+};

@@ -26,8 +26,8 @@ class FullCalender extends Component {
       timeslots: 2,
       className: 'YoubiquityCalendar',
       agenda: {
-        event: EventAgenda
-      }
+        event: EventAgenda,
+      },
     };
     return <Calendar {...calendarOptions} {...this.props} />;
   }

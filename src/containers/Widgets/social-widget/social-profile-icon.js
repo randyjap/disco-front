@@ -4,7 +4,7 @@ export default class extends Component {
   render() {
     const { url, icon, iconcolor } = this.props;
     const iconStyle = {
-      color: iconcolor
+      color: iconcolor,
     };
     return (
       <li>

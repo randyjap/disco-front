@@ -3,7 +3,7 @@ export const otherAttributes = [
   { title: 'Home', value: 'home', type: 'phoneNumber' },
   { title: 'Company', value: 'company', type: 'company' },
   { title: 'Work', value: 'work', type: 'phoneNumber' },
-  { title: 'Notes', value: 'note', type: 'paragraph' }
+  { title: 'Notes', value: 'note', type: 'paragraph' },
 ];
 
 const contactList = JSON.parse(
@@ -117,7 +117,7 @@ const contactList = JSON.parse(
   "company": "Haag Group",
   "work": "1-908-422-4964",
   "note": "Aut sequi quae omnis ut qui quaerat. Dolor et fugit blanditiis laudantium. Libero modi officiis consequatur corrupti reiciendis aut qui nemo doloribus. Consequatur voluptatibus quis vero numquam aspernatur a sit laborum voluptates."
-}]`
+}]`,
 );
 
 export default class fakeData {
@@ -125,9 +125,11 @@ export default class fakeData {
     this.size = size;
     this.datas = [];
   }
+
   dataModel(index) {
     return contactList[index];
   }
+
   getObjectAt(index) {
     if (index < 0 || index > this.size) {
       return undefined;
@@ -137,6 +139,7 @@ export default class fakeData {
     }
     return this.datas[index];
   }
+
   getAll() {
     if (this.datas.length < this.size) {
       for (let i = 0; i < this.size; i++) {
@@ -146,9 +149,8 @@ export default class fakeData {
     return this.datas
       .slice()
       .sort(
-        (contact1, contact2) =>
-          `${contact1.firstName}${contact1.LastName}`.toUpperCase() >
-          `${contact2.firstName}${contact2.LastName}`.toUpperCase()
+        (contact1, contact2) => `${contact1.firstName}${contact1.LastName}`.toUpperCase()
+          > `${contact2.firstName}${contact2.LastName}`.toUpperCase(),
       );
   }
 

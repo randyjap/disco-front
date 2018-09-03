@@ -16,10 +16,9 @@ const CardWidgetWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: ${props =>
-      props['data-rtl'] === 'rtl'
-        ? '20px 20px 20px 30px'
-        : '20px 30px 20px 20px'};
+    padding: ${props => (props['data-rtl'] === 'rtl'
+    ? '20px 20px 20px 30px'
+    : '20px 30px 20px 20px')};
 
     i {
       font-size: 36px;

@@ -2,18 +2,18 @@ import React from 'react';
 import {
   DropdownButtons,
   DropdownMenu,
-  MenuItem
+  MenuItem,
 } from '../uielements/dropdown';
 
 export default ({ value, onChange, orderStatusOptions }) => (
   <DropdownButtons
-    overlay={
+    overlay={(
       <DropdownMenu onClick={val => onChange(orderStatusOptions[val.key])}>
         {orderStatusOptions.map((option, index) => (
           <MenuItem key={index}>{option}</MenuItem>
         ))}
       </DropdownMenu>
-    }
+)}
   >
     {value}
   </DropdownButtons>

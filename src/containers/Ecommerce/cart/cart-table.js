@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import Input from "../../../components/uielements/input";
-import Button from "../../../components/uielements/button";
-import ecommerceActions from "../../../redux/ecommerce/actions";
-import SingleCart from "../../../components/cart/singleCart";
-import ProductsTable from "./cartTable.style";
-import { rtl } from "../../../settings/withDirection";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Input from '../../../components/uielements/input';
+import Button from '../../../components/uielements/button';
+import ecommerceActions from '../../../redux/ecommerce/actions';
+import SingleCart from '../../../components/cart/singleCart';
+import ProductsTable from './cartTable.style';
+import { rtl } from '../../../settings/withDirection';
 
 const { changeProductQuantity } = ecommerceActions;
 
@@ -17,13 +17,14 @@ class CartTable extends Component {
     this.changeQuantity = this.changeQuantity.bind(this);
     this.cancelQuantity = this.cancelQuantity.bind(this);
   }
+
   renderItems() {
     const { productQuantity, products } = this.props;
     totalPrice = 0;
     if (!productQuantity || productQuantity.length === 0) {
       return <tr className="isoNoItemMsg">No item found</tr>;
     }
-    return productQuantity.map(product => {
+    return productQuantity.map((product) => {
       totalPrice += product.quantity * products[product.objectID].price;
       return (
         <SingleCart
@@ -36,34 +37,37 @@ class CartTable extends Component {
       );
     });
   }
+
   changeQuantity(objectID, quantity) {
     const { productQuantity } = this.props;
     const newProductQuantity = [];
-    productQuantity.forEach(product => {
+    productQuantity.forEach((product) => {
       if (product.objectID !== objectID) {
         newProductQuantity.push(product);
       } else {
         newProductQuantity.push({
           objectID,
-          quantity
+          quantity,
         });
       }
     });
     this.props.changeProductQuantity(newProductQuantity);
   }
+
   cancelQuantity(objectID) {
     const { productQuantity } = this.props;
     const newProductQuantity = [];
-    productQuantity.forEach(product => {
+    productQuantity.forEach((product) => {
       if (product.objectID !== objectID) {
         newProductQuantity.push(product);
       }
     });
     this.props.changeProductQuantity(newProductQuantity);
   }
+
   render() {
     const { style } = this.props;
-    const classname = style != null ? style : "";
+    const classname = style != null ? style : '';
     return (
       <ProductsTable className={`isoCartTable ${classname}`}>
         <table>
@@ -86,7 +90,10 @@ class CartTable extends Component {
               <td className="isoItemName" />
               <td className="isoItemPrice" />
               <td className="isoItemQuantity">Total</td>
-              <td className="isoItemPriceTotal">${totalPrice.toFixed(2)}</td>
+              <td className="isoItemPriceTotal">
+$
+                {totalPrice.toFixed(2)}
+              </td>
             </tr>
           </tbody>
 
@@ -94,24 +101,24 @@ class CartTable extends Component {
             <tr>
               <td
                 style={{
-                  width: "100%",
-                  paddingRight: `${rtl === "rtl" ? "0" : "25px"}`,
-                  paddingLeft: `${rtl === "rtl" ? "25px" : "0"}`
+                  width: '100%',
+                  paddingRight: `${rtl === 'rtl' ? '0' : '25px'}`,
+                  paddingLeft: `${rtl === 'rtl' ? '25px' : '0'}`,
                 }}
               >
                 <Input size="large" placeholder="Discount Coupon" />
               </td>
               <td
                 style={{
-                  paddingRight: `${rtl === "rtl" ? "0" : "25px"}`,
-                  paddingLeft: `${rtl === "rtl" ? "25px" : "0"}`
+                  paddingRight: `${rtl === 'rtl' ? '0' : '25px'}`,
+                  paddingLeft: `${rtl === 'rtl' ? '25px' : '0'}`,
                 }}
               >
                 <Button>Apply</Button>
               </td>
               <td>
                 <Button type="primary">
-                  <Link to={"/dashboard/checkout"}>Checkout</Link>
+                  <Link to="/dashboard/checkout">Checkout</Link>
                 </Button>
               </td>
             </tr>

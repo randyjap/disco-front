@@ -15,14 +15,14 @@ class Hit extends Component {
       addCartLoading: false,
     };
   }
+
   render() {
     const { hit } = this.props;
-    const className =
-      this.props.view === 'gridView'
-        ? 'isoAlgoliaGrid GridView'
-        : 'isoAlgoliaGrid ListView';
+    const className = this.props.view === 'gridView'
+      ? 'isoAlgoliaGrid GridView'
+      : 'isoAlgoliaGrid ListView';
     let addedTocart = false;
-    this.props.productQuantity.forEach(product => {
+    this.props.productQuantity.forEach((product) => {
       if (product.objectID === hit.objectID) {
         addedTocart = true;
       }
@@ -64,7 +64,10 @@ class Hit extends Component {
           </div>
 
           <div className="isoAlGridPriceRating">
-            <span className="isoAlGridPrice">${hit.price}</span>
+            <span className="isoAlGridPrice">
+$
+              {hit.price}
+            </span>
 
             <div className="isoAlGridRating">
               <Rate disabled count={6} defaultValue={hit.rating} />
@@ -87,5 +90,5 @@ function mapStateToProps(state) {
   };
 }
 export default connect(mapStateToProps, { addToCart, changeViewTopbarCart })(
-  Hit
+  Hit,
 );

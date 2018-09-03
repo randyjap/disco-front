@@ -1,7 +1,7 @@
 import React from 'react';
-import Spins from '../../../components/uielements/spin';
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
+import Spins from '../../../components/uielements/spin';
 
 const AntSpin = props => <Spins {...props} />;
 

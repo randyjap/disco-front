@@ -8,7 +8,7 @@ const initState = {
   filterAttr: { bucket: 'Inbox' },
   composeMail: false,
   replyMail: false,
-  searchString: ''
+  searchString: '',
 };
 
 export default function mailReducer(state = initState, action) {
@@ -19,30 +19,30 @@ export default function mailReducer(state = initState, action) {
         composeMail: false,
         replyMail: false,
         selectedMail: -1,
-        filterAttr: { ...action.filterAttr }
+        filterAttr: { ...action.filterAttr },
       };
     case actions.SELECTED_MAIL:
       return {
         ...state,
         replyMail: false,
         selectedMail: action.selectedMail,
-        allMails: action.allMails
+        allMails: action.allMails,
       };
     case actions.COMPOSE_MAIL:
       return {
         ...state,
         replyMail: false,
-        composeMail: action.composeMail
+        composeMail: action.composeMail,
       };
     case actions.REPLY_MAIL:
       return {
         ...state,
-        replyMail: action.replyMail
+        replyMail: action.replyMail,
       };
     case actions.SEARCH_STRING:
       return {
         ...state,
-        searchString: action.searchString
+        searchString: action.searchString,
       };
     default:
       return state;

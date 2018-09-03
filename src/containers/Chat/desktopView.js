@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import ChatRooms from "./chatrooms";
-import Messages from "./messages";
-import ComposeMessage from "./composMessage";
-import ViewProfile from "../../components/chat/viewProfile";
-import InputName from "../../components/chat/inputName";
-import Loader from "../../components/utility/loader";
-import Modal from "../../components/feedback/modal";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import ChatRooms from './chatrooms';
+import Messages from './messages';
+import ComposeMessage from './composMessage';
+import ViewProfile from '../../components/chat/viewProfile';
+import InputName from '../../components/chat/inputName';
+import Loader from '../../components/utility/loader';
+import Modal from '../../components/feedback/modal';
 import {
   ChatWindow,
   ChatBox,
   ToggleViewProfile,
-  MessageDialog
-} from "./message.style";
+  MessageDialog,
+} from './message.style';
 
-import actions from "../../redux/chat/actions";
+import actions from '../../redux/chat/actions';
 
 class DesktopView extends Component {
   componentDidMount() {
@@ -23,6 +23,7 @@ class DesktopView extends Component {
       chatInit(userId);
     }
   }
+
   render() {
     const {
       loading,
@@ -33,7 +34,7 @@ class DesktopView extends Component {
       selectedChatRoom,
       viewProfile,
       toggleViewProfile,
-      className
+      className,
     } = this.props;
     if (loading) {
       return <Loader />;
@@ -41,7 +42,7 @@ class DesktopView extends Component {
     return (
       <ChatWindow className="ChatWindow">
         <ChatRooms />
-        <ChatBox style={{ height: "100%" }}>
+        <ChatBox style={{ height: '100%' }}>
           <Modal
             visible={openCompose}
             onCancel={toggleCompose}
@@ -65,8 +66,7 @@ class DesktopView extends Component {
           {selectedChatRoom && (
             <ToggleViewProfile>
               <span
-                onClick={() =>
-                  toggleViewProfile(selectedChatRoom.otherUserInfo)
+                onClick={() => toggleViewProfile(selectedChatRoom.otherUserInfo)
                 }
               >
                 {selectedChatRoom.otherUserInfo.name}
@@ -84,7 +84,7 @@ class DesktopView extends Component {
             viewProfile={viewProfile}
           />
         ) : (
-          ""
+          ''
         )}
       </ChatWindow>
     );

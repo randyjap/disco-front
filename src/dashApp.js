@@ -1,21 +1,20 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store, history } from './redux/store';
-import PublicRoutes from './router';
 import { ThemeProvider } from 'styled-components';
 import { LocaleProvider } from 'antd';
 import { IntlProvider } from 'react-intl';
+import PublicRoutes from './router';
+import { store, history } from './redux/store';
 import themes from './settings/themes';
 import AppLocale from './languageProvider';
 import config, {
-  getCurrentLanguage
+  getCurrentLanguage,
 } from './containers/LanguageSwitcher/config';
 import { themeConfig } from './settings';
 import DashAppHolder from './dashAppStyle';
 import Boot from './redux/boot';
 
-const currentAppLocale =
-  AppLocale[getCurrentLanguage(config.defaultLanguage || 'english').locale];
+const currentAppLocale = AppLocale[getCurrentLanguage(config.defaultLanguage || 'english').locale];
 
 const DashApp = () => (
   <LocaleProvider locale={currentAppLocale.antd}>

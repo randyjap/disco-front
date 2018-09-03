@@ -63,14 +63,12 @@ const WDGithubResultListStyleWrapper = styled.div`
         line-height: 1.3;
 
         &.language {
-          margin: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 70px' : '0 70px 0 0'};
+          margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 70px' : '0 70px 0 0')};
           &:before {
             content: '';
             width: 10px;
             height: 10px;
-            margin: ${props =>
-              props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0'};
+            margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0')};
             display: inline-block;
             background-color: ${palette('text', 1)};
             ${borderRadius('50%')};
@@ -81,8 +79,7 @@ const WDGithubResultListStyleWrapper = styled.div`
           }
 
           @media only screen and (min-width: 768px) and (max-width: 1199px) {
-            margin: ${props =>
-              props['data-rtl'] === 'rtl' ? '0 0 0 40px' : '0 40px 0 0'};
+            margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 40px' : '0 40px 0 0')};
           }
         }
 
@@ -93,8 +90,7 @@ const WDGithubResultListStyleWrapper = styled.div`
             font-family: 'ionicons';
             font-size: 16px;
             color: ${palette('text', 1)};
-            margin: ${props =>
-              props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0'};
+            margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0')};
           }
         }
       }
@@ -148,7 +144,7 @@ const GithubResultStyleWrapper = styled.div`
   }
 `;
 const GithubResultListStyleWrapper = WithDirection(
-  WDGithubResultListStyleWrapper
+  WDGithubResultListStyleWrapper,
 );
 
 export { GithubResultListStyleWrapper, GithubResultStyleWrapper };

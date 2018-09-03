@@ -1,7 +1,7 @@
 import React from 'react';
 import Tree, { TreeNode } from '../../../components/uielements/tree';
 
-export default function() {
+export default function () {
   return (
     <Tree
       checkable

@@ -34,14 +34,12 @@ const WDSingleMailActions = styled.div`
     background-color: #ffffff;
     outline: 0;
     border: 1px solid ${palette('border', 0)};
-    margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 -1px 0 15px' : '0 15px 0 -1px'};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 -1px 0 15px' : '0 15px 0 -1px')};
     cursor: pointer;
     ${transition()};
 
     @media only screen and (max-width: 479px) {
-      margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 -1px 0 5px' : '0 5px 0 -1px'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 -1px 0 5px' : '0 5px 0 -1px')};
     }
 
     i {
@@ -92,8 +90,7 @@ const WDMailActionsWrapper = styled.div`
     background-color: #ffffff;
     outline: 0;
     border: 1px solid ${palette('border', 0)};
-    margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px')};
     cursor: pointer;
     ${transition()};
 
@@ -105,8 +102,7 @@ const WDMailActionsWrapper = styled.div`
     }
 
     &:first-child {
-      margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 0 0 -1px' : '0 -1px 0 0'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 -1px' : '0 -1px 0 0')};
     }
 
     &:hover {
@@ -127,23 +123,19 @@ const WDMailActionsWrapper = styled.div`
 `;
 
 const WDMailCategoryWrapper = WDMailActionsWrapper.extend`
-  margin: ${props =>
-    props['data-rtl'] === 'rtl' ? '0 20px 0 0' : '0 0 0 20px'};
+  margin: ${props => (props['data-rtl'] === 'rtl' ? '0 20px 0 0' : '0 0 0 20px')};
 
   @media only screen and (max-width: 767px) {
-    margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 auto 0 10px' : '0 10px 0 auto'};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 auto 0 10px' : '0 10px 0 auto')};
   }
 
   @media only screen and (max-width: 479px) {
-    margin: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0'};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 5px' : '0 5px 0 0')};
   }
 `;
 
 const WDMailPaginationWrapper = WDMailActionsWrapper.extend`
-  margin: ${props =>
-    props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto'};
+  margin: ${props => (props['data-rtl'] === 'rtl' ? '0 auto 0 0' : '0 0 0 auto')};
 `;
 
 const MailActionDropdown = styled.ul`

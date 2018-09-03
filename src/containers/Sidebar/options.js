@@ -1,4 +1,5 @@
 import getDevSidebar from '../../customApp/sidebar';
+
 const options = [
   {
     key: 'mailbox',

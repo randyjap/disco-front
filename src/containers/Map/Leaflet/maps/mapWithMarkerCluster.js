@@ -13,36 +13,37 @@ export default class extends Component {
     super(props);
     this.mountMap = this.mountMap.bind(this);
   }
+
   mountMap(element) {
     if (!element) return;
     const { L } = window;
     const map = L.map(element).setView(
       mapboxConfig.center,
-      !isNaN(mapboxConfig.defaultZoom) ? mapboxConfig.defaultZoom : 13
+      !isNaN(mapboxConfig.defaultZoom) ? mapboxConfig.defaultZoom : 13,
     );
-    const osmAttr =
-      '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    const osmAttr = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
     L.tileLayer(mapboxConfig.tileLayer, {
       maxZoom: !isNaN(mapboxConfig.maxZoom) ? mapboxConfig.maxZoom : 18,
-      attribution: osmAttr
+      attribution: osmAttr,
     }).addTo(map);
 
-    let markers = L.markerClusterGroup();
+    const markers = L.markerClusterGroup();
 
-    markerCluster.map(singleMarker => {
-      var customIcon = L.icon({
+    markerCluster.map((singleMarker) => {
+      const customIcon = L.icon({
         iconUrl: singleMarker.iconUrl,
         iconSize: [40, 40], // size of the icon
-        popupAnchor: [0, -20] // point from which the popup should open relative to the iconAnchor
+        popupAnchor: [0, -20], // point from which the popup should open relative to the iconAnchor
       });
       return markers.addLayer(
         L.marker(singleMarker.position, { icon: customIcon })
           .bindPopup(singleMarker.popupText)
-          .openPopup()
+          .openPopup(),
       );
     });
     map.addLayer(markers);
   }
+
   render() {
     return (
       <LeafletMapWrapper className="isoLeafletMap">

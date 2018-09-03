@@ -12,12 +12,15 @@ export default function asyncComponent(importComponent) {
         component: null,
       };
     }
+
     componentWillMount() {
       Nprogress.start();
     }
+
     componentWillUnmount() {
       this.mounted = false;
     }
+
     async componentDidMount() {
       this.mounted = true;
       const { default: Component } = await importComponent();

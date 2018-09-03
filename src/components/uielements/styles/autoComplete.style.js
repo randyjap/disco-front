@@ -18,8 +18,7 @@ const AntAutoComplete = ComponentName => styled(ComponentName)`
             top: 8px;
             margin: 0 10px;
             left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
-            right: ${props =>
-              props['data-rtl'] === 'rtl' ? '9px' : 'inherit'};
+            right: ${props => (props['data-rtl'] === 'rtl' ? '9px' : 'inherit')};
             color: ${palette('grayscale', 1)};
           }
 
@@ -28,8 +27,7 @@ const AntAutoComplete = ComponentName => styled(ComponentName)`
             width: 100%;
             height: 35px;
             font-size: 13px;
-            text-align: ${props =>
-              props['data-rtl'] === 'rtl' ? 'right' : 'left'};
+            text-align: ${props => (props['data-rtl'] === 'rtl' ? 'right' : 'left')};
             line-height: 1.5;
             color: ${palette('text', 1)};
             border: 1px solid ${palette('border', 0)};

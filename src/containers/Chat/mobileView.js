@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Modal from "../../components/feedback/modal";
-import InputName from "../../components/chat/inputName";
-import ChatRooms from "./chatrooms";
-import Messages from "./messages";
-import ComposeMessage from "./composMessage";
-import ViewProfile from "../../components/chat/viewProfile";
-import Loader from "../../components/utility/loader";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Modal from '../../components/feedback/modal';
+import InputName from '../../components/chat/inputName';
+import ChatRooms from './chatrooms';
+import Messages from './messages';
+import ComposeMessage from './composMessage';
+import ViewProfile from '../../components/chat/viewProfile';
+import Loader from '../../components/utility/loader';
 import {
   ChatWindow,
   ChatBox,
   Button,
   MessageDialog,
-  ToggleViewProfile
-} from "./message.style";
+  ToggleViewProfile,
+} from './message.style';
 
-import actions from "../../redux/chat/actions";
+import actions from '../../redux/chat/actions';
 
 class MobileView extends Component {
   componentDidMount() {
@@ -24,6 +24,7 @@ class MobileView extends Component {
       chatInit(userId);
     }
   }
+
   render() {
     const {
       loading,
@@ -38,7 +39,7 @@ class MobileView extends Component {
       mobileActiveProfile,
       toggleMobileList,
       toggleMobileProfile,
-      className
+      className,
     } = this.props;
     if (loading) {
       return <Loader />;
@@ -100,7 +101,7 @@ class MobileView extends Component {
           <Messages toggleMobileProfile={toggleMobileProfile} />
           <ComposeMessage
             InputProps={{
-              disableUnderline: true
+              disableUnderline: true,
             }}
           />
         </ChatBox>

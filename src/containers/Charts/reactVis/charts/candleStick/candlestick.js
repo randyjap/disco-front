@@ -1,21 +1,20 @@
 import React from 'react';
 import { AbstractSeries } from 'react-vis';
 
-const predefinedClassName =
-  'rv-xy-plot__series rv-xy-plot__series--candlestick';
+const predefinedClassName = 'rv-xy-plot__series rv-xy-plot__series--candlestick';
 
 export default class extends AbstractSeries {
   render() {
-    const { className, data, marginLeft, marginTop } = this.props;
+    const {
+      className, data, marginLeft, marginTop,
+    } = this.props;
     if (!data) {
       return null;
     }
     const xFunctor = this._getAttributeFunctor('x');
     const yFunctor = this._getAttributeFunctor('y');
-    const strokeFunctor =
-      this._getAttributeFunctor('stroke') || this._getAttributeFunctor('color');
-    const fillFunctor =
-      this._getAttributeFunctor('fill') || this._getAttributeFunctor('color');
+    const strokeFunctor = this._getAttributeFunctor('stroke') || this._getAttributeFunctor('color');
+    const fillFunctor = this._getAttributeFunctor('fill') || this._getAttributeFunctor('color');
     const opacityFunctor = this._getAttributeFunctor('opacity');
 
     const distance = Math.abs(xFunctor(data[1]) - xFunctor(data[0])) * 0.2;
@@ -34,7 +33,7 @@ export default class extends AbstractSeries {
           const yLow = yFunctor({ ...d, y: d.yLow });
 
           const lineAttrs = {
-            stroke: strokeFunctor && strokeFunctor(d)
+            stroke: strokeFunctor && strokeFunctor(d),
           };
 
           const xWidth = distance * 2;

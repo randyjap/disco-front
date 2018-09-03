@@ -20,7 +20,7 @@ export default class extends Component {
         <h2> Containter to Scroll Affix </h2>
         <div
           className="scrollable-container"
-          ref={node => {
+          ref={(node) => {
             this.container = node;
           }}
         >
@@ -35,7 +35,7 @@ export default class extends Component {
         <br />
         <br />
         <h2> Affix with Callback </h2>
-        <Affix offsetTop={120} onChange={affixed => {}}>
+        <Affix offsetTop={120} onChange={(affixed) => {}}>
           <Button>120px to affix top</Button>
         </Affix>
         <br />

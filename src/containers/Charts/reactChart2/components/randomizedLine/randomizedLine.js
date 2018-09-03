@@ -6,12 +6,13 @@ class Graph extends Component {
   componentWillMount() {
     this.setState(initialData);
   }
+
   componentDidMount() {
     const _this = this;
     setInterval(() => {
       const { datasets } = _this.state;
-      let newData = [];
-      let newData2 = [];
+      const newData = [];
+      const newData2 = [];
       for (let x = 0; x < _this.state.labels.length; x++) {
         newData.push(Math.floor(Math.random() * 100));
         newData2.push(Math.floor(Math.random() * 100));
@@ -21,6 +22,7 @@ class Graph extends Component {
       _this.setState({ datasets });
     }, 3000);
   }
+
   render() {
     return <Line data={this.state} />;
   }

@@ -44,7 +44,7 @@ const config = {
 
 export function getCurrentLanguage(lang) {
   let selecetedLanguage = config.options[0];
-  config.options.forEach(language => {
+  config.options.forEach((language) => {
     if (language.languageId === lang) {
       selecetedLanguage = language;
     }

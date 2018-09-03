@@ -8,7 +8,7 @@ const initState = {
   currentInvoice: {},
   editableInvoice: {},
   isNewInvoice: false,
-  enableEditView: false
+  enableEditView: false,
 };
 
 export default function cardReducer(state = initState, { type, ...action }) {
@@ -23,7 +23,7 @@ export default function cardReducer(state = initState, { type, ...action }) {
         currentInvoice: clone(currentInvoice),
         initialInvoices: true,
         isNewInvoice: false,
-        enableEditView: false
+        enableEditView: false,
       };
     }
     case actions.SELECT_CURRENT_INVOICE: {
@@ -32,11 +32,11 @@ export default function cardReducer(state = initState, { type, ...action }) {
       const isNewInvoice = index === -1;
       const currentInvoice = isNewInvoice
         ? {
-            id: action.id,
-            number: `#${action.id}`,
-            key: action.id,
-            ...newInvoice
-          }
+          id: action.id,
+          number: `#${action.id}`,
+          key: action.id,
+          ...newInvoice,
+        }
         : invoices[index];
       const enableEditView = isNewInvoice;
       return {
@@ -44,19 +44,19 @@ export default function cardReducer(state = initState, { type, ...action }) {
         currentInvoice,
         isNewInvoice,
         enableEditView,
-        editableInvoice: clone(currentInvoice)
+        editableInvoice: clone(currentInvoice),
       };
     }
     case actions.TOGGLE_VIEW:
       return {
         ...state,
         enableEditView: action.view,
-        editableInvoice: clone(state.currentInvoice)
+        editableInvoice: clone(state.currentInvoice),
       };
     case actions.UPDATE_EDIT_INVOICE:
       return {
         ...state,
-        editableInvoice: clone(action.invoice)
+        editableInvoice: clone(action.invoice),
       };
     default:
       return state;

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
 import {
   SimpleLineCharts,
   CustomizedDotLineChart,
@@ -13,14 +13,14 @@ import {
   CustomActiveShapePieChart,
   SpecifiedDomainRadarChart,
   SimpleRadialBarChart,
-  LegendEffectOpacity
-} from "./charts";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import basicStyle from "../../../settings/basicStyle";
-import * as configs from "./config";
+  LegendEffectOpacity,
+} from './charts';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import basicStyle from '../../../settings/basicStyle';
+import * as configs from './config';
 
 export default class ReCharts extends Component {
   render() {

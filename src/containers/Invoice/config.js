@@ -21,15 +21,19 @@ const fakedata = [
         itemName: 'A box of happiness',
         costs: 200,
         qty: 14,
-        price: 2800
+        price: 2800,
       },
-      { key: 2, itemName: 'Unicorn Tears', costs: 500, qty: 14, price: 7000 },
-      { key: 3, itemName: 'Rainbow Machine', costs: 700, qty: 5, price: 3500 }
+      {
+        key: 2, itemName: 'Unicorn Tears', costs: 500, qty: 14, price: 7000,
+      },
+      {
+        key: 3, itemName: 'Rainbow Machine', costs: 700, qty: 5, price: 3500,
+      },
     ],
     subTotal: 13300,
     vatRate: 10,
     vatPrice: 1330,
-    totalCost: 14630
+    totalCost: 14630,
   },
   {
     key: 2,
@@ -50,15 +54,19 @@ const fakedata = [
         itemName: 'A box of happiness',
         costs: 200,
         qty: 14,
-        price: 2800
+        price: 2800,
       },
-      { key: 2, itemName: 'Unicorn Tears', costs: 500, qty: 14, price: 7000 },
-      { key: 3, itemName: 'Rainbow Machine', costs: 700, qty: 5, price: 3500 }
+      {
+        key: 2, itemName: 'Unicorn Tears', costs: 500, qty: 14, price: 7000,
+      },
+      {
+        key: 3, itemName: 'Rainbow Machine', costs: 700, qty: 5, price: 3500,
+      },
     ],
     subTotal: 13300,
     vatRate: 10,
     vatPrice: 1330,
-    totalCost: 14630
+    totalCost: 14630,
   },
   {
     key: 3,
@@ -79,16 +87,20 @@ const fakedata = [
         itemName: 'A box of happiness',
         costs: 200,
         qty: 14,
-        price: 2800
+        price: 2800,
       },
-      { key: 2, itemName: 'Unicorn Tears', costs: 500, qty: 14, price: 7000 },
-      { key: 3, itemName: 'Rainbow Machine', costs: 700, qty: 5, price: 3500 }
+      {
+        key: 2, itemName: 'Unicorn Tears', costs: 500, qty: 14, price: 7000,
+      },
+      {
+        key: 3, itemName: 'Rainbow Machine', costs: 700, qty: 5, price: 3500,
+      },
     ],
     subTotal: 13300,
     vatRate: 10,
     vatPrice: 1330,
-    totalCost: 14630
-  }
+    totalCost: 14630,
+  },
 ];
 const newInvoice = {
   orderStatus: 'Pending',
@@ -104,13 +116,13 @@ const newInvoice = {
       itemName: '',
       costs: 0,
       qty: 0,
-      price: 0
-    }
+      price: 0,
+    },
   ],
   subTotal: 0,
   vatRate: 10,
   vatPrice: 0,
-  totalCost: 0
+  totalCost: 0,
 };
 const createDemoData = () => {
   const localData = localStorage.getItem(localDataName);
@@ -130,5 +142,5 @@ export {
   createDemoData,
   localDataName,
   newInvoice,
-  orderStatusOptions
+  orderStatusOptions,
 };

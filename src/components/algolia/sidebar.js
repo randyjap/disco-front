@@ -6,7 +6,7 @@ import {
   HierarchicalMenu,
   SearchBox,
   MultiRange,
-  ClearAll
+  ClearAll,
 } from 'react-instantsearch/dom';
 import RangeSlider from './rangeSlider';
 import VoiceRecognition from './voiceRecognition';
@@ -25,7 +25,7 @@ export default ({ setVoice }) => (
           { end: 10, label: '<$10' },
           { start: 10, end: 100, label: '$10-$100' },
           { start: 100, end: 500, label: '$100-$500' },
-          { start: 500, label: '>$500' }
+          { start: 500, label: '>$500' },
         ]}
       />
     </div>
@@ -52,7 +52,7 @@ export default ({ setVoice }) => (
         attributes={[
           'hierarchicalCategories.lvl0',
           'hierarchicalCategories.lvl1',
-          'hierarchicalCategories.lvl2'
+          'hierarchicalCategories.lvl2',
         ]}
       />
     </div>

@@ -8,7 +8,7 @@ export default function mailList(
   mails,
   selectMail,
   selectedMail,
-  toggleListVisible
+  toggleListVisible,
 ) {
   const renderSingleMail = (mail, key) => {
     const onClick = () => {
@@ -23,7 +23,7 @@ export default function mailList(
       splitLet: recpName
         .match(/\b(\w)/g)
         .join('')
-        .split('', 2)
+        .split('', 2),
     };
     const activeClass = isSelected ? 'activeMail' : '';
     const unreadClass = !mail.read ? 'unreadMail' : '';

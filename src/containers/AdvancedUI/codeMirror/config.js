@@ -4,28 +4,28 @@ const switchOptions = [
     title: 'Line Numbers',
     trueValue: true,
     falseValue: false,
-    value: true
+    value: true,
   },
   {
     id: 'readOnly',
     title: 'Read Only',
     trueValue: false,
     falseValue: true,
-    value: true
-  }
+    value: true,
+  },
 ];
 const selectOptions = [
   {
     id: 'tabSize',
     title: 'Tab Size',
     options: ['2', '4', '6', '8'],
-    value: 2
+    value: 2,
   },
   {
     id: 'mode',
     title: 'Language',
     options: ['javascript', 'xml', 'markdown', 'php', 'python', 'ruby'],
-    value: 'javascript'
+    value: 'javascript',
   },
   {
     id: 'theme',
@@ -39,10 +39,10 @@ const selectOptions = [
       'midnight',
       'material',
       'hopscotch',
-      'twilight'
+      'twilight',
     ],
-    value: 'zenburn'
-  }
+    value: 'zenburn',
+  },
 ];
 
 const defaultValues = {
@@ -85,7 +85,7 @@ print("visit us https://Youbiquity.redq.io ")
   ruby: `rint "Youbiquity"
 print "This is a RedQ Team production"
 print "visit us https://Youbiquity.redq.io "
-`
+`,
 };
 
 export { switchOptions, selectOptions, defaultValues };

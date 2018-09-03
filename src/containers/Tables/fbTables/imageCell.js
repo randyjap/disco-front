@@ -10,20 +10,23 @@ export default class ImageCell extends Component {
     this.onLoadImage = this.onLoadImage.bind(this);
     this.state = {
       ready: false,
-    }
+    };
   }
+
   componentWillMount() {
     this.loadImage(this.props.src);
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.src !== this.props.src) {
-      this.setState({src: null});
+      this.setState({ src: null });
       this.loadImage(nextProps.src);
     }
   }
+
   loadImage(src) {
     if (ReadyPool[src]) {
-      this.setState({src: src});
+      this.setState({ src });
       return;
     }
 
@@ -35,7 +38,7 @@ export default class ImageCell extends Component {
 
     const img = new Image();
     img.onload = () => {
-      PendingPool[src].forEach(callback => {
+      PendingPool[src].forEach((callback) => {
         callback(src);
       });
       delete PendingPool[src];
@@ -44,21 +47,23 @@ export default class ImageCell extends Component {
     };
     img.src = src;
   }
+
   onLoadImage(src) {
     ReadyPool[src] = true;
     if (src === this.props.src) {
       this.setState({
-        src: src,
+        src,
       });
     }
   }
+
   render() {
     const style = this.state.src ? {
-      backgroundImage : `url(${this.state.src})`,
+      backgroundImage: `url(${this.state.src})`,
       width: '80%',
       height: '80%',
       backgroundSize: 'cover',
     } : undefined;
     return <div className="exampleImage" style={style} />;
   }
-};
+}

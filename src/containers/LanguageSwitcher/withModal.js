@@ -13,7 +13,7 @@ class LanguageSwitcher extends Component {
       isActivated,
       language,
       switchActivation,
-      changeLanguage
+      changeLanguage,
     } = this.props;
     return (
       <div className="isoButtonWrapper">
@@ -22,17 +22,16 @@ class LanguageSwitcher extends Component {
         </Button>
 
         <Modal
-          title={'Select Language'}
+          title="Select Language"
           visible={isActivated}
           onCancel={switchActivation}
           cancelText="Cancel"
           footer={[]}
         >
           <div>
-            {config.options.map(option => {
+            {config.options.map((option) => {
               const { languageId, text } = option;
-              const type =
-                languageId === language.languageId ? 'primary' : 'success';
+              const type = languageId === language.languageId ? 'primary' : 'success';
               return (
                 <Button
                   type={type}
@@ -54,7 +53,7 @@ class LanguageSwitcher extends Component {
 
 export default connect(
   state => ({
-    ...state.LanguageSwitcher
+    ...state.LanguageSwitcher,
   }),
-  { switchActivation, changeLanguage }
+  { switchActivation, changeLanguage },
 )(LanguageSwitcher);

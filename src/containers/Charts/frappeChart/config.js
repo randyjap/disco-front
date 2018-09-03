@@ -7,26 +7,26 @@ const basicData = {
     '12pm-3pm',
     '3pm-6pm',
     '6pm-9pm',
-    '9pm-12am'
+    '9pm-12am',
   ],
 
   datasets: [
     {
       title: 'Some Data',
       color: 'light-blue',
-      values: [25, 40, 30, 35, 8, 52, 17, -4]
+      values: [25, 40, 30, 35, 8, 52, 17, -4],
     },
     {
       title: 'Another Set',
       color: 'violet',
-      values: [25, 50, -10, 15, 18, 32, 27, 14]
+      values: [25, 50, -10, 15, 18, 32, 27, 14],
     },
     {
       title: 'Yet Another',
       color: 'blue',
-      values: [15, 20, -3, -15, 58, 12, -17, 37]
-    }
-  ]
+      values: [15, 20, -3, -15, 58, 12, -17, 37],
+    },
+  ],
 };
 
 const heatMapData = {};
@@ -41,8 +41,8 @@ for (let i = 0; i < 375; i++) {
 
 const basicConfig = {
   height: 250,
-  format_tooltip_x: d => (d + '').toUpperCase(),
-  format_tooltip_y: d => d + ' pts'
+  format_tooltip_x: d => (`${d}`).toUpperCase(),
+  format_tooltip_y: d => `${d} pts`,
 };
 const barChart = {
   header: 'Bar Chart',
@@ -51,7 +51,7 @@ const barChart = {
   parentId: 'frappeBarChart',
   type: 'bar',
   data: basicData,
-  ...basicConfig
+  ...basicConfig,
 };
 const lineChart = {
   header: 'Line Chart',
@@ -63,7 +63,7 @@ const lineChart = {
   show_dots: 0,
   heatline: 1,
   region_fill: 1,
-  ...basicConfig
+  ...basicConfig,
 };
 
 const scatterChart = {
@@ -73,7 +73,7 @@ const scatterChart = {
   parentId: 'frappeScatterChart',
   type: 'scatter',
   data: basicData,
-  ...basicConfig
+  ...basicConfig,
 };
 
 const pieChart = {
@@ -83,7 +83,7 @@ const pieChart = {
   parentId: 'frappePieChart',
   type: 'pie',
   data: basicData,
-  ...basicConfig
+  ...basicConfig,
 };
 
 const percentageChart = {
@@ -93,7 +93,7 @@ const percentageChart = {
   parentId: 'frappePercentageChart',
   type: 'percentage',
   data: basicData,
-  ...basicConfig
+  ...basicConfig,
 };
 const heatMap = {
   header: 'Heatmap Chart',
@@ -102,9 +102,9 @@ const heatMap = {
   parentId: 'heatmap',
   type: 'heatmap',
   height: 115,
-  data: heatMapData, //heatMapData,
+  data: heatMapData, // heatMapData,
   discrete_domains: 1, // default: 0
-  start: heatMapStart
+  start: heatMapStart,
 };
 
 const heatMapHalloween = {
@@ -114,10 +114,10 @@ const heatMapHalloween = {
   parentId: 'heatmapHalloween',
   type: 'heatmap',
   height: 115,
-  data: heatMapData, //heatMapData,
+  data: heatMapData, // heatMapData,
   discrete_domains: 1, // default: 0
   start: heatMapStart,
-  legend_colors: ['#ebedf0', '#fdf436', '#ffc700', '#ff9100', '#06001c']
+  legend_colors: ['#ebedf0', '#fdf436', '#ffc700', '#ff9100', '#06001c'],
 };
 
 const updatedChart = {
@@ -128,7 +128,7 @@ const updatedChart = {
   data: basicData,
   type: 'line',
   show_dots: 0,
-  heatline: 1
+  heatline: 1,
 };
 
 export {
@@ -140,5 +140,5 @@ export {
   heatMap,
   heatMapHalloween,
   updatedChart,
-  basicData
+  basicData,
 };

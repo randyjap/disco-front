@@ -1,5 +1,5 @@
-import clone from "clone";
-import actions from "./actions";
+import clone from 'clone';
+import actions from './actions';
 
 const initState = {
   users: null,
@@ -15,11 +15,10 @@ const initState = {
   mobileActiveProfile: false,
   restoringData: false,
   addNewUsersProp: {
-    modalActive: false
-  }
+    modalActive: false,
+  },
 };
-const sortTimeStamp = (optionA, optionB) =>
-  optionB.lastMessageTime - optionA.lastMessageTime;
+const sortTimeStamp = (optionA, optionB) => optionB.lastMessageTime - optionA.lastMessageTime;
 export default function reducer(state = initState, action) {
   switch (action.type) {
     case actions.CHAT_INIT_SAGA: {
@@ -31,7 +30,7 @@ export default function reducer(state = initState, action) {
         chatRooms: action.chatRooms,
         messages: action.messages,
         selectedChatRoom: action.chatRooms[0],
-        loading: false
+        loading: false,
       };
     }
     case actions.CHAT_UPDATE_CHATROOM: {
@@ -51,55 +50,55 @@ export default function reducer(state = initState, action) {
         openCompose: false,
         selectedChatRoom: selected ? chatRoom : state.selectedChatRoom,
         viewProfile: selected ? false : state.viewProfile,
-        messages: messages ? messages : state.messages
+        messages: messages || state.messages,
       };
     }
     case actions.CHAT_TOGGLE_COMPOSE:
       return {
         ...state,
         openCompose: !state.openCompose,
-        viewProfile: false
+        viewProfile: false,
       };
     case actions.CHAT_SET_TOGGLE_COMPOSED_ID:
       return {
         ...state,
-        composedId: action.id
+        composedId: action.id,
       };
     case actions.CHAT_SET_TOGGLE_VIEW_PROFILE:
       return {
         ...state,
-        viewProfile: action.viewProfile
+        viewProfile: action.viewProfile,
       };
     case actions.TOGGLE_MOBILE_LIST:
       return {
         ...state,
-        mobileActiveList: action.mobileActiveList
+        mobileActiveList: action.mobileActiveList,
       };
     case actions.TOGGLE_MOBILE_PROFILE:
       return {
         ...state,
-        mobileActiveProfile: action.mobileActiveProfile
+        mobileActiveProfile: action.mobileActiveProfile,
       };
     case actions.RESTORE_DEMO_DATA:
       return {
         ...state,
-        restoringData: true
+        restoringData: true,
       };
     case actions.RESTORE_DEMO_DATA_DONE:
       return {
         ...state,
-        restoringData: false
+        restoringData: false,
       };
     case actions.UPDATE_NEW_USER_PROPS:
       return {
         ...state,
-        addNewUsersProp: action.addNewUsersProp
+        addNewUsersProp: action.addNewUsersProp,
       };
     case actions.NEW_MESSAGE_SUCCESFULL:
       return {
         ...state,
         openCompose: false,
-        composedId: null
+        composedId: null,
       };
     case actions.ADD_NEW_USER_SAGA: {
       const users = state.users;
@@ -109,7 +108,7 @@ export default function reducer(state = initState, action) {
         ...state,
         addNewUsersProp: { modalActive: false },
         users,
-        chatRooms
+        chatRooms,
       };
     }
     default:

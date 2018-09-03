@@ -37,11 +37,9 @@ const WDContentHolderWrapper = styled.div`
     }
 
     @media only screen and (max-width: 480px) {
-      margin-left: ${props =>
-        props['data-rtl'] === 'rtl' ? '8px' : '0 !important'};
+      margin-left: ${props => (props['data-rtl'] === 'rtl' ? '8px' : '0 !important')};
       white-space: nowrap;
-      margin-right: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 !important' : '8px'};
+      margin-right: ${props => (props['data-rtl'] === 'rtl' ? '0 !important' : '8px')};
       float: none !important;
     }
 

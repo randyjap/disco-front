@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Layout } from "antd";
-import Input from "../../components/uielements/input";
-import todoAction from "../../redux/todos/actions.js";
-import TodoList from "./todoList";
-import { TodoWrapper } from "./todo.style";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Layout } from 'antd';
+import Input from '../../components/uielements/input';
+import todoAction from '../../redux/todos/actions.js';
+import TodoList from './todoList';
+import { TodoWrapper } from './todo.style';
 
 const {
   addTodo,
   edittodo,
   deleteTodo,
   allCompleted,
-  deleteCompleted
+  deleteCompleted,
 } = todoAction;
 const { Header, Content } = Layout;
 
@@ -19,9 +19,10 @@ class ToDo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newTodo: ""
+      newTodo: '',
     };
   }
+
   render() {
     const {
       todos,
@@ -30,19 +31,19 @@ class ToDo extends Component {
       edittodo,
       deleteTodo,
       allCompleted,
-      deleteCompleted
+      deleteCompleted,
     } = this.props;
     return (
-      <Layout style={{ background: "none" }}>
+      <Layout style={{ background: 'none' }}>
         <TodoWrapper className="YoubiquityTodoComponent">
           <Header className="isoTodoHeader">
             <Input
-              placeholder={"Type here for add a new todo"}
+              placeholder="Type here for add a new todo"
               value={this.state.newTodo}
               className="isoTodoInput"
               onChange={event => this.setState({ newTodo: event.target.value })}
-              onPressEnter={event => {
-                this.setState({ newTodo: "" });
+              onPressEnter={(event) => {
+                this.setState({ newTodo: '' });
                 addTodo(event.target.value);
               }}
             />
@@ -67,7 +68,7 @@ function mapStateToProps(state) {
   const { todos, colors } = state.Todos;
   return {
     todos,
-    colors
+    colors,
   };
 }
 export default connect(mapStateToProps, {
@@ -75,5 +76,5 @@ export default connect(mapStateToProps, {
   edittodo,
   deleteTodo,
   deleteCompleted,
-  allCompleted
+  allCompleted,
 })(ToDo);

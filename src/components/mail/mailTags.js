@@ -1,5 +1,6 @@
 import React from 'react';
 import MailTagsList from './mailTags.style';
+
 const tags = [
   'Friend',
   'Family',
@@ -19,7 +20,7 @@ const tagColor = [
 
 function gettags(mails, filterAttr) {
   const tags = {};
-  mails.forEach(mail => {
+  mails.forEach((mail) => {
     if (mail.tags && mail.bucket === filterAttr.bucket) {
       mail.tags.split(' ').forEach(tag => (tags[tag] = 1));
     }
@@ -31,7 +32,7 @@ export default function mailtags(
   mails,
   filterAction,
   filterAttr,
-  onDrawerClose
+  onDrawerClose,
 ) {
   const Tags = gettags(mails, filterAttr);
   const renderSingleTag = (tag, key) => {

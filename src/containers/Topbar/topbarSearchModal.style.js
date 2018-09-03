@@ -1,6 +1,6 @@
-import Modal from '../../components/feedback/modal';
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
+import Modal from '../../components/feedback/modal';
 import WithDirection from '../../settings/withDirection';
 
 const TopbarSearchModal = styled(Modal)`
@@ -32,10 +32,8 @@ const TopbarSearchModal = styled(Modal)`
           .ant-input {
             border: 0;
             border-radius: 0;
-            padding-left: ${props =>
-              props['data-rtl'] === 'rtl' ? '15px' : '55px'};
-            padding-right: ${props =>
-              props['data-rtl'] === 'rtl' ? '55px' : '15px'};
+            padding-left: ${props => (props['data-rtl'] === 'rtl' ? '15px' : '55px')};
+            padding-right: ${props => (props['data-rtl'] === 'rtl' ? '55px' : '15px')};
             height: 60px;
             font-size: 14px;
 

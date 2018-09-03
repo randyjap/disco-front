@@ -5,11 +5,13 @@ import ChartWrapper from '../../chart.style';
 
 export default class extends Component {
   render() {
-    const { datas, width, height, colorRange, colorDomain } = this.props;
+    const {
+      datas, width, height, colorRange, colorDomain,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <RadialChart
-          colorType={'literal'}
+          colorType="literal"
           colorDomain={colorDomain}
           colorRange={colorRange}
           margin={{ top: 100 }}

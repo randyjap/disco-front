@@ -6,9 +6,10 @@ export default class extends Component {
     super(props);
     this.onChange = this.onChange.bind(this);
     this.state = {
-      dataList: this.props.dataList.getAll()
+      dataList: this.props.dataList.getAll(),
     };
   }
+
   onChange(pagination, filters, sorter) {
     const { dataList } = this.props;
     if (sorter && sorter.columnKey && sorter.order) {
@@ -20,6 +21,7 @@ export default class extends Component {
       this.setState({ dataList: dataList.getAll() });
     }
   }
+
   render() {
     return (
       <TableWrapper

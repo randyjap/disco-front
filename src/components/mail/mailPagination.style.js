@@ -33,8 +33,7 @@ const MailPagination = styled.div`
     }
 
     &.nextPage {
-      margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 -1px 0 0' : '0 0 0 -1px')};
     }
 
     &:hover {

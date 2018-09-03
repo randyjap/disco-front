@@ -8,7 +8,7 @@ import {
   SingleMailHeader,
   SingleMailInfo,
   SingleMailBody,
-  SingleMailReply
+  SingleMailReply,
 } from './singleMail.style';
 
 export default function singleMail(
@@ -18,7 +18,7 @@ export default function singleMail(
   replyMail,
   changeReplyMail,
   selectMail,
-  toggleListVisible
+  toggleListVisible,
 ) {
   const mail = allMail[index];
   const recpName = mail.name;
@@ -26,7 +26,7 @@ export default function singleMail(
     splitLet: recpName
       .match(/\b(\w)/g)
       .join('')
-      .split('', 2)
+      .split('', 2),
   };
 
   const labelColor = mail.tags
@@ -60,12 +60,20 @@ export default function singleMail(
           <div className="isoMailAddress">
             <div className="isoAddress">
               <h3>
-                {mail.name} <span>&lt;{mail.email}&gt;</span>
+                {mail.name}
+                {' '}
+                <span>
+&lt;
+                  {mail.email}
+&gt;
+                </span>
               </h3>
               <span className="mailDate">{timeDifference(mail.date)}</span>
             </div>
             <p>
-              to <span>me</span>
+              to
+              {' '}
+              <span>me</span>
             </p>
           </div>
         </SingleMailInfo>
@@ -82,7 +90,9 @@ export default function singleMail(
               onClick={event => changeReplyMail(true)}
               className="isoReplyMailBtn"
             >
-              Click here to <span>Reply</span>
+              Click here to
+              {' '}
+              <span>Reply</span>
             </div>
           )}
         </SingleMailReply>

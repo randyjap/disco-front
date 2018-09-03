@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Table, Cell, Column, ColumnGroup } from 'fixed-data-table-2';
+import {
+  Table, Cell, Column, ColumnGroup,
+} from 'fixed-data-table-2';
 import Button from '../../../components/uielements/button';
 import { InputSearch } from '../../../components/uielements/input';
 import filterListWrapper from './filterListWrapper';
@@ -9,7 +11,7 @@ import 'fixed-data-table-2/dist/fixed-data-table.min.css';
 
 const SortTypes = {
   ASC: 'ASC',
-  DESC: 'DESC'
+  DESC: 'DESC',
 };
 
 export default class FacebookDataTable extends Component {
@@ -31,9 +33,10 @@ export default class FacebookDataTable extends Component {
       allColumns: tableInfo.cells.map(cell => cell.col),
       columnWidths: {},
       colSortDirs: {},
-      searchText: ''
+      searchText: '',
     };
   }
+
   createHeader(cellInfo) {
     const { tableInfo } = this.props;
     const { colSortDirs } = this.state;
@@ -42,9 +45,9 @@ export default class FacebookDataTable extends Component {
     const hideColumns = tableInfo.hideColumns;
     const isSortable = tableInfo.sortable;
     if (hideColumns) {
-      const handleColumnHide = id => {
-        let newColumnOrders = this.state.columnOrders.filter(
-          column => column !== cellInfo.col
+      const handleColumnHide = (id) => {
+        const newColumnOrders = this.state.columnOrders.filter(
+          column => column !== cellInfo.col,
         );
         this.setState({ columnOrders: newColumnOrders });
       };
@@ -63,8 +66,8 @@ export default class FacebookDataTable extends Component {
         }
         this.setState({
           colSortDirs: {
-            [cellInfo.col]: sortDir
-          }
+            [cellInfo.col]: sortDir,
+          },
         });
       };
       headerCell = (
@@ -83,6 +86,7 @@ export default class FacebookDataTable extends Component {
     }
     return headerCell;
   }
+
   columnGroup(dataList, columnGroupName, index) {
     const { allColumns } = this.state;
     return (
@@ -92,12 +96,13 @@ export default class FacebookDataTable extends Component {
       </ColumnGroup>
     );
   }
+
   cellViews(collumnName, dataList) {
     const { tableInfo } = this.props;
     const { columnWidths } = this.state;
     const isResizable = tableInfo.resizable;
     const cellInfo = this.props.tableInfo.cells.filter(
-      cell => cell.col === collumnName
+      cell => cell.col === collumnName,
     )[0];
     const width = columnWidths[cellInfo.col]
       ? columnWidths[cellInfo.col]
@@ -126,26 +131,29 @@ export default class FacebookDataTable extends Component {
         width={width}
         isReorderable={tableInfo.reorderable}
         allowCellsRecycling={tableInfo.reorderable}
-        flexGrow={flexGrow ? flexGrow : undefined}
+        flexGrow={flexGrow || undefined}
         fixed={fixed === true}
         isResizable={isResizable}
       />
     );
   }
+
   resetColumns() {
     this.setState({ columnOrders: this.state.allColumns });
   }
+
   resizeColumns(newColumnWidth, columnKey) {
     this.setState(({ columnWidths }) => ({
       columnWidths: {
         ...columnWidths,
-        [columnKey]: newColumnWidth
-      }
+        [columnKey]: newColumnWidth,
+      },
     }));
   }
+
   reOrderColumns(event) {
     const columnOrders = this.state.columnOrders.filter(
-      columnKey => columnKey !== event.reorderColumn
+      columnKey => columnKey !== event.reorderColumn,
     );
     if (event.columnAfter) {
       const index = columnOrders.indexOf(event.columnAfter);
@@ -155,12 +163,14 @@ export default class FacebookDataTable extends Component {
     }
     this.setState({ columnOrders });
   }
+
   searchText(event) {
     this.setState({ searchText: event.target.value });
   }
+
   filterSearchText(columnName, searchText, datas) {
     searchText = searchText.toLowerCase();
-    let filterIndex = [];
+    const filterIndex = [];
     datas.forEach((data, index) => {
       if (data[columnName].toLowerCase().includes(searchText)) {
         filterIndex.push(index);
@@ -168,8 +178,11 @@ export default class FacebookDataTable extends Component {
     });
     return filterIndex;
   }
+
   filterDataList() {
-    const { colSortDirs, searchText, allColumns, dataList } = this.state;
+    const {
+      colSortDirs, searchText, allColumns, dataList,
+    } = this.state;
     if (Object.keys(colSortDirs).length === 1) {
       const sortKey = Object.keys(colSortDirs)[0];
       if (colSortDirs[sortKey] === SortTypes.ASC) {
@@ -181,12 +194,13 @@ export default class FacebookDataTable extends Component {
       const filteredIndexes = this.filterSearchText(
         allColumns[1],
         searchText,
-        dataList.datas
+        dataList.datas,
       );
       return new filterListWrapper(filteredIndexes, dataList);
     }
     return dataList;
   }
+
   render() {
     const { tableInfo } = this.props;
     const value = tableInfo.value;
@@ -227,13 +241,9 @@ export default class FacebookDataTable extends Component {
           renderPage={false}
         >
           {value === 'columnGroup' ? (
-            columnGroupNames.map((columnGroupName, index) =>
-              this.columnGroup(filterdataList, columnGroupName, index)
-            )
+            columnGroupNames.map((columnGroupName, index) => this.columnGroup(filterdataList, columnGroupName, index))
           ) : (
-            columnOrders.map(columnOrder =>
-              this.cellViews(columnOrder, filterdataList)
-            )
+            columnOrders.map(columnOrder => this.cellViews(columnOrder, filterdataList))
           )}
         </Table>
       </div>

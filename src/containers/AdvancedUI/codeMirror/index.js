@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
-import Switch from "../../../components/uielements/switch";
-import Select, { SelectOption } from "../../../components/uielements/select";
-import Form from "../../../components/uielements/form";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
-import basicStyle from "../../../settings/basicStyle";
-import { switchOptions, selectOptions, defaultValues } from "./config";
-import CodeMirror, { CodeMirrorToolbar } from "./codeMirror.style";
+import React, { Component } from 'react';
+import { Row, Col } from 'antd';
+import Switch from '../../../components/uielements/switch';
+import Select, { SelectOption } from '../../../components/uielements/select';
+import Form from '../../../components/uielements/form';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
+import basicStyle from '../../../settings/basicStyle';
+import { switchOptions, selectOptions, defaultValues } from './config';
+import CodeMirror, { CodeMirrorToolbar } from './codeMirror.style';
 
 const FormItem = Form.Item;
 const Option = SelectOption;
@@ -26,16 +26,18 @@ export default class extends Component {
         lineNumbers: true,
         readOnly: false,
         tabSize: 4,
-        mode: "javascript",
-        theme: "zenburn"
-      }
+        mode: 'javascript',
+        theme: 'zenburn',
+      },
     };
   }
+
   updateCode(mode, value) {
     this.setState({
-      [mode]: value
+      [mode]: value,
     });
   }
+
   toggleOptions() {
     const { basicOptions } = this.state;
     return switchOptions.map((option, index) => {
@@ -54,11 +56,12 @@ export default class extends Component {
       );
     });
   }
+
   selctOptions() {
     const { basicOptions } = this.state;
     return selectOptions.map((option, index) => {
       const id = option.id;
-      const handleChange = value => {
+      const handleChange = (value) => {
         basicOptions[id] = isNaN(value) ? value : parseInt(value, 10);
         this.setState(basicOptions);
       };
@@ -75,6 +78,7 @@ export default class extends Component {
       );
     });
   }
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -90,7 +94,7 @@ export default class extends Component {
                 </CodeMirrorToolbar>
                 <CodeMirror
                   value={this.state.basic}
-                  onChange={value => this.updateCode("basic", value)}
+                  onChange={value => this.updateCode('basic', value)}
                   options={this.state.basicOptions}
                 />
               </ContentHolder>
@@ -103,8 +107,8 @@ export default class extends Component {
               <ContentHolder>
                 <CodeMirror
                   value={this.state.ruby}
-                  onChange={value => this.updateCode("ruby", value)}
-                  options={{ lineNumbers: true, theme: "hopscotch" }}
+                  onChange={value => this.updateCode('ruby', value)}
+                  options={{ lineNumbers: true, theme: 'hopscotch' }}
                 />
               </ContentHolder>
             </Box>
@@ -114,8 +118,8 @@ export default class extends Component {
               <ContentHolder>
                 <CodeMirror
                   value={this.state.javascript}
-                  onChange={value => this.updateCode("javascript", value)}
-                  options={{ lineNumbers: true, theme: "twilight" }}
+                  onChange={value => this.updateCode('javascript', value)}
+                  options={{ lineNumbers: true, theme: 'twilight' }}
                 />
               </ContentHolder>
             </Box>
@@ -127,8 +131,8 @@ export default class extends Component {
               <ContentHolder>
                 <CodeMirror
                   value={this.state.markdown}
-                  onChange={value => this.updateCode("markdown", value)}
-                  options={{ lineNumbers: true, theme: "rubyblue" }}
+                  onChange={value => this.updateCode('markdown', value)}
+                  options={{ lineNumbers: true, theme: 'rubyblue' }}
                 />
               </ContentHolder>
             </Box>
@@ -138,8 +142,8 @@ export default class extends Component {
               <ContentHolder>
                 <CodeMirror
                   value={this.state.xml}
-                  onChange={value => this.updateCode("xml", value)}
-                  options={{ lineNumbers: true, theme: "paraiso-dark" }}
+                  onChange={value => this.updateCode('xml', value)}
+                  options={{ lineNumbers: true, theme: 'paraiso-dark' }}
                 />
               </ContentHolder>
             </Box>
@@ -151,8 +155,8 @@ export default class extends Component {
               <ContentHolder>
                 <CodeMirror
                   value={this.state.php}
-                  onChange={value => this.updateCode("php", value)}
-                  options={{ lineNumbers: true, theme: "midnight" }}
+                  onChange={value => this.updateCode('php', value)}
+                  options={{ lineNumbers: true, theme: 'midnight' }}
                 />
               </ContentHolder>
             </Box>
@@ -162,8 +166,8 @@ export default class extends Component {
               <ContentHolder>
                 <CodeMirror
                   value={this.state.python}
-                  onChange={value => this.updateCode("python", value)}
-                  options={{ lineNumbers: true, theme: "material" }}
+                  onChange={value => this.updateCode('python', value)}
+                  options={{ lineNumbers: true, theme: 'material' }}
                 />
               </ContentHolder>
             </Box>

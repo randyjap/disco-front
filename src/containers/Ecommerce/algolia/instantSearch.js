@@ -21,5 +21,5 @@ export default connect(
     ecommerceView: state.Ecommerce.view,
     productQuantity: state.Ecommerce.productQuantity,
   }),
-  { ...ecommerceActions }
+  { ...ecommerceActions },
 )(InstantSearch);

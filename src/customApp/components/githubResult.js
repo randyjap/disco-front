@@ -11,7 +11,7 @@ import {
 function SearchList(result) {
   return (
     <GithubResultListStyleWrapper className="isoGithubResultList">
-      {result.map(item => {
+      {result.map((item) => {
         const onClick = () => {
           window.open(item.html_url, '_blank');
         };
@@ -20,7 +20,7 @@ function SearchList(result) {
           <div key={item.id} className="isoSingleRepository">
             <div className="titleAndLanguage">
               <h3>
-                <a  onClick={onClick}>
+                <a onClick={onClick}>
                   {`${item.full_name} `}
                 </a>
               </h3>
@@ -37,7 +37,10 @@ function SearchList(result) {
               )}
             </div>
             {item.description ? <p>{item.description}</p> : ''}
-            <span className="updateDate">Updated on {updateDate}</span>
+            <span className="updateDate">
+Updated on
+              {updateDate}
+            </span>
           </div>
         );
       })}
@@ -45,7 +48,9 @@ function SearchList(result) {
   );
 }
 const GitResult = ({ GitSearch, onPageChange }) => {
-  const { searcText, result, loading, error, page, total_count } = GitSearch;
+  const {
+    searcText, result, loading, error, page, total_count,
+  } = GitSearch;
   if (!searcText) {
     return <div />;
   }
@@ -63,14 +68,18 @@ const GitResult = ({ GitSearch, onPageChange }) => {
   return (
     <GithubResultStyleWrapper className="isoGithubSearchResult">
       <p className="isoTotalRepository">
-        <span>{`${total_count}`} repository results</span>
+        <span>
+          {`${total_count}`}
+          {' '}
+repository results
+        </span>
       </p>
       {SearchList(result)}
       <div className="githubSearchPagination">
         <Pagination
           defaultCurrent={page}
           total={pageCount}
-          onChange={page => {
+          onChange={(page) => {
             onPageChange(searcText, page);
           }}
         />

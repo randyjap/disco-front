@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import WithDirection from "../../../settings/withDirection";
+import styled from 'styled-components';
+import WithDirection from '../../../settings/withDirection';
 
 const WDAlgoliaSearchPageWrapper = styled.div`
   padding: 70px 35px 40px;
@@ -15,15 +15,13 @@ const WDAlgoliaSearchPageWrapper = styled.div`
 
   .isoAlgoliaSidebarToggle {
     margin-bottom: 20px;
-    margin: ${props =>
-      props["data-rtl"] === "rtl" ? "0 0 20px 0" : "0 0 20px 0"};
+    margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 20px 0' : '0 0 20px 0')};
     display: flex;
   }
 
   &.sidebarOpen {
     .isoAlgoliaSidebar {
-      margin: ${props =>
-        props["data-rtl"] === "rtl" ? "0 0 0 30px" : "0 30px 0 0"};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 30px' : '0 30px 0 0')};
     }
   }
 

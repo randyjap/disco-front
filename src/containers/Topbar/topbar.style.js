@@ -9,26 +9,22 @@ const TopbarWrapper = styled.div`
     justify-content: space-between;
     background-color: #ffffff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: ${props =>
-      props['data-rtl'] === 'rtl' ? '0 265px 0 31px' : '0 31px 0 265px'};
+    padding: ${props => (props['data-rtl'] === 'rtl' ? '0 265px 0 31px' : '0 31px 0 265px')};
     z-index: 1000;
     ${transition()};
 
     @media only screen and (max-width: 767px) {
-      padding: ${props =>
-        props['data-rtl'] === 'rtl'
-          ? '0px 260px 0px 15px !important'
-          : '0px 15px 0px 260px !important'};
+      padding: ${props => (props['data-rtl'] === 'rtl'
+    ? '0px 260px 0px 15px !important'
+    : '0px 15px 0px 260px !important')};
     }
 
     &.collapsed {
-      padding: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 109px 0 31px' : '0 31px 0 109px'};
+      padding: ${props => (props['data-rtl'] === 'rtl' ? '0 109px 0 31px' : '0 31px 0 109px')};
       @media only screen and (max-width: 767px) {
-        padding: ${props =>
-          props['data-rtl'] === 'rtl'
-            ? '0px 15px !important'
-            : '0px 15px !important'};
+        padding: ${props => (props['data-rtl'] === 'rtl'
+    ? '0px 15px !important'
+    : '0px 15px !important')};
       }
     }
 
@@ -37,8 +33,7 @@ const TopbarWrapper = styled.div`
       align-items: center;
 
       @media only screen and (max-width: 767px) {
-        margin: ${props =>
-          props['data-rtl'] === 'rtl' ? '0 0 0 20px' : '0 20px 0 0'};
+        margin: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 20px' : '0 20px 0 0')};
       }
 
       .triggerBtn {
@@ -80,8 +75,7 @@ const TopbarWrapper = styled.div`
 
         @media only screen and (max-width: 360px) {
           margin-left: ${props => (props['data-rtl'] === 'rtl' ? '25px' : '0')};
-          margin-right: ${props =>
-            props['data-rtl'] === 'rtl' ? '0' : '25px'};
+          margin-right: ${props => (props['data-rtl'] === 'rtl' ? '0' : '25px')};
         }
 
         &:last-child {
@@ -113,10 +107,8 @@ const TopbarWrapper = styled.div`
             line-height: 20px;
             position: absolute;
             top: -8px;
-            left: ${props =>
-              props['data-rtl'] === 'rtl' ? 'inherit' : '10px'};
-            right: ${props =>
-              props['data-rtl'] === 'rtl' ? '10px' : 'inherit'};
+            left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '10px')};
+            right: ${props => (props['data-rtl'] === 'rtl' ? '10px' : 'inherit')};
             ${borderRadius('50%')};
           }
         }

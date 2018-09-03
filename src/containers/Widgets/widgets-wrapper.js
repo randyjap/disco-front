@@ -11,16 +11,16 @@ export default class extends Component {
       gutterLeft,
       padding,
       bgColor,
-      children
+      children,
     } = this.props;
     const wrapperStyle = {
-      width: width,
+      width,
       marginTop: gutterTop,
       marginRight: gutterRight,
       marginBottom: gutterBottom,
       marginLeft: gutterLeft,
-      padding: padding,
-      backgroundColor: bgColor
+      padding,
+      backgroundColor: bgColor,
     };
 
     return (

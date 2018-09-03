@@ -1,23 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import contactAction from "../../redux/contacts/actions";
-import { Layout, Icon } from "antd";
-import Button from "../../components/uielements/button";
-import ContactList from "../../components/contacts/contactList";
-import SingleContactView from "../../components/contacts/singleView";
-import EditContactView from "../../components/contacts/editView";
-import DeleteButton from "../../components/contacts/deleteButton";
-import { otherAttributes } from "./fakeData";
-import IntlMessages from "../../components/utility/intlMessages";
-import { ContactsWrapper } from "./contacts.style";
-import Scrollbar from "../../components/utility/customScrollBar.js";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Layout, Icon } from 'antd';
+import contactAction from '../../redux/contacts/actions';
+import Button from '../../components/uielements/button';
+import ContactList from '../../components/contacts/contactList';
+import SingleContactView from '../../components/contacts/singleView';
+import EditContactView from '../../components/contacts/editView';
+import DeleteButton from '../../components/contacts/deleteButton';
+import { otherAttributes } from './fakeData';
+import IntlMessages from '../../components/utility/intlMessages';
+import { ContactsWrapper } from './contacts.style';
+import Scrollbar from '../../components/utility/customScrollBar.js';
 
 const {
   changeContact,
   addContact,
   editContact,
   deleteContact,
-  viewChange
+  viewChange,
 } = contactAction;
 
 const { Content } = Layout;
@@ -31,7 +31,7 @@ class Contacts extends Component {
       addContact,
       editContact,
       deleteContact,
-      viewChange
+      viewChange,
     } = this.props;
     const selectedContact = seectedId
       ? contacts.filter(contact => contact.id === seectedId)[0]
@@ -40,7 +40,7 @@ class Contacts extends Component {
     return (
       <ContactsWrapper
         className="YoubiquityContacts"
-        style={{ background: "none" }}
+        style={{ background: 'none' }}
       >
         <div className="isoContactListBar">
           <ContactList
@@ -55,7 +55,8 @@ class Contacts extends Component {
             <Content className="isoContactBox">
               <div className="isoContactControl">
                 <Button type="button" onClick={onVIewChange}>
-                  {editView ? <Icon type="check" /> : <Icon type="edit" />}{" "}
+                  {editView ? <Icon type="check" /> : <Icon type="edit" />}
+                  {' '}
                 </Button>
                 <DeleteButton
                   deleteContact={deleteContact}
@@ -107,7 +108,7 @@ function mapStateToProps(state) {
   return {
     contacts,
     seectedId,
-    editView
+    editView,
   };
 }
 export default connect(mapStateToProps, {
@@ -115,5 +116,5 @@ export default connect(mapStateToProps, {
   addContact,
   editContact,
   deleteContact,
-  viewChange
+  viewChange,
 })(Contacts);

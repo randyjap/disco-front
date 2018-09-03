@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Row, Col } from "antd";
-import Tabs, { TabPane } from "../../../components/uielements/tabs";
-import Switch from "../../../components/uielements/switch";
-import Form from "../../../components/uielements/form";
-import PageHeader from "../../../components/utility/pageHeader";
-import Box from "../../../components/utility/box";
-import LayoutWrapper from "../../../components/utility/layoutWrapper.js";
-import ContentHolder from "../../../components/utility/contentHolder";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Row, Col } from 'antd';
+import Tabs, { TabPane } from '../../../components/uielements/tabs';
+import Switch from '../../../components/uielements/switch';
+import Form from '../../../components/uielements/form';
+import PageHeader from '../../../components/utility/pageHeader';
+import Box from '../../../components/utility/box';
+import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
+import ContentHolder from '../../../components/utility/contentHolder';
 import {
   DateRangePicker,
-  SingleDatePicker
-} from "../../../components/uielements/reactDates";
-import basicStyle from "../../../settings/basicStyle";
-import configs from "./config";
-import { ReactDatesStyleWrapper, ReactDatesWrapper } from "./reactDates.style";
+  SingleDatePicker,
+} from '../../../components/uielements/reactDates';
+import basicStyle from '../../../settings/basicStyle';
+import configs from './config';
+import { ReactDatesStyleWrapper, ReactDatesWrapper } from './reactDates.style';
 
 const FormItem = Form.Item;
 class ReactDates extends Component {
@@ -27,20 +27,20 @@ class ReactDates extends Component {
       configsValue: configs,
       singleFocused: true,
       singleResult: null,
-      focusedInput: "startDate",
+      focusedInput: 'startDate',
       startDate: null,
-      endDate: null
+      endDate: null,
     };
   }
+
   toggleOptions() {
     const { isRangePicker, configsValue } = this.state;
-    const options =
-      isRangePicker === true
-        ? configsValue[1].options
-        : configsValue[0].options;
+    const options = isRangePicker === true
+      ? configsValue[1].options
+      : configsValue[0].options;
     return options.map((option, index) => {
-      if (this.props.view === "MobileView" && option.id === "numberOfMonths") {
-        return "";
+      if (this.props.view === 'MobileView' && option.id === 'numberOfMonths') {
+        return '';
       }
       const checked = option.value === option.trueValue;
       const onChange = () => {
@@ -62,6 +62,7 @@ class ReactDates extends Component {
       );
     });
   }
+
   renderDatePicker(config) {
     const {
       isRangePicker,
@@ -70,36 +71,34 @@ class ReactDates extends Component {
       focusedInput,
       singleResult,
       singleFocused,
-      configsValue
+      configsValue,
     } = this.state;
     let options;
     if (isRangePicker) {
       options = {
         startDate,
         endDate,
-        onDatesChange: ({ startDate, endDate }) =>
-          this.setState({ startDate, endDate }),
+        onDatesChange: ({ startDate, endDate }) => this.setState({ startDate, endDate }),
         focusedInput,
-        onFocusChange: focusedInput => {
+        onFocusChange: (focusedInput) => {
           this.setState({ focusedInput });
-        }
+        },
       };
     } else {
       options = {
         date: singleResult,
         onDateChange: singleResult => this.setState({ singleResult }),
         focused: singleFocused,
-        onFocusChange: ({ focused }) =>
-          this.setState({ singleFocused: focused })
+        onFocusChange: ({ focused }) => this.setState({ singleFocused: focused }),
       };
     }
     const renderOptions = isRangePicker
       ? configsValue[1].options
       : configsValue[0].options;
-    renderOptions.forEach(option => {
+    renderOptions.forEach((option) => {
       options[option.id] = option.value;
     });
-    if (this.props.view === "MobileView") {
+    if (this.props.view === 'MobileView') {
       options.numberOfMonths = 1;
     }
     return (
@@ -112,6 +111,7 @@ class ReactDates extends Component {
       </div>
     );
   }
+
   render() {
     const { rowStyle, colStyle, gutter } = basicStyle;
     return (
@@ -124,7 +124,7 @@ class ReactDates extends Component {
                 <Tabs
                   onChange={() => {
                     this.setState({
-                      isRangePicker: !this.state.isRangePicker
+                      isRangePicker: !this.state.isRangePicker,
                     });
                   }}
                 >
@@ -147,5 +147,5 @@ class ReactDates extends Component {
   }
 }
 export default connect(state => ({
-  view: state.App.view
+  view: state.App.view,
 }))(ReactDates);

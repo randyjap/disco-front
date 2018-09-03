@@ -29,8 +29,7 @@ const AntSelect = ComponentName => styled(ComponentName)`
 
         .ant-select-selection-selected-value {
           float: ${props => (props['data-rtl'] === 'rtl' ? 'right' : 'left')};
-          padding: ${props =>
-            props['data-rtl'] === 'rtl' ? '0 0 0 14px' : '0 14px 0 0'};
+          padding: ${props => (props['data-rtl'] === 'rtl' ? '0 0 0 14px' : '0 14px 0 0')};
         }
       }
 

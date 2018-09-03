@@ -25,8 +25,7 @@ const AntInputNumber = ComponentName => styled(ComponentName)`
     .ant-input-number-handler-wrap {
       left: ${props => (props['data-rtl'] === 'rtl' ? '0' : 'inherit')};
       right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
-      border-radius: ${props =>
-        props['data-rtl'] === 'rtl' ? '4px 0 0 4px' : '0 4px 4px 0'};
+      border-radius: ${props => (props['data-rtl'] === 'rtl' ? '4px 0 0 4px' : '0 4px 4px 0')};
       border-left: ${props => (props['data-rtl'] === 'rtl' ? 0 : 1)}px solid
         ${palette('border', 1)};
       border-right: ${props => (props['data-rtl'] === 'rtl' ? 1 : 0)}px solid

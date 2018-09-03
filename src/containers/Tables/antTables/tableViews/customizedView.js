@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TableWrapper, { CustomizedTableWrapper } from '../antTable.style';
 import Switch from '../../../../components/uielements/switch';
 import Form from '../../../../components/uielements/form';
+
 const FormItem = Form.Item;
 
 const expandedRowRender = record => (
@@ -16,48 +17,48 @@ const toggleOptions = [
   {
     defaultValue: true,
     title: 'Bordered',
-    key: 'bordered'
+    key: 'bordered',
   },
   {
     defaultValue: true,
     title: 'Loading',
-    key: 'loading'
+    key: 'loading',
   },
   {
     defaultValue: true,
     title: 'Pagination',
-    key: 'pagination'
+    key: 'pagination',
   },
   {
     defaultValue: title,
     title: 'Title',
-    key: 'title'
+    key: 'title',
   },
   {
     defaultValue: showHeader,
     title: 'Show Header',
-    key: 'showHeader'
+    key: 'showHeader',
   },
   {
     defaultValue: footer,
     title: 'Footer',
-    key: 'footer'
+    key: 'footer',
   },
   {
     defaultValue: expandedRowRender,
     title: 'Expanded Row Render',
-    key: 'expandedRowRender'
+    key: 'expandedRowRender',
   },
   {
     defaultValue: {},
     title: 'Checkbox',
-    key: 'rowSelection'
+    key: 'rowSelection',
   },
   {
     defaultValue: scroll,
     title: 'Scrollable',
-    key: 'scroll'
-  }
+    key: 'scroll',
+  },
 ];
 export default class extends Component {
   constructor(props) {
@@ -73,9 +74,10 @@ export default class extends Component {
       showHeader,
       footer,
       rowSelection: {},
-      scroll: undefined
+      scroll: undefined,
     };
   }
+
   renderSwitch(option) {
     const checked = this.state[option.key] !== undefined;
     const onChange = () => {
@@ -91,6 +93,7 @@ export default class extends Component {
       </FormItem>
     );
   }
+
   render() {
     return (
       <CustomizedTableWrapper className="isoCustomizedTableWrapper">

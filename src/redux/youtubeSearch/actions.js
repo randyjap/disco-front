@@ -4,26 +4,26 @@ const actions = {
   YOUTUBE_ERROR_RESULT: 'YOUTUBE_ERROR_RESULT',
   youtubeSearch: searcText => ({
     type: actions.YOUTUBE_SEARCH,
-    payload: { searcText }
+    payload: { searcText },
   }),
   onPageChange: (searcText, pageToken) => ({
     type: actions.YOUTUBE_SEARCH,
-    payload: { searcText, pageToken }
+    payload: { searcText, pageToken },
   }),
   youtubeSearchSuccess: (
     result,
     total_count,
     nextPageToken,
-    prevPageToken
+    prevPageToken,
   ) => ({
     type: actions.YOUTUBE_SUCCESS_RESULT,
     result,
     total_count,
     nextPageToken,
-    prevPageToken
+    prevPageToken,
   }),
   youtubeSearchError: () => ({
-    type: actions.YOUTUBE_ERROR_RESULT
-  })
+    type: actions.YOUTUBE_ERROR_RESULT,
+  }),
 };
 export default actions;

@@ -11,7 +11,7 @@ const CustomResults = createConnector({
       ? searchResults.results.nbHits === 0
       : 'loading';
     return { query: searchState.query, status };
-  }
+  },
 })(({ status, query, ...props }) => {
   if (status === 'loading') {
     return (
@@ -19,11 +19,10 @@ const CustomResults = createConnector({
         <div className="loaderElement" />
       </LoaderElement>
     );
-  } else if (status) {
+  } if (status) {
     return <EmptyComponent value="No results for these filtering" />;
-  } else {
-    return <ContentElement {...props} />;
   }
+  return <ContentElement {...props} />;
 });
 
 export default CustomResults;

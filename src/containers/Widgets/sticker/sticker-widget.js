@@ -3,17 +3,19 @@ import { StickerWidgetWrapper } from './style';
 
 export default class extends Component {
   render() {
-    const { fontColor, bgColor, width, icon, number, text } = this.props;
+    const {
+      fontColor, bgColor, width, icon, number, text,
+    } = this.props;
 
     const textColor = {
-      color: fontColor
+      color: fontColor,
     };
     const widgetStyle = {
       backgroundColor: bgColor,
-      width: width
+      width,
     };
     const iconStyle = {
-      color: fontColor
+      color: fontColor,
     };
 
     return (

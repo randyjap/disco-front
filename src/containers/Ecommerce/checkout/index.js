@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import LayoutWrapper from "../../../components/utility/layoutWrapper";
-import Box from "../../../components/utility/box";
-import BillingForm from "./billing-form";
-import OrderInfo from "./order-info";
-import { CheckoutContents } from "./checkout.style";
+import React, { Component } from 'react';
+import LayoutWrapper from '../../../components/utility/layoutWrapper';
+import Box from '../../../components/utility/box';
+import BillingForm from './billing-form';
+import OrderInfo from './order-info';
+import { CheckoutContents } from './checkout.style';
 
 export default class extends Component {
   render() {

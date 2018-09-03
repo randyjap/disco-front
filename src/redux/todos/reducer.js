@@ -6,7 +6,7 @@ const todos = new fakeData(5, colors.length).getAll();
 
 const initState = {
   todos,
-  colors
+  colors,
 };
 
 export default function todoReducer(state = initState, action) {
@@ -16,26 +16,26 @@ export default function todoReducer(state = initState, action) {
     case todoActions.CHANGE_TODO:
       return {
         ...state,
-        todos: action.todos
+        todos: action.todos,
       };
     case todoActions.ALL_COMPLETED:
-      todos.forEach(todo => {
+      todos.forEach((todo) => {
         todo.completed = true;
         newtodos.push(todo);
       });
       return {
         ...state,
-        todos: newtodos
+        todos: newtodos,
       };
     case todoActions.DELETE_COMPLETED:
-      todos.forEach(todo => {
+      todos.forEach((todo) => {
         if (todo.completed !== true) {
           newtodos.push(todo);
         }
       });
       return {
         ...state,
-        todos: newtodos
+        todos: newtodos,
       };
     default:
       return state;

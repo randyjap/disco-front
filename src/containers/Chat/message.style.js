@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
+import ReactDrawers from 'react-motion-drawer';
 import Buttons from '../../components/uielements/button';
 import Inputs from '../../components/uielements/input';
 import { Textarea as Textareas } from '../../components/uielements/input';
-import ReactDrawers from 'react-motion-drawer';
 
 const Input = styled(Inputs)``;
 const Textarea = styled(Textareas)``;

@@ -17,6 +17,7 @@ import PageHeader from '../../../components/utility/pageHeader';
 import ContentHolder from '../../../components/utility/contentHolder';
 import LayoutWrapper from '../../../components/utility/layoutWrapper.js';
 import { FormFieldTitle } from './formFieldTitle.style';
+
 const Step = Steps.Step;
 
 const steps = [
@@ -41,7 +42,7 @@ const steps = [
           <AntdCheckbox className="YoubiquityCheckbox" />
         </div>
       </div>
-    )
+    ),
   },
   {
     title: 'Second',
@@ -52,7 +53,7 @@ const steps = [
         <AntdSelectBox />
         <AntdMention />
       </div>
-    )
+    ),
   },
   {
     title: 'Last',
@@ -62,25 +63,28 @@ const steps = [
         <AntdSlider />
         <AntdInputNumber />
       </div>
-    )
-  }
+    ),
+  },
 ];
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0
+      current: 0,
     };
   }
+
   next() {
     const current = this.state.current + 1;
     this.setState({ current });
   }
+
   prev() {
     const current = this.state.current - 1;
     this.setState({ current });
   }
+
   render() {
     const { current } = this.state;
     return (

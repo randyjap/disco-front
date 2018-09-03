@@ -45,8 +45,7 @@ const WDYoutubeSearchListStyleWrapper = styled.div`
       display: flex;
       flex-direction: column;
       width: 100%;
-      margin: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 20px 0 0' : '0 0 0 20px'};
+      margin: ${props => (props['data-rtl'] === 'rtl' ? '0 20px 0 0' : '0 0 0 20px')};
       cursor: pointer;
 
       h3.videoName {
@@ -123,19 +122,16 @@ const WDYoutubeSearchListStyleWrapper = styled.div`
             position: absolute;
             top: 6px;
             left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '8px')};
-            right: ${props =>
-              props['data-rtl'] === 'rtl' ? '8px' : 'inherit'};
+            right: ${props => (props['data-rtl'] === 'rtl' ? '8px' : 'inherit')};
             ${borderRadius('50%')};
           }
 
           @media only screen and (max-width: 420px) {
-            padding: ${props =>
-              props['data-rtl'] === 'rtl' ? '0 13px 0 0' : '0 0 0 13px'};
+            padding: ${props => (props['data-rtl'] === 'rtl' ? '0 13px 0 0' : '0 0 0 13px')};
 
             &:before {
               left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '0')};
-              right: ${props =>
-                props['data-rtl'] === 'rtl' ? '0' : 'inherit'};
+              right: ${props => (props['data-rtl'] === 'rtl' ? '0' : 'inherit')};
             }
           }
         }
@@ -198,7 +194,7 @@ const YoutubeModal = ComponentName => styled(ComponentName)`
 `;
 
 const YoutubeSearchListStyleWrapper = WithDirection(
-  WDYoutubeSearchListStyleWrapper
+  WDYoutubeSearchListStyleWrapper,
 );
 
 export {

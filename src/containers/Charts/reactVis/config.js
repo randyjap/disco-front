@@ -4,7 +4,7 @@ import TreeData from './largeData.json';
 const width = 300;
 const height = 300;
 
-const buildCSData = total => {
+const buildCSData = (total) => {
   const result = Array(total)
     .fill(0)
     .map((x, i) => {
@@ -270,7 +270,9 @@ const SimpleRadialChart = {
   colorRange: [0, 10],
   colorDomain: [0, 100],
   datas: [
-    { angle: 1, color: '#89DAC1', label: 'green', opacity: 0.2 },
+    {
+      angle: 1, color: '#89DAC1', label: 'green', opacity: 0.2,
+    },
     { angle: 2, color: '#F6D18A', label: 'yellow' },
     { angle: 5, color: '#1E96BE', label: 'cyan' },
     { angle: 3, color: '#DA70BF', label: 'magenta' },
@@ -305,9 +307,13 @@ const CustomRadius = {
       id: 2,
       radius: 20,
     },
-    { angle: 5, id: 3, radius: 5, label: 'Alt Label' },
+    {
+      angle: 5, id: 3, radius: 5, label: 'Alt Label',
+    },
     { angle: 3, id: 4, radius: 14 },
-    { angle: 5, id: 5, adius: 12, subLabel: 'Sub Label only' },
+    {
+      angle: 5, id: 5, adius: 12, subLabel: 'Sub Label only',
+    },
   ],
 };
 const SimpleTreeMap = {

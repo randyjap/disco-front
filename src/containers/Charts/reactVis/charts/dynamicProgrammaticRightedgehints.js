@@ -7,15 +7,17 @@ import {
   HorizontalGridLines,
   LineSeries,
   MarkSeries,
-  Hint
+  Hint,
 } from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
-const CHART_MARGINS = { left: 50, right: 10, top: 10, bottom: 25 };
+const CHART_MARGINS = {
+  left: 50, right: 10, top: 10, bottom: 25,
+};
 function getAlignStyle(align, x, y) {
   return {
     right: 0,
-    top: CHART_MARGINS.top + y
+    top: CHART_MARGINS.top + y,
   };
 }
 
@@ -23,7 +25,7 @@ export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: null
+      value: null,
     };
     this._rememberValue = this._rememberValue.bind(this);
   }
@@ -34,7 +36,9 @@ export default class extends Component {
 
   render() {
     const { value } = this.state;
-    const { datas, width, height, xMax } = this.props;
+    const {
+      datas, width, height, xMax,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <XYPlot width={width} height={height} margin={CHART_MARGINS}>

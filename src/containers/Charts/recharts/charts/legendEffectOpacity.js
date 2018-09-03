@@ -20,6 +20,7 @@ export default class extends Component {
       },
     };
   }
+
   handleMouseEnter(o) {
     const { dataKey } = o;
     const { opacity } = this.state;
@@ -28,6 +29,7 @@ export default class extends Component {
       opacity: { ...opacity, [dataKey]: 0.5 },
     });
   }
+
   handleMouseLeave(o) {
     const { dataKey } = o;
     const { opacity } = this.state;
@@ -36,16 +38,21 @@ export default class extends Component {
       opacity: { ...opacity, [dataKey]: 1 },
     });
   }
+
   render() {
     const { opacity } = this.state;
-    const { datas, width, height, colors } = this.props;
+    const {
+      datas, width, height, colors,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <LineChart
           width={width}
           height={height}
           data={datas}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{
+            top: 5, right: 30, left: 20, bottom: 5,
+          }}
         >
           <XAxis dataKey="name" stroke={colors[3]} />
           <YAxis stroke={colors[3]} />

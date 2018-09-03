@@ -19,7 +19,7 @@ class ThemeSwitcher extends Component {
       sidebarTheme,
       layoutTheme,
       switchActivation,
-      changeTheme
+      changeTheme,
     } = this.props;
 
     const styleButton = { background: sidebarTheme.buttonColor };
@@ -35,11 +35,11 @@ class ThemeSwitcher extends Component {
         </div>
 
         <div className="SwitcherBlockWrapper">
-          {/*<Switcher
+          {/* <Switcher
             config={Themes.changeThemes}
             changeTheme={changeTheme}
             selectedId={changeThemes.themeName}
-          />*/}
+          /> */}
           <Switcher
             config={Themes.sidebarTheme}
             changeTheme={changeTheme}
@@ -87,10 +87,10 @@ class ThemeSwitcher extends Component {
 function mapStateToProps(state) {
   return {
     ...state.ThemeSwitcher,
-    LanguageSwitcher: state.LanguageSwitcher
+    LanguageSwitcher: state.LanguageSwitcher,
   };
 }
 export default connect(mapStateToProps, {
   switchActivation,
-  changeTheme
+  changeTheme,
 })(ThemeSwitcher);

@@ -3,10 +3,12 @@ import { SaleWidgetWrapper } from './style';
 
 export default class extends Component {
   render() {
-    const { fontColor, label, price, details } = this.props;
+    const {
+      fontColor, label, price, details,
+    } = this.props;
 
     const textColor = {
-      color: fontColor
+      color: fontColor,
     };
 
     return (

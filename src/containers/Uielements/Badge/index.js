@@ -26,10 +26,10 @@ export default class extends Component {
             >
               <ContentHolder>
                 <Badge count={5}>
-                  <a className="isoBadgeLink"> </a>
+                  <a className="isoBadgeLink" />
                 </Badge>
                 <Badge count={0} showZero>
-                  <a className="isoBadgeLink"> </a>
+                  <a className="isoBadgeLink" />
                 </Badge>
               </ContentHolder>
             </Box>
@@ -43,16 +43,16 @@ export default class extends Component {
             >
               <ContentHolder>
                 <Badge count={99}>
-                  <a className="isoBadgeLink"> </a>
+                  <a className="isoBadgeLink" />
                 </Badge>
                 <Badge count={100}>
-                  <a className="isoBadgeLink"> </a>
+                  <a className="isoBadgeLink" />
                 </Badge>
                 <Badge count={99} overflowCount={10}>
-                  <a className="isoBadgeLink"> </a>
+                  <a className="isoBadgeLink" />
                 </Badge>
                 <Badge count={1000} overflowCount={999}>
-                  <a className="isoBadgeLink"> </a>
+                  <a className="isoBadgeLink" />
                 </Badge>
               </ContentHolder>
             </Box>

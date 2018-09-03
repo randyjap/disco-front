@@ -169,9 +169,11 @@ class fakeData {
     this.sortKey = null;
     this.sortDir = null;
   }
+
   dataModel(index) {
     return tableData[index];
   }
+
   getObjectAt(index) {
     if (index < 0 || index > this.size) {
       return undefined;
@@ -181,6 +183,7 @@ class fakeData {
     }
     return this.datas[index];
   }
+
   getAll() {
     if (this.datas.length < this.size) {
       for (let i = 0; i < this.size; i++) {
@@ -193,16 +196,19 @@ class fakeData {
   getSize() {
     return this.size;
   }
+
   getSortAsc(sortKey) {
     sortOption.sortKey = sortKey;
     sortOption.sortDir = 'ASC';
     return this.datas.sort(this.sort);
   }
+
   getSortDesc(sortKey) {
     sortOption.sortKey = sortKey;
     sortOption.sortDir = 'DESC';
     return this.datas.sort(this.sort);
   }
+
   sort(optionA, optionB) {
     const valueA = optionA[sortOption.sortKey].toUpperCase();
     const valueB = optionB[sortOption.sortKey].toUpperCase();

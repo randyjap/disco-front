@@ -4,7 +4,9 @@ import { CircleProgressWidgetBar } from './style';
 
 export default class CircleProgressWidget extends Component {
   render() {
-    const { label, percent, barHeight, status, info, fontColor } = this.props;
+    const {
+      label, percent, barHeight, status, info, fontColor,
+    } = this.props;
     return (
       <CircleProgressWidgetBar className="isoCircleProgress">
         <Progress

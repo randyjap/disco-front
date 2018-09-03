@@ -15,12 +15,11 @@ class LanguageSwitcher extends Component {
           <IntlMessages id="languageSwitcher.label" />
         </h4>
         <div className="themeSwitchBtnWrapper">
-          {config.options.map(option => {
+          {config.options.map((option) => {
             const { languageId, icon } = option;
-            const customClass =
-              languageId === language.languageId
-                ? 'selectedTheme languageSwitch'
-                : 'languageSwitch';
+            const customClass = languageId === language.languageId
+              ? 'selectedTheme languageSwitch'
+              : 'languageSwitch';
 
             return (
               <button
@@ -45,5 +44,5 @@ export default connect(
   state => ({
     ...state.LanguageSwitcher,
   }),
-  { changeLanguage }
+  { changeLanguage },
 )(LanguageSwitcher);

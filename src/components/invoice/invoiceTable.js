@@ -60,9 +60,8 @@ const EditTable = ({ editableInvoice, editInvoice, updateValues }) => {
         <Input
           placeholder="Item Name"
           value={singleInvoice.itemName}
-          onChange={event => {
-            editableInvoice.invoiceList[singleInvoice.key - 1].itemName =
-              event.target.value;
+          onChange={(event) => {
+            editableInvoice.invoiceList[singleInvoice.key - 1].itemName = event.target.value;
             editInvoice(editableInvoice);
           }}
         />
@@ -77,12 +76,12 @@ const EditTable = ({ editableInvoice, editInvoice, updateValues }) => {
         <Input
           placeholder="Unit Cost"
           value={singleInvoice.costs}
-          onChange={event => {
+          onChange={(event) => {
             editableInvoice.invoiceList[
               singleInvoice.key - 1
             ].costs = stringToPosetiveInt(
               event.target.value,
-              singleInvoice.costs
+              singleInvoice.costs,
             );
             editInvoice(updateValues(editableInvoice));
           }}
@@ -98,7 +97,7 @@ const EditTable = ({ editableInvoice, editInvoice, updateValues }) => {
         <Input
           placeholder="Units"
           value={singleInvoice.qty}
-          onChange={event => {
+          onChange={(event) => {
             editableInvoice.invoiceList[
               singleInvoice.key - 1
             ].qty = stringToPosetiveInt(event.target.value, singleInvoice.qty);
@@ -118,25 +117,24 @@ const EditTable = ({ editableInvoice, editInvoice, updateValues }) => {
       dataIndex: 'delete',
       rowKey: 'delete',
       width: '10%',
-      render: (text, singleInvoice) =>
-        invoiceList.length === 1 ? (
-          ''
-        ) : (
-          <Button
-            onClick={() => {
-              const newInvoiceList = [];
-              invoiceList.forEach((invoice, i) => {
-                if (i !== singleInvoice.key - 1) {
-                  newInvoiceList.push(invoice);
-                }
-              });
-              editableInvoice.invoiceList = newInvoiceList;
-              editInvoice(updateValues(editableInvoice));
-            }}
-          >
+      render: (text, singleInvoice) => (invoiceList.length === 1 ? (
+        ''
+      ) : (
+        <Button
+          onClick={() => {
+            const newInvoiceList = [];
+            invoiceList.forEach((invoice, i) => {
+              if (i !== singleInvoice.key - 1) {
+                newInvoiceList.push(invoice);
+              }
+            });
+            editableInvoice.invoiceList = newInvoiceList;
+            editInvoice(updateValues(editableInvoice));
+          }}
+        >
             Delete
-          </Button>
-        ),
+        </Button>
+      )),
     },
   ];
   return (

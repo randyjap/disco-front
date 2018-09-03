@@ -4,7 +4,7 @@ import fake from './fake';
 import fakeinitdata from '../../containers/Ecommerce/cart/config';
 
 export function* changedCard() {
-  yield takeEvery(actions.CHANGE_CARDS, function*() {});
+  yield takeEvery(actions.CHANGE_CARDS, function* () {});
 }
 export function* initData() {
   let fakeData = fakeinitdata;
@@ -13,7 +13,7 @@ export function* initData() {
   }
   yield put({
     type: actions.INIT_DATA,
-    payload: fakeData
+    payload: fakeData,
   });
 }
 export function* updateData({ products, productQuantity }) {
@@ -22,12 +22,12 @@ export function* updateData({ products, productQuantity }) {
   yield put({
     type: actions.UPDATE_DATA,
     products,
-    productQuantity
+    productQuantity,
   });
 }
-export default function*() {
+export default function* () {
   yield all([
     takeEvery(actions.INIT_DATA_SAGA, initData),
-    takeEvery(actions.UPDATE_DATA_SAGA, updateData)
+    takeEvery(actions.UPDATE_DATA_SAGA, updateData),
   ]);
 }

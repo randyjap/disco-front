@@ -6,7 +6,7 @@ import {
   YAxis,
   VerticalGridLines,
   HorizontalGridLines,
-  LineMarkSeries
+  LineMarkSeries,
 } from 'react-vis';
 import ChartWrapper from '../../chart.style';
 
@@ -25,7 +25,7 @@ export default class extends Component {
               key,
               className: data.className,
               data: data.data,
-              curve: data.curve
+              curve: data.curve,
             };
             return <LineMarkSeries {...config} />;
           })}

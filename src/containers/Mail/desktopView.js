@@ -29,6 +29,7 @@ class DesktopView extends Component {
       search: this.props.searchString,
     };
   }
+
   render() {
     const {
       allMails,
@@ -57,7 +58,7 @@ class DesktopView extends Component {
         index,
         replyMail,
         changeReplyMail,
-        selectMail
+        selectMail,
       );
     }
     return (
@@ -84,8 +85,7 @@ class DesktopView extends Component {
                 placeholder="Search Email"
                 value={search}
                 className="isoSearchEmail"
-                onChange={event =>
-                  this.setState({ search: event.target.value })
+                onChange={event => this.setState({ search: event.target.value })
                 }
                 onSearch={value => changeSearchString(value)}
               />

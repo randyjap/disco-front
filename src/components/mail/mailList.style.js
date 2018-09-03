@@ -26,8 +26,7 @@ const MailListWrapper = styled.div`
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: ${props =>
-        props['data-rtl'] === 'rtl' ? '0 15px 15px 0;' : '15px 15px 0 0'};
+      border-width: ${props => (props['data-rtl'] === 'rtl' ? '0 15px 15px 0;' : '15px 15px 0 0')};
       border-color: transparent transparent transparent transparent;
       position: absolute;
       top: 0;

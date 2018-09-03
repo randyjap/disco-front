@@ -1,12 +1,12 @@
-import clone from "clone";
-import actions from "./actions";
+import clone from 'clone';
+import actions from './actions';
 
 const initState = {
   loadingInitData: false,
-  view: "gridView",
+  view: 'gridView',
   viewTopbarCart: false,
   productQuantity: [],
-  products: {}
+  products: {},
 };
 export default (state = initState, action) => {
   switch (action.type) {
@@ -15,23 +15,23 @@ export default (state = initState, action) => {
         ...state,
         loadingInitData: true,
         productQuantity: action.payload.productQuantity,
-        products: action.payload.products
+        products: action.payload.products,
       };
     case actions.CHANGE_VIEW:
       return {
         ...state,
-        view: action.view
+        view: action.view,
       };
     case actions.VIEW_TOPBAR_CART:
       return {
         ...state,
-        viewTopbarCart: action.viewTopbarCart
+        viewTopbarCart: action.viewTopbarCart,
       };
     case actions.UPDATE_DATA:
       return {
         ...state,
         products: clone(action.products),
-        productQuantity: clone(action.productQuantity)
+        productQuantity: clone(action.productQuantity),
       };
     default:
       return state;

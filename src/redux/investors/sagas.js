@@ -1,7 +1,9 @@
-import { all, takeEvery, put, call } from 'redux-saga/effects';
+import {
+  all, takeEvery, put, call,
+} from 'redux-saga/effects';
+import omit from 'lodash/omit';
 import actions from './actions';
 import FirebaseHelper from '../../helpers/firebase';
-import omit from 'lodash/omit';
 import fakeData from './fakeData';
 
 const {
@@ -29,7 +31,7 @@ function* loadFromFirestore() {
       .where('deleted_at', '==', null)
       .orderBy(ORDER_BY, ORDER);
     const snapshot = yield call(rsfFirestore.getCollection, collections);
-    let data = processFireStoreCollection(snapshot);
+    const data = processFireStoreCollection(snapshot);
     yield put(actions.loadFromFireStoreSuccess(data));
   } catch (error) {
     console.log(error);
@@ -62,33 +64,32 @@ function* storeIntoFirestore({ payload }) {
   }
 }
 
-const readAllFirestoreDocuments = async () =>
-  await database
-    .collection(COLLECTION_NAME)
-    .get()
-    .then(querySnapshot => {
-      const documents = [];
-      try {
-        querySnapshot.forEach(doc => {
-          documents.push(doc.id);
-        });
-      } catch (e) {}
-      return documents;
-    });
+const readAllFirestoreDocuments = async () => await database
+  .collection(COLLECTION_NAME)
+  .get()
+  .then((querySnapshot) => {
+    const documents = [];
+    try {
+      querySnapshot.forEach((doc) => {
+        documents.push(doc.id);
+      });
+    } catch (e) {}
+    return documents;
+  });
 
 function* resetFireStoreDocuments() {
   try {
     const docsKey = yield call(readAllFirestoreDocuments);
 
     let batch = createBatch();
-    docsKey.forEach(key => {
+    docsKey.forEach((key) => {
       batch.delete(database.collection(COLLECTION_NAME).doc(key));
       batch.commit();
       batch = createBatch();
     });
 
     batch = createBatch();
-    fakeDataList.forEach(article => {
+    fakeDataList.forEach((article) => {
       const doc = database.collection(COLLECTION_NAME).doc(createNewRef());
       batch.set(doc, article);
     });

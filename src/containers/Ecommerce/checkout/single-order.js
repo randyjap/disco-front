@@ -12,7 +12,10 @@ export default class extends Component {
           <span>x</span>
           <span className="isoQuantity">{quantity}</span>
         </p>
-        <span className="totalPrice">${totalPrice}</span>
+        <span className="totalPrice">
+$
+          {totalPrice}
+        </span>
       </div>
     );
   }

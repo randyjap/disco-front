@@ -12,12 +12,12 @@ const FormItem = Form.Item;
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 5 }
+    sm: { span: 5 },
   },
   wrapperCol: {
     xs: { span: 24 },
-    sm: { span: 12 }
-  }
+    sm: { span: 12 },
+  },
 };
 
 export default class extends Component {

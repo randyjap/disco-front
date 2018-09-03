@@ -7,16 +7,15 @@ import {
   notification,
   ColorChoser,
   EditableComponent,
-} from '../../components/';
+} from '../../components';
 import { TodoListWrapper } from './todo.style';
 
 function filterTodos(todos, search) {
-  const selectedTodos =
-    search === 'All'
-      ? todos
-      : todos.filter(todo => todo.completed === (search === 'Completed'));
+  const selectedTodos = search === 'All'
+    ? todos
+    : todos.filter(todo => todo.completed === (search === 'Completed'));
   let completed = 0;
-  selectedTodos.forEach(todo => {
+  selectedTodos.forEach((todo) => {
     if (todo.completed) {
       completed += 1;
     }
@@ -32,6 +31,7 @@ export default class TodoList extends Component {
       search: 'All',
     };
   }
+
   singleTodo(todo) {
     const { deleteTodo, colors } = this.props;
     const onDelete = () => deleteTodo(todo.id);
@@ -68,9 +68,11 @@ export default class TodoList extends Component {
       </div>
     );
   }
+
   onChange(event) {
     this.setState({ search: event.target.value });
   }
+
   render() {
     const { search } = this.state;
     const { selectedTodos, completed } = filterTodos(this.props.todos, search);
@@ -101,7 +103,7 @@ export default class TodoList extends Component {
             className="isoTodoCheckAll"
             checked={completed === selectedTodos.length}
             disabled={completed === selectedTodos.length}
-            onChange={event => {
+            onChange={(event) => {
               notification('success', 'All Todos are Completed!!!', '');
               this.props.allCompleted();
             }}
@@ -113,7 +115,7 @@ export default class TodoList extends Component {
             <Button
               type="button"
               className="isoDeleteAll"
-              onClick={event => {
+              onClick={(event) => {
                 notification('success', 'All Completed Todos are Deleted', '');
                 this.props.deleteCompleted();
               }}

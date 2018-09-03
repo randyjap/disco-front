@@ -11,18 +11,15 @@ const ChartWrapper = styled.div`
     display: flex;
     align-items: center;
     margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : 'auto')};
-    margin-right: ${props =>
-      props['data-rtl'] === 'rtl' ? 'auto' : 'inherit'};
+    margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'auto' : 'inherit')};
     margin-bottom: 20px;
 
     span {
       font-size: 13px;
       color: ${palette('text', 1)};
       font-weight: 400;
-      margin-right: ${props =>
-        props['data-rtl'] === 'rtl' ? 'inherit' : '15px'};
-      margin-left: ${props =>
-        props['data-rtl'] === 'rtl' ? '15px' : 'inherit'};
+      margin-right: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '15px')};
+      margin-left: ${props => (props['data-rtl'] === 'rtl' ? '15px' : 'inherit')};
     }
 
     button {
@@ -36,10 +33,8 @@ const ChartWrapper = styled.div`
       }
 
       &:last-child {
-        margin-left: ${props =>
-          props['data-rtl'] === 'rtl' ? 'inherit' : '-1px'};
-        margin-right: ${props =>
-          props['data-rtl'] === 'rtl' ? '-1px' : 'inherit'};
+        margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '-1px')};
+        margin-right: ${props => (props['data-rtl'] === 'rtl' ? '-1px' : 'inherit')};
       }
 
       &:hover {

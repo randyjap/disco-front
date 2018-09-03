@@ -113,10 +113,8 @@ const FourZeroFourStyleWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: ${props =>
-      props['data-rtl'] === 'rtl' ? 'inherit' : '100px'};
-    margin-right: ${props =>
-      props['data-rtl'] === 'rtl' ? '100px' : 'inherti'};
+    margin-left: ${props => (props['data-rtl'] === 'rtl' ? 'inherit' : '100px')};
+    margin-right: ${props => (props['data-rtl'] === 'rtl' ? '100px' : 'inherti')};
     height: 500px;
 
     @media only screen and (max-width: 767px) {

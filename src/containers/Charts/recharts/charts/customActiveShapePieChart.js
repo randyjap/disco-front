@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PieChart, Pie, Sector } from 'recharts';
 import ChartWrapper from '../../chart.style';
 
-const renderActiveShape = props => {
+const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const {
     cx,
@@ -60,7 +60,9 @@ const renderActiveShape = props => {
         y={ey}
         textAnchor={textAnchor}
         fill="#788195"
-      >{`PV ${value}`}</text>
+      >
+        {`PV ${value}`}
+      </text>
       <text
         x={ex + (cos >= 0 ? 1 : -1) * 12}
         y={ey}
@@ -80,13 +82,17 @@ export default class extends Component {
     this.onPieEnter = this.onPieEnter.bind(this);
     this.state = { activeIndex: 0 };
   }
+
   onPieEnter(data, index) {
     // this.setState({
     //   activeIndex: index,
     // });
   }
+
   render() {
-    const { datas, width, height, colors } = this.props;
+    const {
+      datas, width, height, colors,
+    } = this.props;
     return (
       <ChartWrapper className="isoChartWrapper">
         <PieChart width={width} height={height} onMouseEnter={this.onPieEnter}>

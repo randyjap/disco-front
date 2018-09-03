@@ -6,7 +6,7 @@ export default {
     { objectID: '4494000', quantity: 1 },
   ],
   products: {
-    '4494000': {
+    4494000: {
       name: 'Amazon - Case for Amazon Fire HD 8 Tablets - Black',
       description: "Take your Amazon Fire HD 8 tablet on the go with this Amazon B00XM5W2WE case, which features a folio cover that guards your device's display and automatically wakes up your device when opened. The built-in stand offers comfortable hands-free viewing.",
       brand: 'Amazon',
@@ -41,7 +41,7 @@ export default {
         },
       },
     },
-    '4494401': {
+    4494401: {
       name: 'Amazon - Case for Amazon Fire 7" Tablets - Black',
       description: 'Protect your Amazon Fire 7" tablet from scratches and bumps on the go with this slim Amazon B00ZGUYN1Q case, which features a full-coverage design with polyurethane and microfiber materials for durability. The built-in stand enables hands-free viewing.',
       brand: 'Amazon',
@@ -76,7 +76,7 @@ export default {
         },
       },
     },
-    '5354101': {
+    5354101: {
       name: '3DR - Solo Smart Rechargeable Battery - Black',
       description: '3D Robotics Battery for Solo Drones: Instead of waiting for your lone battery to recharge, get back to flying right away with this rechargeable battery for Solo drones. The battery can power your drone for up to 25 minutes with no camera attached, or 20 minutes carrying a camera.',
       brand: '3DR',
@@ -117,7 +117,7 @@ export default {
         },
       },
     },
-    '5357011': {
+    5357011: {
       name: '3DR - Propellers for 3DR Solo Drones (2-Pack) - Black',
       description: '3D Robotics Propellers for Solo Drones: Buy this set of replacement propellers before you need them so you can get back to flying as soon as you damage or lose a propeller. The 1-piece design of these propellers keeps them secure during flight, self-tightening so you can install them in an instant and return to in-air fun.',
       brand: '3DR',

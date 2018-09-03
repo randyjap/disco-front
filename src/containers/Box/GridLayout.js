@@ -20,48 +20,57 @@ class GridLayout extends Component {
     this.breakPointChange = this.breakPointChange.bind(this);
     this.autoHeight = this.autoHeight.bind(this);
     this.state = {
-      breakpoint: 'lg'
+      breakpoint: 'lg',
     };
   }
+
   componentWillMount() {
     this.setState({ allBox: this.props.allBox });
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.reload) {
       this.setState({ allBox: nextProps.allBox });
     }
   }
+
   onLayoutChange(layouts) {
     const { allBox } = this.state;
-    layouts.forEach(layout => {
+    layouts.forEach((layout) => {
       const boxIndex = indexOfBoxfunc(allBox, layout.i);
       if (boxIndex !== -1) {
-        const { x, y, h, w, i } = layout;
-        allBox[boxIndex].size[this.state.breakpoint] = { x, y, h, w, i };
+        const {
+          x, y, h, w, i,
+        } = layout;
+        allBox[boxIndex].size[this.state.breakpoint] = {
+          x, y, h, w, i,
+        };
       }
     });
     this.setState({ allBox });
     this.props.saveBox(allBox);
   }
+
   breakPointChange(newBreakpoint) {
     // this.breakpoint = newBreakpoint;
     this.setState({ breakpoint: newBreakpoint });
     // Device type can be accesssed from this.breakpoint variable
   }
+
   autoHeight(uid, { height }) {
     const { allBox, breakpoint } = this.state;
     const self = this;
     if (height === 0) {
       return;
     }
-    allBox.map(singleBox => {
+    allBox.map((singleBox) => {
       const indexOfBox = indexOfBoxfunc(allBox, uid);
       if (
-        allBox[indexOfBox].size[breakpoint].h !==
-        Math.ceil(height / layoutConfig.rowHeight)
+        allBox[indexOfBox].size[breakpoint].h
+        !== Math.ceil(height / layoutConfig.rowHeight)
       ) {
         allBox[indexOfBox].size[breakpoint].h = Math.ceil(
-          height / layoutConfig.rowHeight
+          height / layoutConfig.rowHeight,
         );
       }
       return null;
@@ -70,63 +79,62 @@ class GridLayout extends Component {
       self.setState({ allBox });
     }, 1);
   }
+
   render() {
     const { allBox } = this.state;
     const { deleteBox } = this.props;
     const Layouts = generateLayoutfunc(allBox);
-    const renderBox = singleBox => {
-      return (
-        <div className="YoubiquitySingleCardHolder" key={singleBox.i}>
-          <ReactElementResize
-            debounceTimeout={200}
-            onResize={data => {
-              this.autoHeight(singleBox.i, data);
-            }}
-          >
-            {data => (
-              <div
-                className="YoubiquitySingleCard"
-                style={{
-                  paddingRight: `${Math.ceil(gutter.gutterWidth)}px`,
-                  paddingBottom: `${Math.ceil(gutter.gutterHeight)}px`
-                }}
-              >
-                <div className="isoCardBox">
-                  <div className="isoCardBoxHeader">
-                    <h3>{singleBox.title}</h3>
+    const renderBox = singleBox => (
+      <div className="YoubiquitySingleCardHolder" key={singleBox.i}>
+        <ReactElementResize
+          debounceTimeout={200}
+          onResize={(data) => {
+            this.autoHeight(singleBox.i, data);
+          }}
+        >
+          {data => (
+            <div
+              className="YoubiquitySingleCard"
+              style={{
+                paddingRight: `${Math.ceil(gutter.gutterWidth)}px`,
+                paddingBottom: `${Math.ceil(gutter.gutterHeight)}px`,
+              }}
+            >
+              <div className="isoCardBox">
+                <div className="isoCardBoxHeader">
+                  <h3>{singleBox.title}</h3>
 
-                    <div className="isoCardControl">
-                      <button
-                        className="isoDeleteBtn"
-                        onClick={() => deleteBox(singleBox.i)}
-                      >
-                        <Icon type="delete" />
-                      </button>
-                      <button className="isoDragBox" type="button">
-                        <Icon type="swap" />
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="isoCardBoxBody">
-                    <p>{singleBox.content}</p>
-                    {singleBox.reactComponent ? (
-                      <singleBox.reactComponent />
-                    ) : null}
+                  <div className="isoCardControl">
+                    <button
+                      className="isoDeleteBtn"
+                      onClick={() => deleteBox(singleBox.i)}
+                    >
+                      <Icon type="delete" />
+                    </button>
+                    <button className="isoDragBox" type="button">
+                      <Icon type="swap" />
+                    </button>
                   </div>
                 </div>
+
+                <div className="isoCardBoxBody">
+                  <p>{singleBox.content}</p>
+                  {singleBox.reactComponent ? (
+                    <singleBox.reactComponent />
+                  ) : null}
+                </div>
               </div>
-            )}
-          </ReactElementResize>
-        </div>
-      );
-    };
+            </div>
+          )}
+        </ReactElementResize>
+      </div>
+    );
     const boxSettings = {
       ...layoutConfig,
       layouts: Layouts,
       onDragStop: this.onLayoutChange,
       onResizeStop: this.onLayoutChange,
-      onBreakpointChange: this.breakPointChange
+      onBreakpointChange: this.breakPointChange,
     };
     return (
       <div className="isoCardBoxContentWrapper">
@@ -141,10 +149,10 @@ class GridLayout extends Component {
 function mapStateToProps(state) {
   return {
     allBox: state.Box.allBox,
-    reload: state.Box.reload
+    reload: state.Box.reload,
   };
 }
 export default connect(mapStateToProps, {
   saveBox,
-  deleteBox
+  deleteBox,
 })(GridLayout);
