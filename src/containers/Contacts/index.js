@@ -39,7 +39,7 @@ class Contacts extends Component {
     const onVIewChange = () => viewChange(!editView);
     return (
       <ContactsWrapper
-        className="isomorphicContacts"
+        className="YoubiquityContacts"
         style={{ background: "none" }}
       >
         <div className="isoContactListBar">

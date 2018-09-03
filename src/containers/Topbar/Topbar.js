@@ -27,7 +27,7 @@ class Topbar extends Component {
         <Header
           style={styling}
           className={
-            collapsed ? "isomorphicTopbar collapsed" : "isomorphicTopbar"
+            collapsed ? "YoubiquityTopbar collapsed" : "YoubiquityTopbar"
           }
         >
           <div className="isoLeft">

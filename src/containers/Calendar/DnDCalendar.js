@@ -24,7 +24,7 @@ class FullCalender extends Component {
       selectable: true,
       step: 60,
       timeslots: 2,
-      className: 'isomorphicCalendar',
+      className: 'YoubiquityCalendar',
       agenda: {
         event: EventAgenda
       }

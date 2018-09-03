@@ -2,9 +2,9 @@ export default {
   apiUrl: 'http://yoursite.com/api/'
 };
 const siteConfig = {
-  siteName: 'ISOMORPHIC',
+  siteName: 'Youbiquity',
   siteIcon: 'ion-flash',
-  footerText: 'Isomorphic ©2017 Created by RedQ, Inc'
+  footerText: 'Youbiquity ©2017 Created by RedQ, Inc'
 };
 
 const themeConfig = {
@@ -32,7 +32,7 @@ const Auth0Config = {
       redirectUrl: 'http://localhost:3000/auth0loginCallback'
     },
     languageDictionary: {
-      title: 'Isomorphic',
+      title: 'Youbiquity',
       emailInputPlaceholder: 'demo@gmail.com',
       passwordInputPlaceholder: 'demodemo'
     },

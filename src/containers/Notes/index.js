@@ -36,7 +36,7 @@ class Notes extends Component {
         ? notes.filter(note => note.id === selectedId)[0]
         : null;
     return (
-      <NoteComponentWrapper className="isomorphicNoteComponent">
+      <NoteComponentWrapper className="YoubiquityNoteComponent">
         <div style={{ width: '340px' }} className="isoNoteListSidebar">
           <NoteList
             notes={notes}

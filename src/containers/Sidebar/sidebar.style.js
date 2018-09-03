@@ -4,7 +4,7 @@ import { transition, borderRadius } from '../../settings/style-util';
 import WithDirection from '../../settings/withDirection';
 
 const SidebarWrapper = styled.div`
-  .isomorphicSidebar {
+  .YoubiquitySidebar {
     z-index: 1000;
     background: ${palette('secondary', 0)};
     width: 280px;

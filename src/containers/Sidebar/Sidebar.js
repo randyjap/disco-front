@@ -144,7 +144,7 @@ class Sidebar extends Component {
           collapsible={true}
           collapsed={collapsed}
           width={240}
-          className="isomorphicSidebar"
+          className="YoubiquitySidebar"
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           style={styling}

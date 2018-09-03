@@ -4,7 +4,7 @@ import { transition, borderRadius, boxShadow } from '../../settings/style-util';
 import WithDirection from '../../settings/withDirection';
 
 const TopbarWrapper = styled.div`
-  .isomorphicTopbar {
+  .YoubiquityTopbar {
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;

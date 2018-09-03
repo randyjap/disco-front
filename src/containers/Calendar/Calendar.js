@@ -91,7 +91,7 @@ class FullCalender extends Component {
       onEventDrop: this.onEventDrop
     };
     return (
-      <CalendarStyleWrapper className="isomorphicCalendarWrapper">
+      <CalendarStyleWrapper className="YoubiquityCalendarWrapper">
         <ModalEvents
           modalVisible={modalVisible}
           selectedData={selectedData}

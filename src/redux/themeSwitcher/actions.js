@@ -9,7 +9,7 @@ const actions = {
     const theme = getCurrentTheme(attribute, themeName);
     if (attribute === 'layoutTheme') {
       document.getElementsByClassName(
-        'isomorphicContent'
+        'YoubiquityContent'
       )[0].style.backgroundColor =
         theme.backgroundColor;
     }

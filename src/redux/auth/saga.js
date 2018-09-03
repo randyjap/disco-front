@@ -2,12 +2,29 @@ import { all, takeEvery, put, fork } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 import { getToken, clearToken } from '../../helpers/utility';
 import actions from './actions';
+import request from 'request';
 
-const fakeApiCall = true; // auth0 or express JWT
+// const fakeApiCall = true; // auth0 or express JWT
+const fakeApiCall = function() {
+  request.post(
+    {
+      url:'http://localhost:4000/api/session',
+      form: {
+        user: {
+          username: 'Guest',
+          password: 'password'
+        }
+      }
+    }, function(err, httpResponse, body) {
+      console.log(err)
+      console.log(httpResponse)
+      console.log(body)
+    }
+  )}
 
 export function* loginRequest() {
   yield takeEvery('LOGIN_REQUEST', function*() {
-    if (fakeApiCall) {
+    if (fakeApiCall()) {
       yield put({
         type: actions.LOGIN_SUCCESS,
         token: 'secret token',

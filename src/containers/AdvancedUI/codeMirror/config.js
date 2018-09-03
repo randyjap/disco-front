@@ -47,44 +47,44 @@ const selectOptions = [
 
 const defaultValues = {
   basic: `const component = {
-    name: 'Isomorphic',
+    name: 'Youbiquity',
     author: 'RedQ Team',
-    website: 'https://isomorphic.redq.io/'
+    website: 'https://Youbiquity.redq.io/'
 };`,
   javascript: `const component = {
-    name: 'Isomorphic',
+    name: 'Youbiquity',
     author: 'RedQ Team',
-    website: 'https://isomorphic.redq.io/'
+    website: 'https://Youbiquity.redq.io/'
 };`,
-  markdown: `# Isomorphic
+  markdown: `# Youbiquity
 ###This is a RedQ Team production
-[have a look](https://isomorphic.redq.io/)
+[have a look](https://Youbiquity.redq.io/)
   `,
   xml: `<isomprphic>
     <to>Tove</to>
-    <name>Isomorphic</name>
+    <name>Youbiquity</name>
     <author>RedQ Team</author>
-    <website>isomorphic.redq.io</website>
+    <website>Youbiquity.redq.io</website>
 </isomprphic>`,
   php: `<html>
  <head>
   <title> v</title>
  </head>
  <body>
- <h1>https://isomorphic.redq.io/</h1>
+ <h1>https://Youbiquity.redq.io/</h1>
  <p>This is a RedQ Team production</p>
- <a href="https://isomorphic.redq.io/">visit ou site</a>
+ <a href="https://Youbiquity.redq.io/">visit ou site</a>
  </body>
 </html>
 `,
   python: `
-print("Isomorphic")
+print("Youbiquity")
 print("This is a RedQ Team production")
-print("visit us https://isomorphic.redq.io ")
+print("visit us https://Youbiquity.redq.io ")
 `,
-  ruby: `rint "Isomorphic"
+  ruby: `rint "Youbiquity"
 print "This is a RedQ Team production"
-print "visit us https://isomorphic.redq.io "
+print "visit us https://Youbiquity.redq.io "
 `
 };
 

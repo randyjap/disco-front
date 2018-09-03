@@ -113,7 +113,7 @@ export default class extends Component {
     return (
       <SortableCardWrapper
         id="shuffle"
-        className={`isomorphicSortableCardsHolder ${this.state.view}`}
+        className={`YoubiquitySortableCardsHolder ${this.state.view}`}
       >
         <header className="isoControlBar">
           <div className="isoViewBtnGroup">

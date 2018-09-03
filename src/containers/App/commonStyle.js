@@ -49,7 +49,7 @@ const AppHolder = styled.div`
     height: 100%;
   }
 
-  .isomorphicLayout {
+  .YoubiquityLayout {
     width: calc(100% - 240px);
     flex-shrink: 0;
     overflow-x: hidden !important;

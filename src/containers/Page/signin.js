@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Input from "../../components/uielements/input";
-import Checkbox from "../../components/uielements/checkbox";
 import Button from "../../components/uielements/button";
 import authAction from "../../redux/auth/actions";
 import appAction from "../../redux/app/actions";
-import Auth0 from "../../helpers/auth0";
-import Firebase from "../../helpers/firebase";
-import FirebaseLogin from "../../components/firebase";
 import IntlMessages from "../../components/utility/intlMessages";
 import SignInStyleWrapper from "./signin.style";
 
@@ -60,9 +56,6 @@ class SignIn extends Component {
               </div>
 
               <div className="isoInputWrapper isoLeftRightComponent">
-                <Checkbox>
-                  <IntlMessages id="page.signInRememberMe" />
-                </Checkbox>
                 <Button type="primary" onClick={this.handleLogin}>
                   <IntlMessages id="page.signInButton" />
                 </Button>
@@ -72,27 +65,6 @@ class SignIn extends Component {
                 <IntlMessages id="page.signInPreview" />
               </p>
 
-              <div className="isoInputWrapper isoOtherLogin">
-                <Button onClick={this.handleLogin} type="primary btnFacebook">
-                  <IntlMessages id="page.signInFacebook" />
-                </Button>
-                <Button onClick={this.handleLogin} type="primary btnGooglePlus">
-                  <IntlMessages id="page.signInGooglePlus" />
-                </Button>
-
-                {Auth0.isValid && (
-                  <Button
-                    onClick={() => {
-                      Auth0.login(this.handleLogin);
-                    }}
-                    type="primary btnAuthZero"
-                  >
-                    <IntlMessages id="page.signInAuth0" />
-                  </Button>
-                )}
-
-                {Firebase.isValid && <FirebaseLogin login={this.handleLogin} />}
-              </div>
               <div className="isoCenterComponent isoHelperWrapper">
                 <Link to="/forgotpassword" className="isoForgotPass">
                   <IntlMessages id="page.signInForgotPass" />

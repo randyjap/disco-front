@@ -55,7 +55,7 @@ export class App extends Component {
                     }}
                   >
                     <Content
-                      className="isomorphicContent"
+                      className="YoubiquityContent"
                       style={{
                         padding: '70px 0 0',
                         flexShrink: '0',
